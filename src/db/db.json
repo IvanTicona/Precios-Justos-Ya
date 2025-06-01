@@ -1,0 +1,188 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Adrian Thompson",
+      "password": "password123",
+      "email": "thompson@gmail.com",
+      "role": "admin",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "lastLogin": "2023-10-01T12:00:00Z",
+      "isActive": true,
+      "profilePicture": "https://example.com/profile/johndoe.jpg",
+      "bio": "Admin user with full access to the system.",
+      "preferences": {
+        "theme": "dark",
+        "notifications": true,
+        "language": "en-US"
+      },
+      "token": "precios3justo2ya1"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "password": "password123",
+      "email": "jasmith@gmail.com",
+      "role": "user",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "lastLogin": "2023-10-01T12:00:00Z",
+      "isActive": true,
+      "profilePicture": "https://example.com/profile/johndoe.jpg",
+      "bio": "Admin user with full access to the system.",
+      "preferences": {
+        "theme": "dark",
+        "notifications": true,
+        "language": "en-US"
+      },
+      "token": "precios3justo2ya1"
+    },
+    {
+      "id": 3,
+      "name": "Alexander Cruz",
+      "password": "password123",
+      "email": "alexcruz@gmail.com",
+      "role": "admin",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "lastLogin": "2023-10-01T12:00:00Z",
+      "isActive": true,
+      "profilePicture": "https://example.com/profile/johndoe.jpg",
+      "bio": "Admin user with full access to the system.",
+      "preferences": {
+        "theme": "dark",
+        "notifications": true,
+        "language": "en-US"
+      },
+      "token": "precios3justo2ya1"
+    },
+    {
+      "id": 4,
+      "name": "Ivan Poma",
+      "password": "password123",
+      "email": "obitobi@gmail.com",
+      "role": "user",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "lastLogin": "2023-10-01T12:00:00Z",
+      "isActive": true,
+      "profilePicture": "https://example.com/profile/johndoe.jpg",
+      "bio": "Admin user with full access to the system.",
+      "preferences": {
+        "theme": "dark",
+        "notifications": true,
+        "language": "en-US"
+      },
+      "token": "precios3justo2ya1"
+    },
+    {
+      "id": 5,
+      "name": "Dorian Ticona",
+      "password": "password123",
+      "email": "doriandev@gmail.com",
+      "role": "admin",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "lastLogin": "2023-10-01T12:00:00Z",
+      "isActive": true,
+      "profilePicture": "https://example.com/profile/johndoe.jpg",
+      "bio": "Admin user with full access to the system.",
+      "preferences": {
+        "theme": "dark",
+        "notifications": true,
+        "language": "en-US"
+      },
+      "token": "precios3justo2ya1"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Product A",
+      "description": "Description of Product A",
+      "price": 19.99,
+      "category": "Electronics",
+      "stock": 100,
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "imageUrl": "https://example.com/product-a.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Product B",
+      "description": "Description of Product B",
+      "price": 29.99,
+      "category": "Books",
+      "stock": 50,
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "imageUrl": "https://example.com/product-b.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Product C",
+      "description": "Description of Product C",
+      "price": 39.99,
+      "category": "Clothing",
+      "stock": 200,
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "imageUrl": "https://example.com/product-c.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Product D",
+      "description": "Description of Product D",
+      "price": 49.99,
+      "category": "Home & Kitchen",
+      "stock": 75,
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "imageUrl": "https://example.com/product-d.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Product E",
+      "description": "Description of Product E",
+      "price": 59.99,
+      "category": "Sports & Outdoors",
+      "stock": 30,
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "imageUrl": "https://example.com/product-e.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Product F",
+      "description": "Description of Product F",
+      "price": 69.99,
+      "category": "Toys & Games",
+      "stock": 120,
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "imageUrl": "https://example.com/product-f.jpg"
+    }
+  ],
+  "barrios": [
+    {
+      "id": 1,
+      "name": "Barrio A",
+      "description": "Description of Barrio A",
+      "location": "Location A",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Barrio B",
+      "description": "Description of Barrio B",
+      "location": "Location B",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Barrio C",
+      "description": "Description of Barrio C",
+      "location": "Location C",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z"
+    }
+  ]
+}
