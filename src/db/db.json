@@ -189,6 +189,31 @@
       "location": "Location C",
       "createdAt": "2023-10-01T12:00:00Z",
       "updatedAt": "2023-10-01T12:00:00Z"
+    },
+    {
+      "id": 4,
+      "name": "Barrio D",
+      "description": "Description of Barrio D",
+      "location": "Location D",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z"
+    },
+    {
+      "id": 5,
+      "name": "Barrio E",
+      "description": "Description of Barrio E",
+      "location": "Location E",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z"
+    }
+    ,
+    {
+      "id": 6,
+      "name": "Barrio F",
+      "description": "Description of Barrio F",
+      "location": "Location F",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z"
     }
   ]
 }
