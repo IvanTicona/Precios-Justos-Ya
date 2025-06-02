@@ -10,6 +10,13 @@ export type Product = {
   zone?: string;
   createdAt?: string;
   updatedAt?: string;
+  reports?: {
+    id: number;
+    userId: string;
+    reportType: string;
+    description: string;
+    createdAt: string;
+  }[];
 };
 
 export type CartItem = Product & { quantity: number };

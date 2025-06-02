@@ -11,7 +11,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const navigate = useNavigate();
 
   const handleViewDetails = () => {
-    navigate(`/app/productos/${product.id}`);
+    navigate(`/app/products/${product.id}`);
   };
 
   return (
@@ -32,11 +32,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <p className="text-gray-600 text-sm mt-1 line-clamp-2">{product.description}</p>
             <div className="mt-4 flex justify-between items-center">
               <span className="font-bold">Bs {product.price.toFixed(2)}</span>
-              {product.stock && product.stock > 0 ? (
-                <span className="text-sm text-green-600">Disponible</span>
-              ) : (
-                <span className="text-sm text-red-500">Sin stock</span>
-              )}
             </div>
           </div>
         </div>

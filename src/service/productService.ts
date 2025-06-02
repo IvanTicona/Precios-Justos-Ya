@@ -18,13 +18,17 @@ export const fetchProducts = async (): Promise<Product[]> => {
   }
 };
 
+
 export const fetchProductById = async (id: string): Promise<Product | null> => {
   try {
-    const response = await jsonServerInstance.get(`${"/products"}/${id}`);
-    return response.data;
+    const response = await jsonServerInstance.get(`/products/${id}`);
+    const product = response.data;
+    if (!product || Object.keys(product).length === 0) {
+      return null;
+    }
+    return product;
   } catch (error) {
     console.error(`Error fetching product ${id}:`, error);
     return null;
   }
 };
-

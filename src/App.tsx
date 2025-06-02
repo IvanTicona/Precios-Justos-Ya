@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Layout } from "./layout/Layout"
-import DashboardUser from "./pages/DashboardUser";
-import ProductosPage from "./pages/ProductosPage";
-import ActualizarProductoPage from "./pages/ActualizarProductoPage";
-import AgregarProductoPage from "./pages/AgregarProductoPage";
-import { EleminarProductosPage } from "./pages/EleminarProductosPage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import { ProductsPage } from "./pages/ProductPage";
-import { ProductDetailPage } from "./pages/ProductDetailPage";
+import ActualizarProductoPage from "./Pages/ActualizarProductoPage";
+import AgregarProductoPage from "./Pages/AgregarProductoPage";
+import DashboardUser from "./Pages/DashboardUser";
+import { EleminarProductosPage } from "./Pages/EleminarProductosPage";
+import LoginPage from "./Pages/LoginPage";
+import { ProductDetailPage } from "./Pages/ProductDetailPage";
+import ProductosPage from "./Pages/ProductosPage";
+import { ProductsPage } from "./Pages/ProductPage";
+import RegisterPage from "./Pages/RegisterPage";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route path="dashboard" element={<DashboardUser />} />
           <Route path="productoss" element={<ProductosPage />} />
           <Route path="productos" element={<ProductsPage />}/>
-          <Route path="productos/:id" element={<ProductDetailPage />} />
+          <Route path="products/:id" element={<ProductDetailPage />} />
         </Route>
 
         <Route path="/product/create" element={<AgregarProductoPage />} />
