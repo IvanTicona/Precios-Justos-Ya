@@ -1,13 +1,6 @@
 import { useState } from 'react';
-import {
-  ShoppingCartIcon,
-  MagnifyingGlassIcon,
-  XMarkIcon,
-  ArrowRightIcon,
-  FunnelIcon
-} from '@heroicons/react/24/outline';
 
-function App() {
+function ProductPage() {
   // Estado para los productos y el carrito
   const [products, setProducts] = useState([
     { id: 1, name: 'Hamburguesa Clásica', price: 8.99, description: 'Carne, lechuga, tomate y salsa especial', category: 'Hamburguesas', image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&q=80' },
@@ -74,7 +67,7 @@ function App() {
                 <label htmlFor="search" className="sr-only">Buscar</label>
                 <div className="relative">
                   <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                    <MagnifyingGlassIcon className="h-5 w-5 text-indigo-200" aria-hidden="true" />
+                    {/* <MagnifyingGlassIcon className="h-5 w-5 text-indigo-200" aria-hidden="true" /> */}
                   </div>
                   <input
                     id="search"
@@ -101,10 +94,10 @@ function App() {
                   }
                 }}
               >
-                <ShoppingCartIcon
+                {/* <ShoppingCartIcon
                   className="h-6 w-6 flex-shrink-0 text-white group-hover:text-indigo-200"
                   aria-hidden="true"
-                />
+                /> */}
                 <span className="ml-2 text-sm font-medium text-white">{cart.length}</span>
                 <span className="sr-only">items in cart, view bag</span>
               </button>
@@ -121,7 +114,7 @@ function App() {
             className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 mt-4"
             onClick={() => setMobileFiltersOpen(true)}
           >
-            <FunnelIcon className="mr-2 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+            {/* <FunnelIcon className="mr-2 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" /> */}
             Filtros
           </button>
         </div>
@@ -204,7 +197,7 @@ function App() {
                   className="-mr-2 flex h-10 w-10 items-center justify-center rounded-md bg-white p-2 text-gray-400"
                   onClick={() => setMobileFiltersOpen(false)}
                 >
-                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                  {/* <XMarkIcon className="h-6 w-6" aria-hidden="true" /> */}
                 </button>
               </div>
 
@@ -248,7 +241,7 @@ function App() {
                   }
                 }}
               >
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                {/* <XMarkIcon className="h-6 w-6" aria-hidden="true" /> */}
               </button>
             </div>
 
@@ -256,7 +249,7 @@ function App() {
               <div className="flow-root">
                 {cart.length === 0 ? (
                   <div className="text-center py-12">
-                    <ShoppingCartIcon className="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" />
+                    {/* <ShoppingCartIcon className="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" /> */}
                     <h3 className="mt-2 text-sm font-medium text-gray-900">Carrito vacío</h3>
                     <p className="mt-1 text-sm text-gray-500">Empieza a agregar productos a tu pedido</p>
                   </div>
@@ -309,7 +302,7 @@ function App() {
                 <button
                   className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 w-full"
                 >
-                  Finalizar pedido <ArrowRightIcon className="ml-2 h-5 w-5" aria-hidden="true" />
+                  {/* Finalizar pedido <ArrowRightIcon className="ml-2 h-5 w-5" aria-hidden="true" /> */}
                 </button>
               </div>
               <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
@@ -337,4 +330,4 @@ function App() {
   );
 }
 
-export default App;
+export default ProductPage;

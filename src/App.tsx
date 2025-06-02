@@ -4,10 +4,10 @@ import ActualizarProductoPage from "./pages/ActualizarProductoPage"
 import { EleminarProductosPage } from "./pages/EleminarProductosPage"
 import { Layout } from "./layout/Layout"
 import DashboardUser from "./pages/DashboardUser"
-import ProductosPage from "./pages/ProductosPage"
-import ModalComponent from "./components/ModalComponent"
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
+import ProductPage from "./pages/ProductPage"
+import ProductosPage from "./pages/ProductosPage"
 
 function App() {
   return (
@@ -18,33 +18,9 @@ function App() {
           <Route path="dashboard" element={<DashboardUser />} />
           <Route path="productos" element={<ProductosPage />} />
           <Route
-            path="agregar"
+            path="productos/:id"
             element={
-              <ModalComponent
-                title="Agregar Producto"
-                formType="agregar"
-                isOpenDefault={true}
-              />
-            }
-          />
-          <Route
-            path="editar/:id"
-            element={
-              <ModalComponent
-                title="Editar Producto"
-                formType="editar"
-                isOpenDefault={true}
-              />
-            }
-          />
-          <Route
-            path="eliminar/:id"
-            element={
-              <ModalComponent
-                title="Eliminar Producto"
-                formType="eliminar"
-                isOpenDefault={true}
-              />
+              <ProductPage />
             }
           />
         </Route>
