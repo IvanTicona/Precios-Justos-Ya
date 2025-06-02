@@ -954,6 +954,26 @@
         "mercado-obrajes",
         "mercado-sopocachi"
       ]
+    },
+    {
+      "id": "8922",
+      "name": "Mandarinas",
+      "description": "Mandarinas de china",
+      "price": 10,
+      "category": "Fruits",
+      "stock": 80,
+      "zone": "mercado-uruguay",
+      "imagen": "https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2018/10/04173718/mandarina-02.jpg"
+    },
+    {
+      "id": "9daa",
+      "name": "Manzana",
+      "description": "Manzana de marte",
+      "price": 8,
+      "category": "Fruits",
+      "stock": 10,
+      "zone": "calle-antonio-gallardo",
+      "imageUrl": "https://www.recetasnestlecam.com/sites/default/files/2022-04/tipos-de-manzana-royal-gala.jpg"
     }
   ],
   "zones": [
@@ -1132,6 +1152,63 @@
         -16.495697,
         -68.145606
       ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "Fruits",
+      "name": "Fruits",
+      "icon": "🍎"
+    },
+    {
+      "id": "Vegetables",
+      "name": "Vegetables",
+      "icon": "🥦"
+    },
+    {
+      "id": "Poultry",
+      "name": "Poultry",
+      "icon": "🍗"
+    },
+    {
+      "id": "Meat",
+      "name": "Meat",
+      "icon": "🥩"
+    },
+    {
+      "id": "Seafood",
+      "name": "Seafood",
+      "icon": "🐟"
+    },
+    {
+      "id": "Dairy",
+      "name": "Dairy",
+      "icon": "🥛"
+    },
+    {
+      "id": "Bakery",
+      "name": "Bakery",
+      "icon": "🥐"
+    },
+    {
+      "id": "Grains",
+      "name": "Grains",
+      "icon": "🌾"
+    },
+    {
+      "id": "Pantry",
+      "name": "Pantry",
+      "icon": "🧂"
+    },
+    {
+      "id": "Snacks",
+      "name": "Snacks",
+      "icon": "🍪"
+    },
+    {
+      "id": "Beverages",
+      "name": "Beverages",
+      "icon": ""
     }
   ]
 }

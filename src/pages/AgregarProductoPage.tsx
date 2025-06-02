@@ -1,16 +1,32 @@
-import { useState } from "react";
-import { Form, Input, Select, SelectItem, Button, NumberInput } from "@heroui/react";
+import { useEffect, useState } from "react";
+import {
+  Form,
+  Input,
+  Select,
+  SelectItem,
+  Button,
+  NumberInput,
+} from "@heroui/react";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import jsonServerInstance from "../api/jsonInstance";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = yup.object({
   name: yup.string().required("Por favor, ingresa el nombre del producto"),
-  description: yup.string().required("Por favor, ingresa la descripción del producto"),
+  description: yup
+    .string()
+    .required("Por favor, ingresa la descripción del producto"),
   price: yup.number().required("Por favor, ingresa el precio del producto"),
   category: yup.string().required("Por favor, selecciona una categoría"),
   stock: yup.number().required("Por favor, ingresa la cantidad en stock"),
   zone: yup.string().required("Por favor, selecciona una zona"),
 });
+
+interface Item {
+  id: string;
+  name: string;
+}
 
 interface FormValues {
   name: string;
@@ -19,10 +35,13 @@ interface FormValues {
   category: string;
   stock: number;
   zone: string;
+  imageUrl: string;
 }
 
 export default function AgregarProductoPage() {
-  
+
+  const navigate = useNavigate();
+
   const [submitted, setSubmitted] = useState<FormValues>({
     name: "",
     description: "",
@@ -30,8 +49,21 @@ export default function AgregarProductoPage() {
     category: "",
     stock: 0,
     zone: "",
+    imageUrl: "",
   });
-  
+  const [category, setCategory] = useState<Item[]>([]);
+  const [zone, setZone] = useState<Item[]>([]);
+
+  useEffect(() => {
+    const getCategoriesAndZones = async () => {
+      const cat = await jsonServerInstance.get("/categories");
+      const zon = await jsonServerInstance.get("/zones");
+      setCategory(cat.data);
+      setZone(zon.data);
+    };
+    getCategoriesAndZones();
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -40,11 +72,22 @@ export default function AgregarProductoPage() {
       category: "",
       stock: 0,
       zone: "",
+      imageUrl: "",
     },
     validationSchema,
     onSubmit: (values: FormValues) => {
       setSubmitted(values);
       console.log("Form submitted with values:", values);
+      jsonServerInstance
+        .post("/products", submitted)
+        .then((response) => {
+          console.log("Product added successfully:", response.data);
+          formik.resetForm();
+        })
+        .catch((error) => {
+          console.error("Error adding product:", error);
+        });
+      navigate("/products");
     },
     onReset: () => {
       setSubmitted({
@@ -54,13 +97,14 @@ export default function AgregarProductoPage() {
         category: "",
         stock: 0,
         zone: "",
+        imageUrl: "",
       });
     },
   });
 
   return (
     <Form
-      className="w-1/2 justify-center items-center space-y-4 p-5 rounded-xl mx-auto border border-default-200 bg-default-50 shadow-lg"
+      className="w-1/2 justify-center mt-10 items-center space-y-4 p-5 rounded-xl mx-auto border border-default-200 bg-default-50 shadow-lg"
       validationErrors={formik.errors}
       onSubmit={formik.handleSubmit}
       onReset={formik.handleReset}
@@ -123,25 +167,19 @@ export default function AgregarProductoPage() {
           placeholder="Selecciona una categoría"
           isRequired
           value={formik.values.category}
-          onChange={(event) => formik.setFieldValue("category", event.target.value)}
+          onChange={(event) =>
+            formik.setFieldValue("category", event.target.value)
+          }
           isInvalid={formik.touched.category && !!formik.errors.category}
           onBlur={() => formik.setFieldTouched("category", true)}
         >
-          <SelectItem key="electronics">
-            Electrónica
-          </SelectItem>
-          <SelectItem key="clothing">
-            Ropa
-          </SelectItem>
-          <SelectItem key="home">
-            Hogar
-          </SelectItem>
-          <SelectItem key="books">
-            Libros
-          </SelectItem>
-          <SelectItem key="toys">
-            Juguetes
-          </SelectItem>
+          {
+            category.map((cat) => (
+              <SelectItem key={cat.id}>
+                {cat.name}
+              </SelectItem>
+            ))
+          }
         </Select>
 
         <Select
@@ -155,43 +193,30 @@ export default function AgregarProductoPage() {
           isInvalid={formik.touched.zone && !!formik.errors.zone}
           onBlur={() => formik.setFieldTouched("zone", true)}
         >
-          <SelectItem key="ar">
-            Argentina
-          </SelectItem>
-          <SelectItem key="us">
-            United States
-          </SelectItem>
-          <SelectItem key="ca">
-            Canada
-          </SelectItem>
-          <SelectItem key="uk">
-            United Kingdom
-          </SelectItem>
-          <SelectItem key="au">
-            Australia
-          </SelectItem>
+          {
+            zone.map((zon) => (
+              <SelectItem key={zon.id}>
+                {zon.name}
+              </SelectItem>
+            ))
+          }
         </Select>
-        
-        {/* Cloudinary */}
-
-        {/* Paquete para cargar imagenes:  */}
 
         <Input
-          name="image"
+          name="imageUrl"
           label="Imagen"
           labelPlacement="outside"
           placeholder="Ingresa la URL de la imagen del producto"
-          value={formik.values.image}
-          onValueChange={(val) => formik.setFieldValue("image", val)}
-          isInvalid={formik.touched.image && !!formik.errors.image}
+          value={formik.values.imageUrl}
+          onValueChange={(val) => formik.setFieldValue("imageUrl", val)}
+          isInvalid={formik.touched.imageUrl && !!formik.errors.imageUrl}
           errorMessage={() => {
-            if (formik.touched.image && formik.errors.image) {
-              return formik.errors.image;
+            if (formik.touched.imageUrl && formik.errors.imageUrl) {
+              return formik.errors.imageUrl;
             }
             return null;
           }}
           onBlur={() => formik.setFieldTouched("image", true)}
-          type="file"
         />
 
         <div className="flex gap-4">

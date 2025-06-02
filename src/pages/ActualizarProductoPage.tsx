@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import {
   Form,
   Input,
@@ -9,7 +8,9 @@ import {
   NumberInput,
 } from "@heroui/react";
 import { useFormik } from "formik";
-import * as yup from "yup";
+import * as yup from "yup"; 
+import jsonServerInstance from "../api/jsonInstance";
+import { useNavigate, useParams } from "react-router-dom"; 
 
 const validationSchema = yup.object({
   name: yup.string().required("Por favor, ingresa el nombre del producto"),
@@ -27,95 +28,122 @@ const validationSchema = yup.object({
     .min(0, "El stock no puede ser negativo")
     .required("Por favor, ingresa la cantidad en stock"),
   zone: yup.string().required("Por favor, selecciona una zona"),
-  image: yup
+  imageUrl: yup
     .string()
     .url("La imagen debe ser una URL válida")
     .required("Por favor, ingresa la URL de la imagen del producto"),
 });
 
-
-// 1) Definimos la interfaz según lo que devuelve el backend
-interface Product {
+interface Item {
   id: string;
+  name: string;
+}
+interface FormValues {
   name: string;
   description: string;
   price: number;
   category: string;
   stock: number;
   zone: string;
-  image: string;
+  imageUrl: string;
 }
 
 export default function ActualizarProductoPage() {
-  // 2) Estados para manejar producto, loading y posibles errores
-  const [product, setProduct] = useState<Product | null>(null);
+  const { id } = useParams<{ id: string }>(); 
+  const navigate = useNavigate();
+
+  const [categoryList, setCategoryList] = useState<Item[]>([]);
+  const [zoneList, setZoneList] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
 
-  // 3) Al montar el componente, pedimos todos los productos
   useEffect(() => {
-    axios
-      .get<Product[]>("http://localhost:3000/products")
-      .then((response) => {
-        const productsList = response.data;
-        if (productsList.length === 0) {
-          setFetchError("No hay productos disponibles en el sistema.");
-          setLoading(false);
-          return;
-        }
-        // Tomamos el primer producto (o cualquiera que desees):
-        setProduct(productsList[0]);
-        console.log("Producto obtenido:", productsList[0]);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error al obtener productos:", err);
-        setFetchError("No se pudo cargar la lista de productos.");
-        setLoading(false);
-      });
-  }, []);
+    const fetchData = async () => {
+      try {
+        const [categoriesRes, zonesRes, productRes] = await Promise.all([
+          jsonServerInstance.get<Item[]>("/categories"),
+          jsonServerInstance.get<Item[]>("/zones"),
+          jsonServerInstance.get<FormValues>(`/products/${id}`), 
+        ]);
 
-  // 4) Configuramos Formik, usando enableReinitialize para que 
-  // cuando `product` se establezca, el formulario reciba esos valores
-  const formik = useFormik<Product>({
+        setCategoryList(categoriesRes.data);
+        setZoneList(zonesRes.data);
+        formik.setValues({
+          name: productRes.data.name,
+          description: productRes.data.description,
+          price: productRes.data.price,
+          category: productRes.data.category,
+          stock: productRes.data.stock,
+          zone: productRes.data.zone,
+          imageUrl: productRes.data.imageUrl,
+        });
+      } catch (error) {
+        console.error("Error al cargar datos para actualizar:", error);
+        setFetchError("No se pudo cargar la información del producto o listas necesarias.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+  
+  const formik = useFormik<FormValues>({
     initialValues: {
-      id: product?.id || "",
-      name: product?.name || "",
-      description: product?.description || "",
-      price: product?.price || 0,
-      category: product?.category || "",
-      stock: product?.stock || 0,
-      zone: product?.zone || "",
-      image: product?.image || "",
+      name: "",
+      description: "",
+      price: 0,
+      category: "",
+      stock: 0,
+      zone: "",
+      imageUrl: "",
     },
     validationSchema,
     enableReinitialize: true,
-    onSubmit: (values) => {
-      console.log("Formulario enviado con valores:", values);
+    onSubmit: async (values) => {
+      try {
+        await jsonServerInstance.put(`/products/${id}`, values);
+        formik.resetForm();
+        navigate("/products");
+      } catch (error) {
+        console.error("Error al actualizar el producto:", error);
+      }
     },
     onReset: () => {
-      if (product) {
-        formik.setValues({
-          id: product.id,
-          name: product.name,
-          description: product.description,
-          price: product.price,
-          category: product.category,
-          stock: product.stock,
-          zone: product.zone,
-          image: product.image,
-        });
-      }
+      const reloadOriginal = async () => {
+        try {
+          const productRes = await jsonServerInstance.get<FormValues>(`/products/${id}`);
+          formik.setValues({
+            name: productRes.data.name,
+            description: productRes.data.description,
+            price: productRes.data.price,
+            category: productRes.data.category,
+            stock: productRes.data.stock,
+            zone: productRes.data.zone,
+            imageUrl: productRes.data.imageUrl,
+          });
+        } catch (error) {
+          console.error("Error al recargar valores originales:", error);
+        }
+      };
+      reloadOriginal();
     },
   });
 
-  // 7) Renderizado condicional: mientras cargamos, luego error o formulario
   if (loading) {
-    return <div className="text-center p-8">Cargando producto...</div>;
+    return (
+      <div className="text-center p-8">
+        Cargando datos del producto...
+      </div>
+    );
   }
 
   if (fetchError) {
-    return <div className="text-danger p-8">{fetchError}</div>;
+    return (
+      <div className="text-danger p-8">
+        {fetchError}
+      </div>
+    );
   }
 
   return (
@@ -128,7 +156,6 @@ export default function ActualizarProductoPage() {
       <h2 className="text-2xl mb-4">Editar Producto</h2>
 
       <div className="flex flex-col gap-4">
-        {/* ----- Nombre ----- */}
         <Input
           name="name"
           label="Nombre"
@@ -144,7 +171,6 @@ export default function ActualizarProductoPage() {
           onBlur={() => formik.setFieldTouched("name", true)}
         />
 
-        {/* ----- Descripción ----- */}
         <Input
           name="description"
           label="Descripción"
@@ -162,7 +188,6 @@ export default function ActualizarProductoPage() {
           onBlur={() => formik.setFieldTouched("description", true)}
         />
 
-        {/* ----- Precio ----- */}
         <NumberInput
           hideStepper
           name="price"
@@ -179,7 +204,6 @@ export default function ActualizarProductoPage() {
           onBlur={() => formik.setFieldTouched("price", true)}
         />
 
-        {/* ----- Stock ----- */}
         <NumberInput
           hideStepper
           name="stock"
@@ -202,29 +226,17 @@ export default function ActualizarProductoPage() {
           labelPlacement="outside"
           placeholder="Selecciona una categoría"
           isRequired
-          selectedKeys={ new Set([formik.values.category]) }
+          selectedKeys={new Set([formik.values.category])}
           onSelectionChange={(keys) => {
-            const [categorySeleccionada] = Array.from(keys);
-            formik.setFieldValue("category", categorySeleccionada);
+            const [catSeleccionada] = Array.from(keys);
+            formik.setFieldValue("category", catSeleccionada);
           }}
           isInvalid={formik.touched.category && !!formik.errors.category}
           onBlur={() => formik.setFieldTouched("category", true)}
         >
-          <SelectItem key="electronics">
-            Electrónica
-          </SelectItem>
-          <SelectItem key="clothing">
-            Ropa
-          </SelectItem>
-          <SelectItem key="home">
-            Hogar
-          </SelectItem>
-          <SelectItem key="books">
-            Libros
-          </SelectItem>
-          <SelectItem key="toys">
-            Juguetes
-          </SelectItem>
+          {categoryList.map((cat) => (
+            <SelectItem key={cat.id}>{cat.name}</SelectItem>
+          ))}
         </Select>
         {formik.touched.category && formik.errors.category && (
           <span className="text-danger text-small">{formik.errors.category}</span>
@@ -236,7 +248,7 @@ export default function ActualizarProductoPage() {
           labelPlacement="outside"
           placeholder="Selecciona una zona"
           isRequired
-          selectedKeys={ new Set([formik.values.zone]) }
+          selectedKeys={new Set([formik.values.zone])}
           onSelectionChange={(keys) => {
             const [zoneSeleccionada] = Array.from(keys);
             formik.setFieldValue("zone", zoneSeleccionada);
@@ -244,43 +256,31 @@ export default function ActualizarProductoPage() {
           isInvalid={formik.touched.zone && !!formik.errors.zone}
           onBlur={() => formik.setFieldTouched("zone", true)}
         >
-          <SelectItem key="ar">
-            Argentina
-          </SelectItem>
-          <SelectItem key="us">
-            United States
-          </SelectItem>
-          <SelectItem key="ca">
-            Canada
-          </SelectItem>
-          <SelectItem key="uk">
-            United Kingdom
-          </SelectItem>
-          <SelectItem key="au">
-            Australia
-          </SelectItem>
+          {zoneList.map((zon) => (
+            <SelectItem key={zon.id}>{zon.name}</SelectItem>
+          ))}
         </Select>
         {formik.touched.zone && formik.errors.zone && (
           <span className="text-danger text-small">{formik.errors.zone}</span>
         )}
 
         <Input
-          name="image"
+          name="imageUrl"
           label="Imagen"
           labelPlacement="outside"
           placeholder="Ingresa la URL de la imagen del producto"
-          type="text"
           isRequired
-          value={formik.values.image}
-          onValueChange={(val) => formik.setFieldValue("image", val)}
-          isInvalid={formik.touched.image && !!formik.errors.image}
+          value={formik.values.imageUrl}
+          onValueChange={(val) => formik.setFieldValue("imageUrl", val)}
+          isInvalid={formik.touched.imageUrl && !!formik.errors.imageUrl}
           errorMessage={() =>
-            formik.touched.image && formik.errors.image ? formik.errors.image : null
+            formik.touched.imageUrl && formik.errors.imageUrl
+              ? formik.errors.imageUrl
+              : null
           }
-          onBlur={() => formik.setFieldTouched("image", true)}
+          onBlur={() => formik.setFieldTouched("imageUrl", true)}
         />
 
-        {/* ----- Botones Guardar / Reset ----- */}
         <div className="flex gap-4 mt-4">
           <Button
             className="w-full"

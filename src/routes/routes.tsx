@@ -6,7 +6,7 @@ import ProtectedRoutes from "../guards/ProtectedRoutes";
 import DashboardUser from "../pages/DashboardUser";
 import ActualizarProductoPage from "../pages/ActualizarProductoPage";
 import AgregarProductoPage from "../pages/AgregarProductoPage";
-import { EleminarProductosPage } from "../pages/EleminarProductosPage";
+import EleminarProductosPage from "../pages/EleminarProductosPage";
 import MapPage from "../pages/MapPage";
 import { ProductsPage } from "../pages/ProductsPage";
 import { ProductDetailPage } from "../pages/ProductDetailPage";
@@ -30,7 +30,7 @@ export const AppRoutes = () => {
             <>
               <Route path="product/create" element={<AgregarProductoPage />} />
               <Route path="product/edit/:id" element={<ActualizarProductoPage />} />
-              <Route path="product/delete/:id" element={<EleminarProductosPage />} />
+              <Route path="product/delete" element={<EleminarProductosPage />} />
             </>
           )}
           <Route path="map" element={<MapPage />} />
