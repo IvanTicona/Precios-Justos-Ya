@@ -1,8 +1,8 @@
+import ProductPage from "./Pages/ProductPage";
+
+
 function App() {
-  return (
-    <>
-    </>
-  )
+  return <ProductPage />;
 }
 
-export default App
+export default App;
