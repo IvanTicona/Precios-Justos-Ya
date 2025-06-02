@@ -4,6 +4,8 @@ import DashboardPage from "../pages/DashboardPage";
 import DashboardUser from "../pages/DashboardUser";
 import ProductosPage from "../pages/ProductosPage";
 import ModalComponent from "../components/ModalComponent";
+import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
 
 export const AppRoutes = () => {
   return (
@@ -43,6 +45,8 @@ export const AppRoutes = () => {
             }
           />
         </Route>
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/register" element={<RegisterPage/>}/>    
       </Routes>
     </BrowserRouter>
   );

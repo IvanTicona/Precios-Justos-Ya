@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Adrian Thompson",
       "password": "password123",
       "email": "thompson@gmail.com",
@@ -19,7 +19,7 @@
       "token": "precios3justo2ya1"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Jane Smith",
       "password": "password123",
       "email": "jasmith@gmail.com",
@@ -37,7 +37,7 @@
       "token": "precios3justo2ya1"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Alexander Cruz",
       "password": "password123",
       "email": "alexcruz@gmail.com",
@@ -55,7 +55,7 @@
       "token": "precios3justo2ya1"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Ivan Poma",
       "password": "password123",
       "email": "obitobi@gmail.com",
@@ -73,7 +73,7 @@
       "token": "precios3justo2ya1"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Dorian Ticona",
       "password": "password123",
       "email": "doriandev@gmail.com",
@@ -89,11 +89,21 @@
         "language": "en-US"
       },
       "token": "precios3justo2ya1"
+    },
+    {
+      "id": "a265",
+      "email": "lol@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "1f7c",
+      "email": "admin@gmail.com",
+      "password": "1234562312"
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Product A",
       "description": "Description of Product A",
       "price": 19.99,
@@ -105,7 +115,7 @@
       "zone": "ar"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Product B",
       "description": "Description of Product B",
       "price": 29.99,
@@ -117,7 +127,7 @@
       "zone": "us"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Product C",
       "description": "Description of Product C",
       "price": 39.99,
@@ -129,7 +139,7 @@
       "zone": "ar"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Product D",
       "description": "Description of Product D",
       "price": 49.99,
@@ -141,7 +151,7 @@
       "zone": "ca"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Product E",
       "description": "Description of Product E",
       "price": 59.99,
@@ -153,7 +163,7 @@
       "zone": "au"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Product F",
       "description": "Description of Product F",
       "price": 69.99,
@@ -167,7 +177,7 @@
   ],
   "barrios": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Barrio A",
       "description": "Description of Barrio A",
       "location": "Location A",
@@ -175,7 +185,7 @@
       "updatedAt": "2023-10-01T12:00:00Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Barrio B",
       "description": "Description of Barrio B",
       "location": "Location B",
@@ -183,7 +193,7 @@
       "updatedAt": "2023-10-01T12:00:00Z"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Barrio C",
       "description": "Description of Barrio C",
       "location": "Location C",
