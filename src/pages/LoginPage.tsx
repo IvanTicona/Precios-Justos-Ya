@@ -20,7 +20,7 @@ const loginSchema = yup.object({
 
 
 
-function LoginPace() {
+function LoginPage() {
 
     const navigate = useNavigate();
     const [loginError, setLoginError] = useState(false);
@@ -95,6 +95,7 @@ function LoginPace() {
                 <Button
                     type="submit"
                     fullWidth
+                    onClick={() => navigate("/app/dashboard", { replace: true })}
                 >
                 Sign in 
                 </Button>
@@ -107,4 +108,4 @@ function LoginPace() {
     );  
 }
 
-export default LoginPace;
+export default LoginPage;

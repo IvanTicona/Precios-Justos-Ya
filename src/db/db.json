@@ -99,6 +99,18 @@
       "id": "1f7c",
       "email": "admin@gmail.com",
       "password": "1234562312"
+    },
+    {
+      "id": "0c5d",
+      "email": "ivan.ticona.v@gmail.com",
+      "password": "aoisjdoaijsdoiajsdoiajsdoiajs",
+      "typeOfUser": ""
+    },
+    {
+      "id": "076c",
+      "email": "ivanticona@gmail.com",
+      "password": "asdasdasdasd",
+      "typeOfUser": ""
     }
   ],
   "products": [
@@ -215,8 +227,7 @@
       "location": "Location E",
       "createdAt": "2023-10-01T12:00:00Z",
       "updatedAt": "2023-10-01T12:00:00Z"
-    }
-    ,
+    },
     {
       "id": 6,
       "name": "Barrio F",
