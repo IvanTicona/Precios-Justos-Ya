@@ -11,7 +11,6 @@ import MapPage from "../pages/MapPage";
 import { ProductsPage } from "../pages/ProductsPage";
 import { ProductDetailPage } from "../pages/ProductDetailPage";
 
-
 export const AppRoutes = () => {
   const rol = localStorage.getItem("rol");
   return (
