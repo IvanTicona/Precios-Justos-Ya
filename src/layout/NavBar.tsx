@@ -31,12 +31,12 @@ export const NavBar: React.FC = () => {
   const navigate = useNavigate();
 
   // En práctica, el id debe ser dinámico (de un producto seleccionado)
-  const productIdDemo = "1";
+  const productIdDemo = 1;
 
   const actions = [
-    { label: "Agregar Producto", value: "agregar", path: "/productos/agregar" },
-    { label: "Editar Producto", value: "editar", path: `/productos/editar/${productIdDemo}` },
-    { label: "Eliminar Producto", value: "eliminar", path: `/productos/eliminar/${productIdDemo}` },
+    { label: "Agregar Producto", value: "agregar", path: "/product/create" },
+    { label: "Editar Producto", value: "editar", path: `/product/edit/${productIdDemo}` },
+    { label: "Eliminar Producto", value: "eliminar", path: `/product/delete/${productIdDemo}` },
   ];
 
   const handleSelect = (value: string) => {
@@ -76,7 +76,7 @@ export const NavBar: React.FC = () => {
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="logout" color="danger">
+            <DropdownItem key="logout" color="danger" onClick={() => navigate("/login")}>
               Log Out
             </DropdownItem>
           </DropdownMenu>
