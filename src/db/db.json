@@ -97,55 +97,60 @@
       "name": "Product A",
       "description": "Description of Product A",
       "price": 19.99,
-      "category": "Electronics",
+      "category": "electronics",
       "stock": 100,
       "createdAt": "2023-10-01T12:00:00Z",
       "updatedAt": "2023-10-01T12:00:00Z",
-      "imageUrl": "https://example.com/product-a.jpg"
+      "imageUrl": "https://example.com/product-a.jpg",
+      "zone": "ar"
     },
     {
       "id": 2,
       "name": "Product B",
       "description": "Description of Product B",
       "price": 29.99,
-      "category": "Books",
+      "category": "books",
       "stock": 50,
       "createdAt": "2023-10-01T12:00:00Z",
       "updatedAt": "2023-10-01T12:00:00Z",
-      "imageUrl": "https://example.com/product-b.jpg"
+      "imageUrl": "https://example.com/product-b.jpg",
+      "zone": "us"
     },
     {
       "id": 3,
       "name": "Product C",
       "description": "Description of Product C",
       "price": 39.99,
-      "category": "Clothing",
+      "category": "clothing",
       "stock": 200,
       "createdAt": "2023-10-01T12:00:00Z",
       "updatedAt": "2023-10-01T12:00:00Z",
-      "imageUrl": "https://example.com/product-c.jpg"
+      "imageUrl": "https://example.com/product-c.jpg",
+      "zone": "ar"
     },
     {
       "id": 4,
       "name": "Product D",
       "description": "Description of Product D",
       "price": 49.99,
-      "category": "Home & Kitchen",
+      "category": "home",
       "stock": 75,
       "createdAt": "2023-10-01T12:00:00Z",
       "updatedAt": "2023-10-01T12:00:00Z",
-      "imageUrl": "https://example.com/product-d.jpg"
+      "imageUrl": "https://example.com/product-d.jpg",
+      "zone": "ca"
     },
     {
       "id": 5,
       "name": "Product E",
       "description": "Description of Product E",
       "price": 59.99,
-      "category": "Sports & Outdoors",
+      "category": "toys",
       "stock": 30,
       "createdAt": "2023-10-01T12:00:00Z",
       "updatedAt": "2023-10-01T12:00:00Z",
-      "imageUrl": "https://example.com/product-e.jpg"
+      "imageUrl": "https://example.com/product-e.jpg",
+      "zone": "au"
     },
     {
       "id": 6,
@@ -156,7 +161,8 @@
       "stock": 120,
       "createdAt": "2023-10-01T12:00:00Z",
       "updatedAt": "2023-10-01T12:00:00Z",
-      "imageUrl": "https://example.com/product-f.jpg"
+      "imageUrl": "https://example.com/product-f.jpg",
+      "zone": "uk"
     }
   ],
   "barrios": [
