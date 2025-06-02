@@ -13,9 +13,6 @@ import { SearchComponent } from "../components/SearchComponent";
 import { Select, SelectItem } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
 
-// Simulación de autorización admin (cámbialo por tu lógica real)
-const isAdmin = true;
-
 export const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
     <path
@@ -29,18 +26,27 @@ export const AcmeLogo = () => (
 
 export const NavBar: React.FC = () => {
   const navigate = useNavigate();
-
-  // En práctica, el id debe ser dinámico (de un producto seleccionado)
   const productIdDemo = 1;
+  const rol = localStorage.getItem("rol");
+  const name = localStorage.getItem("name") || "Usuario";
+  const isAdmin = rol === "admin";
 
   const actions = [
     { label: "Agregar Producto", value: "agregar", path: "/product/create" },
-    { label: "Editar Producto", value: "editar", path: `/product/edit/${productIdDemo}` },
-    { label: "Eliminar Producto", value: "eliminar", path: `/product/delete/${productIdDemo}` },
+    {
+      label: "Editar Producto",
+      value: "editar",
+      path: `/product/edit/${productIdDemo}`,
+    },
+    {
+      label: "Eliminar Producto",
+      value: "eliminar",
+      path: `/product/delete/${productIdDemo}`,
+    },
   ];
 
   const handleSelect = (value: string) => {
-    const action = actions.find(a => a.value === value);
+    const action = actions.find((a) => a.value === value);
     if (action) {
       navigate(action.path);
     }
@@ -49,7 +55,10 @@ export const NavBar: React.FC = () => {
   return (
     <Navbar isBordered>
       <NavbarContent justify="start">
-        <NavbarBrand className="mr-4">
+        <NavbarBrand
+          className="mr-4"
+          onClick={() => navigate("/app/dashboard")}
+        >
           <AcmeLogo />
           <p className="hidden sm:flex font-bold text-inherit">
             Precios Justo Ya
@@ -59,6 +68,15 @@ export const NavBar: React.FC = () => {
           <p className="hidden sm:flex font-bold text-inherit">
             ¿Qué buscas hoy?
           </p>
+          <Avatar
+            isBordered
+            as="button"
+            className="transition-transform"
+            color="primary"
+            size="sm"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6rpr048OoT8-QACQzH5OgpSQZ7RvCI6OviQ&s"
+            onClick={() => navigate("/app/map")}
+          />
         </NavbarContent>
       </NavbarContent>
       <NavbarContent as="div" className="items-center gap-4" justify="end">
@@ -69,29 +87,34 @@ export const NavBar: React.FC = () => {
               isBordered
               as="button"
               className="transition-transform"
-              color="secondary"
-              name="Jason Hughes"
+              color="primary"
+              name={name}
               size="sm"
               src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
             />
           </DropdownTrigger>
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="logout" color="danger" onClick={() => navigate("/login")}>
+            <DropdownItem
+              key="logout"
+              color="danger"
+              onClick={() => {
+                navigate("/login");
+                localStorage.clear();
+              }}
+            >
               Log Out
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
         {isAdmin && (
           <Select
-            className="max-w-xs"
+            className="max-w-[200px]"
             label="Acciones"
             placeholder="Selecciona acción"
-            onChange={e => handleSelect(e.target.value)}
+            onChange={(e) => handleSelect(e.target.value)}
           >
-            {actions.map(action => (
-              <SelectItem key={action.value} value={action.value}>
-                {action.label}
-              </SelectItem>
+            {actions.map((action) => (
+              <SelectItem key={action.value}>{action.label}</SelectItem>
             ))}
           </Select>
         )}
