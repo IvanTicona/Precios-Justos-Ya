@@ -1,13 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "../layout/Layout";
-import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
 import ProtectedRoutes from "../guards/ProtectedRoutes";
-import DashboardUser from "../pages/DashboardUser";
-import ActualizarProductoPage from "../pages/ActualizarProductoPage";
-import AgregarProductoPage from "../pages/AgregarProductoPage";
-import { EleminarProductosPage } from "../pages/EleminarProductosPage";
-import MapPage from "../pages/MapPage";
+import ActualizarProductoPage from "../Pages/ActualizarProductoPage";
+import AgregarProductoPage from "../Pages/AgregarProductoPage";
+import DashboardUser from "../Pages/DashboardUser";
+import { EleminarProductosPage } from "../Pages/EleminarProductosPage";
+import LoginPage from "../Pages/LoginPage";
+import MapPage from "../Pages/MapPage";
+import RegisterPage from "../Pages/RegisterPage";
+import { ProductsPage } from "../Pages/ProductsPage";
+import { ProductDetailPage } from "../Pages/ProductDetailPage";
 
 export const AppRoutes = () => {
   const rol = localStorage.getItem("rol");
@@ -25,6 +27,7 @@ export const AppRoutes = () => {
           {rol === "admin" ? (
             <>
               <Route path="product/create" element={<AgregarProductoPage />} />
+              <Route path="productos" element={<ProductsPage/>}/>
               <Route
                 path="product/edit/:id"
                 element={<ActualizarProductoPage />}
@@ -38,6 +41,8 @@ export const AppRoutes = () => {
             <Route path="dashboard" element={<DashboardUser />} />
           )}
           <Route path="map" element={<MapPage />}/>
+          <Route path="productos" element={<ProductsPage/>}/>
+          <Route path="products/:id" element={<ProductDetailPage/>}/>
         </Route>
 
         <Route path="/login" element={<LoginPage />} />
