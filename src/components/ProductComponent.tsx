@@ -13,7 +13,7 @@ export default function ProductComponent({ title, img, price }: ProductProps) {
       <CardBody className="overflow-visible p-0">
         <Image
           alt={title}
-          className="object-cover h-[140px]"
+          className="object-cover h-[250px]"
           radius="lg"
           shadow="sm"
           src={img}

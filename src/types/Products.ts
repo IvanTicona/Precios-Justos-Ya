@@ -7,7 +7,7 @@ export type Product = {
   description: string;
   category: string;
   image: string;
-  zone?: string;
+  zones?: string;
   createdAt?: string;
   updatedAt?: string;
   reports?: {

@@ -50,10 +50,12 @@ export const NavBar: React.FC = () => {
     <Navbar isBordered>
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
+          <a className="flex mt-2" href="/app/dashboard">
           <AcmeLogo />
           <p className="hidden sm:flex font-bold text-inherit">
             Precios Justo Ya
           </p>
+          </a>
         </NavbarBrand>
         <NavbarContent className="hidden sm:flex gap-3">
           <p className="hidden sm:flex font-bold text-inherit">
