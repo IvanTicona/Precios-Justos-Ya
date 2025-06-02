@@ -17,34 +17,31 @@ const loginSchema = yup.object({
         .required("The password is required"),
 });
 
-
-
-
 function LoginPage() {
-
     const navigate = useNavigate();
-    const [loginError, setLoginError] = useState(false);
+    const [loginError, setLoginError] = useState("");
     const formik = useFormik({
-        initialValues:{
+        initialValues: {
             email: "",
-            password: "",
+            password: ""
         },
         validationSchema: loginSchema,
         onSubmit: async (values) => {
             const responseLogin = await Login(values.email, values.password);
-            if(!responseLogin){
-                setLoginError(true);
+            if (!responseLogin) {
+                setLoginError("Invalid email or password");
                 formik.resetForm();
                 return;
             }
+            setLoginError("");
             setStorage("token", responseLogin.token);
-            setStorage("user", responseLogin.user);
-            navigate("/app/dashboard",{
-                replace:true,
-            });
-        },
+            setStorage("user", responseLogin);
+            setStorage("rol", responseLogin.role);   
+            console.log("Login successful:", responseLogin.role); // Debug log
+            navigate("/app/dashboard", { replace: true }); 
+        }
     });
-
+    
     return (
         <div className="flex flex-row items-center h-screen w-screen ">
             <Form
@@ -81,6 +78,13 @@ function LoginPage() {
                     value={formik.values.password}
                 />
 
+
+                {loginError && (
+                <div className="text-red-500 text-sm mt-2 w-full text-center">
+                    {loginError}
+                </div>
+                )}
+            
                 <Link
                     type="button"
                     href={"/"}
@@ -95,7 +99,6 @@ function LoginPage() {
                 <Button
                     type="submit"
                     fullWidth
-                    onClick={() => navigate("/app/dashboard", { replace: true })}
                 >
                 Sign in 
                 </Button>

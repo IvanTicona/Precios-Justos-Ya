@@ -111,14 +111,20 @@
       "email": "ivanticona@gmail.com",
       "password": "asdasdasdasd",
       "typeOfUser": ""
+    },
+    {
+      "id": "8797",
+      "email": "thompson@gmail.com",
+      "password": "password123",
+      "typeOfUser": ""
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Manzana Roja",
       "description": "Manzana fresca de campo, crujiente y jugosa.",
-      "price": 1.20,
+      "price": 1.2,
       "category": "Fruits",
       "imageUrl": "https://elegifruta.com.ar/wp-content/uploads/2017/07/manzana_roja.jpg",
       "reports": [
@@ -144,10 +150,10 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Plátano Maduro",
       "description": "Plátano dulce y cremoso, perfecto para postres.",
-      "price": 0.80,
+      "price": 0.8,
       "category": "Fruits",
       "imageUrl": "https://mejorconsalud.as.com/wp-content/uploads/2018/06/platano-maduro.jpg",
       "reports": [
@@ -171,10 +177,10 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Pera Bartlett",
       "description": "Pera jugosa, ideal para ensaladas y meriendas.",
-      "price": 1.50,
+      "price": 1.5,
       "category": "Fruits",
       "imageUrl": "https://static.wixstatic.com/media/154f07_c8d505fb9516490d9070ebd6e12c66ef~mv2.jpg/v1/fill/w_560,h_374,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/154f07_c8d505fb9516490d9070ebd6e12c66ef~mv2.jpg",
       "reports": [
@@ -196,10 +202,10 @@
       "zones": []
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Naranja Valencia",
       "description": "Naranja dulce, perfecta para jugo natural.",
-      "price": 0.70,
+      "price": 0.7,
       "category": "Fruits",
       "imageUrl": "https://lamejornaranjadevalencia.com/UserFiles/images/naranjas-ok.png",
       "reports": [
@@ -226,7 +232,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Fresa Fresca",
       "description": "Fresas rojas y dulces, ideales para postres.",
       "price": 2.99,
@@ -254,10 +260,10 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Lechuga Romana",
       "description": "Lechuga crujiente ideal para ensaladas.",
-      "price": 1.00,
+      "price": 1,
       "category": "Vegetables",
       "imageUrl": "https://verdimed.com/wp-content/uploads/2021/10/product-lettuce-romaine.jpg",
       "reports": [
@@ -283,10 +289,10 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Tomate Cherry",
       "description": "Tomates pequeños, dulces y jugosos.",
-      "price": 2.50,
+      "price": 2.5,
       "category": "Vegetables",
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Tomates_cerises_Luc_Viatour.jpg",
       "reports": [
@@ -310,10 +316,10 @@
       ]
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Zanahoria Naranja",
       "description": "Zanahoria fresca, rica en vitaminas y fibra.",
-      "price": 0.90,
+      "price": 0.9,
       "category": "Vegetables",
       "imageUrl": "https://kitchenacademy.es/wp-content/uploads/zanahoria-668x321.jpg",
       "reports": [
@@ -339,10 +345,10 @@
       ]
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Papa Blanca",
       "description": "Papa versátil para horno, puré o fritas.",
-      "price": 0.80,
+      "price": 0.8,
       "category": "Vegetables",
       "imageUrl": "https://hyh17.com/cdn/shop/products/Papa-Blanca.jpg?v=1590510049",
       "reports": [
@@ -364,10 +370,10 @@
       "zones": []
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Brócoli Verde",
       "description": "Brócoli fresco, rico en nutrientes.",
-      "price": 1.80,
+      "price": 1.8,
       "category": "Vegetables",
       "imageUrl": "https://images.cookforyourlife.org/wp-content/uploads/2018/08/shutterstock_294838064-min.jpg",
       "reports": [
@@ -394,7 +400,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Pechuga de Pollo",
       "description": "Pechuga sin piel, ideal para asar o cocinar a la plancha.",
       "price": 5.99,
@@ -422,10 +428,10 @@
       ]
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Muslo de Pollo",
       "description": "Muslo de pollo con piel, perfecto para guisos.",
-      "price": 4.50,
+      "price": 4.5,
       "category": "Poultry",
       "imageUrl": "https://www.tugentevenezuela.com/cdn/shop/products/069_MUSLOSDEPOLLO.jpg?v=1616355497",
       "reports": [
@@ -452,7 +458,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Carne de Res Molida",
       "description": "Carne molida de res 80/20, ideal para hamburguesas.",
       "price": 6.99,
@@ -479,7 +485,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Filete de Res",
       "description": "Filete de res magro, perfecto para asar.",
       "price": 12.99,
@@ -507,10 +513,10 @@
       ]
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "Chuleta de Cerdo",
       "description": "Chuleta de cerdo fresca, excelente para parrilla.",
-      "price": 7.50,
+      "price": 7.5,
       "category": "Meat",
       "imageUrl": "https://progcarne.com/storage/app/uploads/public/603/ebd/dac/603ebddac3c1a274493475.jpg",
       "reports": [
@@ -535,7 +541,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "Filete de Pescado",
       "description": "Filete de pescado blanco, ideal para hornear.",
       "price": 8.99,
@@ -560,7 +566,7 @@
       "zones": []
     },
     {
-      "id": 17,
+      "id": "17",
       "name": "Camarones Medianos",
       "description": "Camarones frescos, perfectos para saltear.",
       "price": 9.99,
@@ -589,10 +595,10 @@
       ]
     },
     {
-      "id": 18,
+      "id": "18",
       "name": "Leche Entera",
       "description": "Leche de vaca entera, 1 litro.",
-      "price": 1.20,
+      "price": 1.2,
       "category": "Dairy",
       "imageUrl": "https://pilandina.com.bo/wp-content/uploads/2019/06/leche-entera-cremosa-Sachet-1100-ml.jpg",
       "reports": [
@@ -617,10 +623,10 @@
       ]
     },
     {
-      "id": 19,
+      "id": "19",
       "name": "Yogur Natural",
       "description": "Yogur natural sin azúcar, 500g.",
-      "price": 2.50,
+      "price": 2.5,
       "category": "Dairy",
       "imageUrl": "https://jumboargentina.vtexassets.com/arquivos/ids/831606-800-600?v=638603049912330000&width=800&height=600&aspect=true",
       "reports": [
@@ -644,7 +650,7 @@
       ]
     },
     {
-      "id": 20,
+      "id": "20",
       "name": "Queso Cheddar",
       "description": "Queso cheddar maduro, 200g.",
       "price": 3.99,
@@ -673,10 +679,10 @@
       ]
     },
     {
-      "id": 21,
+      "id": "21",
       "name": "Pan Integral",
       "description": "Pan integral rebanado, paquete de 500g.",
-      "price": 1.50,
+      "price": 1.5,
       "category": "Bakery",
       "imageUrl": "https://blog.elamasadero.com/wp-content/uploads/pan_integral_espelta_700.jpg",
       "reports": [
@@ -698,10 +704,10 @@
       "zones": []
     },
     {
-      "id": 22,
+      "id": "22",
       "name": "Croissant",
       "description": "Croissant fresco, hecho a mano.",
-      "price": 1.20,
+      "price": 1.2,
       "category": "Bakery",
       "imageUrl": "https://europastry.com/es/wp-content/uploads/sites/5/2021/05/61685-3-4.jpg",
       "reports": [
@@ -726,7 +732,7 @@
       ]
     },
     {
-      "id": 23,
+      "id": "23",
       "name": "Salmón Ahumado",
       "description": "Salmón ahumado, loncheado, 200g.",
       "price": 10.99,
@@ -755,10 +761,10 @@
       ]
     },
     {
-      "id": 24,
+      "id": "24",
       "name": "Arroz Integral",
       "description": "Bolsa de arroz integral, 1kg.",
-      "price": 2.00,
+      "price": 2,
       "category": "Grains",
       "imageUrl": "https://www.recetasderechupete.com/wp-content/uploads/2020/05/Arroz-integral-2.jpg",
       "reports": [
@@ -782,10 +788,10 @@
       ]
     },
     {
-      "id": 25,
+      "id": "25",
       "name": "Lentejas Secas",
       "description": "Paquete de lentejas secas, 1kg.",
-      "price": 1.80,
+      "price": 1.8,
       "category": "Grains",
       "imageUrl": "https://img.freepik.com/foto-gratis/lentejas_1368-8872.jpg?semt=ais_items_boosted&w=740",
       "reports": [
@@ -810,10 +816,10 @@
       ]
     },
     {
-      "id": 26,
+      "id": "26",
       "name": "Aceite de Oliva",
       "description": "Aceite de oliva extra virgen, 1L.",
-      "price": 7.50,
+      "price": 7.5,
       "category": "Pantry",
       "imageUrl": "https://www.cocinista.es/download/bancorecursos/ingredientes/ingrediente-aceite-oliva-2.jpg",
       "reports": [
@@ -839,10 +845,10 @@
       ]
     },
     {
-      "id": 27,
+      "id": "27",
       "name": "Galletas Integrales",
       "description": "Paquete de galletas integrales, 200g.",
-      "price": 2.20,
+      "price": 2.2,
       "category": "Snacks",
       "imageUrl": "https://www.fidalga.com/cdn/shop/products/7750885002721.jpg?v=1746460128",
       "reports": [
@@ -864,7 +870,7 @@
       "zones": []
     },
     {
-      "id": 28,
+      "id": "28",
       "name": "Agua Mineral",
       "description": "Botella de agua mineral, 1.5L.",
       "price": 0.99,
@@ -893,7 +899,7 @@
       ]
     },
     {
-      "id": 29,
+      "id": "29",
       "name": "Jugo de Naranja",
       "description": "Jugo de naranja natural, 1L.",
       "price": 1.99,
@@ -921,10 +927,10 @@
       ]
     },
     {
-      "id": 30,
+      "id": "30",
       "name": "Chocolate Oscuro",
       "description": "Tableta de chocolate oscuro 70%, 100g.",
-      "price": 3.50,
+      "price": 3.5,
       "category": "Snacks",
       "imageUrl": "https://proexpansion.com/uploads/ckeditor/pictures/1308/content_chocolate_dark.jpg",
       "reports": [

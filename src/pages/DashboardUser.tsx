@@ -3,6 +3,7 @@ import BannerComponent from "../components/BannerComponent";
 import BarrioComponent from "../components/BarrioComponente";
 import FooterComponent from "../components/FooterComponent";
 import ProductComponent from "../components/ProductComponent";
+import { Link } from "react-router-dom";
 import { getBarrios } from "../service/barriosService";
 import { getProducts } from "../service/productService";
 import { getRandomSample } from "../utils/randomSample";
@@ -20,13 +21,13 @@ function DashboardUser() {
     <div className="bg-[#fdf6e3]">
       <div className="flex flex-col gap-10 p-10 min-h-screen ">
         <section>
-          <h1 className="text-xl font-bold mb-4">
-            Algunos de nuestros productos
-          </h1>
-          <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
-            {products.map((product) => (
+        <h1 className="text-xl font-bold mb-4">
+          Algunos de nuestros productos
+        </h1>
+        <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
+          {products.map((product) => (
+            <Link key={product.id} to={`/app/products/${product.id}`}>
               <ProductComponent
-                key={product.id}
                 title={product.name}
                 img={
                   product.imageUrl ||
@@ -34,9 +35,10 @@ function DashboardUser() {
                 }
                 price={product.price}
               />
-            ))}
-          </div>
-        </section>
+            </Link>
+          ))}
+        </div>
+      </section>
         <section>
           <h1 className="text-xl font-bold mb-4">
             Algunos Barrios Interesantes

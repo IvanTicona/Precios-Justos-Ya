@@ -77,13 +77,13 @@ export const ProductDetailPage = () => {
           <div className="mt-4">
             <h3 className="text-sm font-medium text-gray-500 mb-2">Disponible en:</h3>
             <div className="flex flex-wrap gap-2">
-              {Array.isArray(product.zone) ? product.zone.map((zone, index) => (
-                <Chip key={index} color="primary" variant="bordered">
+              {Array.isArray(product.zones) ? product.zones.map((zone, index) => (
+                <Chip key={index} color="warning" variant="bordered">
                   {zone.replace('mercado-', '').replace(/-/g, ' ')}
                 </Chip>
-              )) : product.zone ? (
+              )) : product.zones ? (
                 <Chip color="primary" variant="bordered">
-                  {product.zone.replace('mercado-', '').replace(/-/g, ' ')}
+                  {product.zones ? product.zones.replace('mercado-', '').replace(/-/g, ' ') : 'Zona desconocida'}
                 </Chip>
               ) : null}
             </div>
@@ -114,7 +114,6 @@ export const ProductDetailPage = () => {
               Publicar Precio
             </Button>
 
-            {/* Reportes */}
             <div className="mt-8">
               <div className="flex items-center gap-2 mb-4">
                 <h3 className="text-lg font-semibold">Reportes Recientes</h3>
@@ -147,6 +146,7 @@ export const ProductDetailPage = () => {
                                 return isNaN(d.getTime()) ? "Fecha inválida" : d.toLocaleDateString();
                               })()}
                             </span>
+                            
                           </div>
                           <p className="text-sm text-red-600 mt-1">
                             {report.description}

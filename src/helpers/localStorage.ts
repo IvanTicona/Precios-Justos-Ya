@@ -7,8 +7,6 @@ export const getStorage = (key: string) => {
     return item ? JSON.parse(item) : null;
 }
 
-export const setStorage = (key: string, value: any)=>{
-    if ( typeof value === "object" ) {
-        localStorage.setItem(key, JSON.stringify(value))
-    }
-}
+export const setStorage = (key: string, value: any) => {
+    localStorage.setItem(key, typeof value === "object" ? JSON.stringify(value) : value);
+};

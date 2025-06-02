@@ -8,6 +8,9 @@ import ActualizarProductoPage from "../pages/ActualizarProductoPage";
 import AgregarProductoPage from "../pages/AgregarProductoPage";
 import { EleminarProductosPage } from "../pages/EleminarProductosPage";
 import MapPage from "../pages/MapPage";
+import { ProductsPage } from "../pages/ProductsPage";
+import { ProductDetailPage } from "../pages/ProductDetailPage";
+
 
 export const AppRoutes = () => {
   const rol = localStorage.getItem("rol");
@@ -22,24 +25,19 @@ export const AppRoutes = () => {
             </ProtectedRoutes>
           }
         >
-          {rol === "admin" ? (
+          <Route index element={<DashboardUser />} /> 
+          <Route path="dashboard" element={<DashboardUser />} />
+          {rol === "admin" && (
             <>
               <Route path="product/create" element={<AgregarProductoPage />} />
-              <Route
-                path="product/edit/:id"
-                element={<ActualizarProductoPage />}
-              />
-              <Route
-                path="product/delete/:id"
-                element={<EleminarProductosPage />}
-              />
+              <Route path="product/edit/:id" element={<ActualizarProductoPage />} />
+              <Route path="product/delete/:id" element={<EleminarProductosPage />} />
             </>
-          ) : (
-            <Route path="dashboard" element={<DashboardUser />} />
           )}
-          <Route path="map" element={<MapPage />}/>
+          <Route path="map" element={<MapPage />} />
+          <Route path="productos" element={<ProductsPage/>}/>
+          <Route path="products/:id" element={<ProductDetailPage/>}/>
         </Route>
-
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
       </Routes>

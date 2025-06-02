@@ -32,16 +32,15 @@ export const NavBar: React.FC = () => {
   const isAdmin = rol === "admin";
 
   const actions = [
-    { label: "Agregar Producto", value: "agregar", path: "/product/create" },
-    {
+    { label: "Agregar Producto", value: "agregar", path: "/app/product/create" },    {
       label: "Editar Producto",
       value: "editar",
-      path: `/product/edit/${productIdDemo}`,
+      path: `/app/product/edit/${productIdDemo}`,
     },
     {
       label: "Eliminar Producto",
       value: "eliminar",
-      path: `/product/delete/${productIdDemo}`,
+      path: `/app/product/delete/${productIdDemo}`,
     },
   ];
 
