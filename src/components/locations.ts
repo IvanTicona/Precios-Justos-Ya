@@ -109,7 +109,7 @@ export const locations: LocationItem[] = [
   {
     id: 'mercado-hinojosa',
     name: 'Mercado Hinojosa',
-    coords: [-16.5033822,-68.144492,],
+    coords: [-16.5033822,-68.144492],
   },
   {
     id: 'garita-de-lima',

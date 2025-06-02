@@ -120,7 +120,28 @@
       "description": "Manzana fresca de campo, crujiente y jugosa.",
       "price": 1.20,
       "category": "Fruits",
-      "imageUrl": "https://elegifruta.com.ar/wp-content/uploads/2017/07/manzana_roja.jpg"
+      "imageUrl": "https://elegifruta.com.ar/wp-content/uploads/2017/07/manzana_roja.jpg",
+      "reports": [
+        {
+          "id": 1,
+          "userId": "1",
+          "reportType": "price",
+          "description": "El precio es demasiado alto.",
+          "createdAt": "2023-10-01T12:00:00Z"
+        },
+        {
+          "id": 2,
+          "userId": "2",
+          "reportType": "quality",
+          "description": "La calidad de la manzana no es buena.",
+          "createdAt": "2023-10-02T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-rodriguez",
+        "mercado-camacho",
+        "mercado-lanza"
+      ]
     },
     {
       "id": 2,
@@ -128,7 +149,26 @@
       "description": "Plátano dulce y cremoso, perfecto para postres.",
       "price": 0.80,
       "category": "Fruits",
-      "imageUrl": "https://mejorconsalud.as.com/wp-content/uploads/2018/06/platano-maduro.jpg"
+      "imageUrl": "https://mejorconsalud.as.com/wp-content/uploads/2018/06/platano-maduro.jpg",
+      "reports": [
+        {
+          "id": 1,
+          "userId": "1",
+          "reportType": "price",
+          "description": "El precio del plátano ha subido demasiado.",
+          "createdAt": "2023-10-01T12:00:00Z"
+        },
+        {
+          "id": 2,
+          "userId": "2",
+          "reportType": "quality",
+          "description": "Los plátanos están demasiado verdes.",
+          "createdAt": "2023-10-02T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-uruguay"
+      ]
     },
     {
       "id": 3,
@@ -136,7 +176,24 @@
       "description": "Pera jugosa, ideal para ensaladas y meriendas.",
       "price": 1.50,
       "category": "Fruits",
-      "imageUrl": "https://static.wixstatic.com/media/154f07_c8d505fb9516490d9070ebd6e12c66ef~mv2.jpg/v1/fill/w_560,h_374,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/154f07_c8d505fb9516490d9070ebd6e12c66ef~mv2.jpg"
+      "imageUrl": "https://static.wixstatic.com/media/154f07_c8d505fb9516490d9070ebd6e12c66ef~mv2.jpg/v1/fill/w_560,h_374,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/154f07_c8d505fb9516490d9070ebd6e12c66ef~mv2.jpg",
+      "reports": [
+        {
+          "id": 1,
+          "userId": "1",
+          "reportType": "price",
+          "description": "El precio de las peras es muy alto.",
+          "createdAt": "2023-10-01T12:00:00Z"
+        },
+        {
+          "id": 2,
+          "userId": "2",
+          "reportType": "quality",
+          "description": "Las peras están demasiado maduras.",
+          "createdAt": "2023-10-02T12:00:00Z"
+        }
+      ],
+      "zones": []
     },
     {
       "id": 4,
@@ -144,7 +201,29 @@
       "description": "Naranja dulce, perfecta para jugo natural.",
       "price": 0.70,
       "category": "Fruits",
-      "imageUrl": "https://lamejornaranjadevalencia.com/UserFiles/images/naranjas-ok.png"
+      "imageUrl": "https://lamejornaranjadevalencia.com/UserFiles/images/naranjas-ok.png",
+      "reports": [
+        {
+          "id": 3,
+          "userId": "3",
+          "reportType": "price",
+          "description": "El precio de las naranjas ha subido demasiado.",
+          "createdAt": "2023-10-03T12:00:00Z"
+        },
+        {
+          "id": 4,
+          "userId": "4",
+          "reportType": "quality",
+          "description": "Las naranjas están pasadas.",
+          "createdAt": "2023-10-04T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "calle-antonio-gallardo",
+        "mercado-lanza",
+        "mercado-el-tejar",
+        "mercado-camacho"
+      ]
     },
     {
       "id": 5,
@@ -152,7 +231,27 @@
       "description": "Fresas rojas y dulces, ideales para postres.",
       "price": 2.99,
       "category": "Fruits",
-      "imageUrl": "https://img.freepik.com/foto-gratis/baya-fresa-levitando-sobre-fondo-blanco_485709-57.jpg?semt=ais_items_boosted&w=740"
+      "imageUrl": "https://img.freepik.com/foto-gratis/baya-fresa-levitando-sobre-fondo-blanco_485709-57.jpg?semt=ais_items_boosted&w=740",
+      "reports": [
+        {
+          "id": 5,
+          "userId": "5",
+          "reportType": "price",
+          "description": "El precio de las fresas es muy alto.",
+          "createdAt": "2023-10-05T12:00:00Z"
+        },
+        {
+          "id": 6,
+          "userId": "6",
+          "reportType": "quality",
+          "description": "Las fresas están demasiado maduras.",
+          "createdAt": "2023-10-06T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-el-carmen",
+        "mercado-achumani"
+      ]
     },
     {
       "id": 6,
@@ -160,7 +259,28 @@
       "description": "Lechuga crujiente ideal para ensaladas.",
       "price": 1.00,
       "category": "Vegetables",
-      "imageUrl": "https://verdimed.com/wp-content/uploads/2021/10/product-lettuce-romaine.jpg"
+      "imageUrl": "https://verdimed.com/wp-content/uploads/2021/10/product-lettuce-romaine.jpg",
+      "reports": [
+        {
+          "id": 7,
+          "userId": "7",
+          "reportType": "price",
+          "description": "El precio de la lechuga ha subido demasiado.",
+          "createdAt": "2023-10-07T12:00:00Z"
+        },
+        {
+          "id": 8,
+          "userId": "8",
+          "reportType": "quality",
+          "description": "La lechuga está marchita.",
+          "createdAt": "2023-10-08T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-yungas",
+        "calle-benancio-burgoa",
+        "mercado-los-pinos"
+      ]
     },
     {
       "id": 7,
@@ -168,7 +288,26 @@
       "description": "Tomates pequeños, dulces y jugosos.",
       "price": 2.50,
       "category": "Vegetables",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Tomates_cerises_Luc_Viatour.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Tomates_cerises_Luc_Viatour.jpg",
+      "reports": [
+        {
+          "id": 9,
+          "userId": "9",
+          "reportType": "price",
+          "description": "El precio de los tomates cherry es muy alto.",
+          "createdAt": "2023-10-09T12:00:00Z"
+        },
+        {
+          "id": 10,
+          "userId": "10",
+          "reportType": "quality",
+          "description": "Los tomates cherry están pasados.",
+          "createdAt": "2023-10-10T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-rodriguez"
+      ]
     },
     {
       "id": 8,
@@ -176,7 +315,28 @@
       "description": "Zanahoria fresca, rica en vitaminas y fibra.",
       "price": 0.90,
       "category": "Vegetables",
-      "imageUrl": "https://kitchenacademy.es/wp-content/uploads/zanahoria-668x321.jpg"
+      "imageUrl": "https://kitchenacademy.es/wp-content/uploads/zanahoria-668x321.jpg",
+      "reports": [
+        {
+          "id": 11,
+          "userId": "11",
+          "reportType": "price",
+          "description": "El precio de las zanahorias ha subido demasiado.",
+          "createdAt": "2023-10-11T12:00:00Z"
+        },
+        {
+          "id": 12,
+          "userId": "12",
+          "reportType": "quality",
+          "description": "Las zanahorias están blandas.",
+          "createdAt": "2023-10-12T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-uruguay",
+        "mercado-camacho",
+        "mercado-irpavi"
+      ]
     },
     {
       "id": 9,
@@ -184,7 +344,24 @@
       "description": "Papa versátil para horno, puré o fritas.",
       "price": 0.80,
       "category": "Vegetables",
-      "imageUrl": "https://hyh17.com/cdn/shop/products/Papa-Blanca.jpg?v=1590510049"
+      "imageUrl": "https://hyh17.com/cdn/shop/products/Papa-Blanca.jpg?v=1590510049",
+      "reports": [
+        {
+          "id": 13,
+          "userId": "13",
+          "reportType": "price",
+          "description": "El precio de las papas ha subido demasiado.",
+          "createdAt": "2023-10-13T12:00:00Z"
+        },
+        {
+          "id": 14,
+          "userId": "14",
+          "reportType": "quality",
+          "description": "Las papas están brotadas.",
+          "createdAt": "2023-10-14T12:00:00Z"
+        }
+      ],
+      "zones": []
     },
     {
       "id": 10,
@@ -192,7 +369,29 @@
       "description": "Brócoli fresco, rico en nutrientes.",
       "price": 1.80,
       "category": "Vegetables",
-      "imageUrl": "https://images.cookforyourlife.org/wp-content/uploads/2018/08/shutterstock_294838064-min.jpg"
+      "imageUrl": "https://images.cookforyourlife.org/wp-content/uploads/2018/08/shutterstock_294838064-min.jpg",
+      "reports": [
+        {
+          "id": 15,
+          "userId": "15",
+          "reportType": "price",
+          "description": "El precio del brócoli ha subido demasiado.",
+          "createdAt": "2023-10-15T12:00:00Z"
+        },
+        {
+          "id": 16,
+          "userId": "16",
+          "reportType": "quality",
+          "description": "El brócoli está marchito.",
+          "createdAt": "2023-10-16T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-el-tejar",
+        "mercado-los-pinos",
+        "calle-leon-de-la-barra",
+        "mercado-sopocachi"
+      ]
     },
     {
       "id": 11,
@@ -200,7 +399,27 @@
       "description": "Pechuga sin piel, ideal para asar o cocinar a la plancha.",
       "price": 5.99,
       "category": "Poultry",
-      "imageUrl": "https://www.carnesdonfernando.com/wp-content/uploads/2023/11/PECHUGA-POLLO-DF-CORTES-WEB-2023.jpg"
+      "imageUrl": "https://www.carnesdonfernando.com/wp-content/uploads/2023/11/PECHUGA-POLLO-DF-CORTES-WEB-2023.jpg",
+      "reports": [
+        {
+          "id": 17,
+          "userId": "17",
+          "reportType": "price",
+          "description": "El precio de la pechuga de pollo ha subido demasiado.",
+          "createdAt": "2023-10-17T12:00:00Z"
+        },
+        {
+          "id": 18,
+          "userId": "18",
+          "reportType": "quality",
+          "description": "La pechuga de pollo está seca.",
+          "createdAt": "2023-10-18T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-achumani",
+        "mercado-rodriguez"
+      ]
     },
     {
       "id": 12,
@@ -208,7 +427,29 @@
       "description": "Muslo de pollo con piel, perfecto para guisos.",
       "price": 4.50,
       "category": "Poultry",
-      "imageUrl": "https://www.tugentevenezuela.com/cdn/shop/products/069_MUSLOSDEPOLLO.jpg?v=1616355497"
+      "imageUrl": "https://www.tugentevenezuela.com/cdn/shop/products/069_MUSLOSDEPOLLO.jpg?v=1616355497",
+      "reports": [
+        {
+          "id": 19,
+          "userId": "19",
+          "reportType": "price",
+          "description": "El precio del muslo de pollo ha subido demasiado.",
+          "createdAt": "2023-10-19T12:00:00Z"
+        },
+        {
+          "id": 20,
+          "userId": "20",
+          "reportType": "quality",
+          "description": "El muslo de pollo está muy grasoso.",
+          "createdAt": "2023-10-20T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-hinojosa",
+        "mercado-irpavi",
+        "mercado-los-pinos",
+        "mercado-ciudad-satélite"
+      ]
     },
     {
       "id": 13,
@@ -216,7 +457,26 @@
       "description": "Carne molida de res 80/20, ideal para hamburguesas.",
       "price": 6.99,
       "category": "Meat",
-      "imageUrl": "https://cdn.www.gob.pe/uploads/document/file/3017256/Imagen%20referencial%20de%20carne%20molida%20.jpg"
+      "imageUrl": "https://cdn.www.gob.pe/uploads/document/file/3017256/Imagen%20referencial%20de%20carne%20molida%20.jpg",
+      "reports": [
+        {
+          "id": 21,
+          "userId": "21",
+          "reportType": "price",
+          "description": "El precio de la carne molida ha subido demasiado.",
+          "createdAt": "2023-10-21T12:00:00Z"
+        },
+        {
+          "id": 22,
+          "userId": "22",
+          "reportType": "quality",
+          "description": "La carne molida está muy grasosa.",
+          "createdAt": "2023-10-22T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-el-carmen"
+      ]
     },
     {
       "id": 14,
@@ -224,7 +484,27 @@
       "description": "Filete de res magro, perfecto para asar.",
       "price": 12.99,
       "category": "Meat",
-      "imageUrl": "https://valedor.com.mx/r/wp-content/uploads/2021/09/VLDR_800x800_filete-de-res.jpg"
+      "imageUrl": "https://valedor.com.mx/r/wp-content/uploads/2021/09/VLDR_800x800_filete-de-res.jpg",
+      "reports": [
+        {
+          "id": 23,
+          "userId": "23",
+          "reportType": "price",
+          "description": "El precio del filete de res ha subido demasiado.",
+          "createdAt": "2023-10-23T12:00:00Z"
+        },
+        {
+          "id": 24,
+          "userId": "24",
+          "reportType": "quality",
+          "description": "El filete de res está duro.",
+          "createdAt": "2023-10-24T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-lanza",
+        "mercado-miraflores"
+      ]
     },
     {
       "id": 15,
@@ -232,7 +512,27 @@
       "description": "Chuleta de cerdo fresca, excelente para parrilla.",
       "price": 7.50,
       "category": "Meat",
-      "imageUrl": "https://progcarne.com/storage/app/uploads/public/603/ebd/dac/603ebddac3c1a274493475.jpg"
+      "imageUrl": "https://progcarne.com/storage/app/uploads/public/603/ebd/dac/603ebddac3c1a274493475.jpg",
+      "reports": [
+        {
+          "id": 25,
+          "userId": "25",
+          "reportType": "price",
+          "description": "El precio de la chuleta de cerdo ha subido demasiado.",
+          "createdAt": "2023-10-25T12:00:00Z"
+        },
+        {
+          "id": 26,
+          "userId": "26",
+          "reportType": "quality",
+          "description": "La chuleta de cerdo está muy grasosa.",
+          "createdAt": "2023-10-26T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-ciudad-satélite",
+        "mercado-obrajes"
+      ]
     },
     {
       "id": 16,
@@ -240,7 +540,24 @@
       "description": "Filete de pescado blanco, ideal para hornear.",
       "price": 8.99,
       "category": "Seafood",
-      "imageUrl": "https://static.vecteezy.com/system/resources/previews/005/930/318/large_2x/fresh-fish-fillet-sliced-for-steak-or-salad-raw-tilapia-fillet-fish-isolated-on-white-background-for-cooking-food-free-photo.JPG"
+      "imageUrl": "https://static.vecteezy.com/system/resources/previews/005/930/318/large_2x/fresh-fish-fillet-sliced-for-steak-or-salad-raw-tilapia-fillet-fish-isolated-on-white-background-for-cooking-food-free-photo.JPG",
+      "reports": [
+        {
+          "id": 27,
+          "userId": "27",
+          "reportType": "price",
+          "description": "El precio del filete de pescado ha subido demasiado.",
+          "createdAt": "2023-10-27T12:00:00Z"
+        },
+        {
+          "id": 28,
+          "userId": "28",
+          "reportType": "quality",
+          "description": "El filete de pescado está muy seco.",
+          "createdAt": "2023-10-28T12:00:00Z"
+        }
+      ],
+      "zones": []
     },
     {
       "id": 17,
@@ -248,7 +565,28 @@
       "description": "Camarones frescos, perfectos para saltear.",
       "price": 9.99,
       "category": "Seafood",
-      "imageUrl": "https://puntodelmar.com.mx/wp-content/uploads/2018/06/camaron-mediano.jpg"
+      "imageUrl": "https://puntodelmar.com.mx/wp-content/uploads/2018/06/camaron-mediano.jpg",
+      "reports": [
+        {
+          "id": 29,
+          "userId": "29",
+          "reportType": "price",
+          "description": "El precio de los camarones ha subido demasiado.",
+          "createdAt": "2023-10-29T12:00:00Z"
+        },
+        {
+          "id": 30,
+          "userId": "30",
+          "reportType": "quality",
+          "description": "Los camarones están pasados.",
+          "createdAt": "2023-10-30T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "actual-undefined",
+        "mercado-rodriguez",
+        "mercado-el-tejar"
+      ]
     },
     {
       "id": 18,
@@ -256,7 +594,27 @@
       "description": "Leche de vaca entera, 1 litro.",
       "price": 1.20,
       "category": "Dairy",
-      "imageUrl": "https://pilandina.com.bo/wp-content/uploads/2019/06/leche-entera-cremosa-Sachet-1100-ml.jpg"
+      "imageUrl": "https://pilandina.com.bo/wp-content/uploads/2019/06/leche-entera-cremosa-Sachet-1100-ml.jpg",
+      "reports": [
+        {
+          "id": 31,
+          "userId": "31",
+          "reportType": "price",
+          "description": "El precio de la leche ha subido demasiado.",
+          "createdAt": "2023-10-31T12:00:00Z"
+        },
+        {
+          "id": 32,
+          "userId": "32",
+          "reportType": "quality",
+          "description": "La leche está agria.",
+          "createdAt": "2023-11-01T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-camacho",
+        "mercado-achumani"
+      ]
     },
     {
       "id": 19,
@@ -264,7 +622,26 @@
       "description": "Yogur natural sin azúcar, 500g.",
       "price": 2.50,
       "category": "Dairy",
-      "imageUrl": "https://jumboargentina.vtexassets.com/arquivos/ids/831606-800-600?v=638603049912330000&width=800&height=600&aspect=true"
+      "imageUrl": "https://jumboargentina.vtexassets.com/arquivos/ids/831606-800-600?v=638603049912330000&width=800&height=600&aspect=true",
+      "reports": [
+        {
+          "id": 33,
+          "userId": "33",
+          "reportType": "price",
+          "description": "El precio del yogur ha subido demasiado.",
+          "createdAt": "2023-11-02T12:00:00Z"
+        },
+        {
+          "id": 34,
+          "userId": "34",
+          "reportType": "quality",
+          "description": "El yogur está muy líquido.",
+          "createdAt": "2023-11-03T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-strongest"
+      ]
     },
     {
       "id": 20,
@@ -272,7 +649,28 @@
       "description": "Queso cheddar maduro, 200g.",
       "price": 3.99,
       "category": "Dairy",
-      "imageUrl": "https://www.gastronomiavasca.net/uploads/image/file/4402/queso_cheddar.jpg"
+      "imageUrl": "https://www.gastronomiavasca.net/uploads/image/file/4402/queso_cheddar.jpg",
+      "reports": [
+        {
+          "id": 35,
+          "userId": "35",
+          "reportType": "price",
+          "description": "El precio del queso cheddar ha subido demasiado.",
+          "createdAt": "2023-11-04T12:00:00Z"
+        },
+        {
+          "id": 36,
+          "userId": "36",
+          "reportType": "quality",
+          "description": "El queso cheddar está muy seco.",
+          "createdAt": "2023-11-05T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-yungas",
+        "mercado-el-carmen",
+        "garita-de-lima"
+      ]
     },
     {
       "id": 21,
@@ -280,7 +678,24 @@
       "description": "Pan integral rebanado, paquete de 500g.",
       "price": 1.50,
       "category": "Bakery",
-      "imageUrl": "https://blog.elamasadero.com/wp-content/uploads/pan_integral_espelta_700.jpg"
+      "imageUrl": "https://blog.elamasadero.com/wp-content/uploads/pan_integral_espelta_700.jpg",
+      "reports": [
+        {
+          "id": 37,
+          "userId": "37",
+          "reportType": "price",
+          "description": "El precio del pan integral ha subido demasiado.",
+          "createdAt": "2023-11-06T12:00:00Z"
+        },
+        {
+          "id": 38,
+          "userId": "38",
+          "reportType": "quality",
+          "description": "El pan integral está muy seco.",
+          "createdAt": "2023-11-07T12:00:00Z"
+        }
+      ],
+      "zones": []
     },
     {
       "id": 22,
@@ -288,7 +703,27 @@
       "description": "Croissant fresco, hecho a mano.",
       "price": 1.20,
       "category": "Bakery",
-      "imageUrl": "https://europastry.com/es/wp-content/uploads/sites/5/2021/05/61685-3-4.jpg"
+      "imageUrl": "https://europastry.com/es/wp-content/uploads/sites/5/2021/05/61685-3-4.jpg",
+      "reports": [
+        {
+          "id": 39,
+          "userId": "39",
+          "reportType": "price",
+          "description": "El precio del croissant ha subido demasiado.",
+          "createdAt": "2023-11-08T12:00:00Z"
+        },
+        {
+          "id": 40,
+          "userId": "40",
+          "reportType": "quality",
+          "description": "El croissant está muy duro.",
+          "createdAt": "2023-11-09T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "calle-leon-de-la-barra",
+        "mercado-lanza"
+      ]
     },
     {
       "id": 23,
@@ -296,7 +731,28 @@
       "description": "Salmón ahumado, loncheado, 200g.",
       "price": 10.99,
       "category": "Seafood",
-      "imageUrl": "https://agoraplaza.es/wp-content/uploads/2023/02/salmon-ahumado.jpg"
+      "imageUrl": "https://agoraplaza.es/wp-content/uploads/2023/02/salmon-ahumado.jpg",
+      "reports": [
+        {
+          "id": 41,
+          "userId": "41",
+          "reportType": "price",
+          "description": "El precio del salmón ahumado ha subido demasiado.",
+          "createdAt": "2023-11-10T12:00:00Z"
+        },
+        {
+          "id": 42,
+          "userId": "42",
+          "reportType": "quality",
+          "description": "El salmón ahumado está muy salado.",
+          "createdAt": "2023-11-11T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-obrajes",
+        "mercado-alto-seguencoma",
+        "mercado-hinojosa"
+      ]
     },
     {
       "id": 24,
@@ -304,7 +760,26 @@
       "description": "Bolsa de arroz integral, 1kg.",
       "price": 2.00,
       "category": "Grains",
-      "imageUrl": "https://www.recetasderechupete.com/wp-content/uploads/2020/05/Arroz-integral-2.jpg"
+      "imageUrl": "https://www.recetasderechupete.com/wp-content/uploads/2020/05/Arroz-integral-2.jpg",
+      "reports": [
+        {
+          "id": 43,
+          "userId": "43",
+          "reportType": "price",
+          "description": "El precio del arroz integral ha subido demasiado.",
+          "createdAt": "2023-11-12T12:00:00Z"
+        },
+        {
+          "id": 44,
+          "userId": "44",
+          "reportType": "quality",
+          "description": "El arroz integral está muy duro.",
+          "createdAt": "2023-11-13T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-ciudad-satélite"
+      ]
     },
     {
       "id": 25,
@@ -312,7 +787,27 @@
       "description": "Paquete de lentejas secas, 1kg.",
       "price": 1.80,
       "category": "Grains",
-      "imageUrl": "https://img.freepik.com/foto-gratis/lentejas_1368-8872.jpg?semt=ais_items_boosted&w=740"
+      "imageUrl": "https://img.freepik.com/foto-gratis/lentejas_1368-8872.jpg?semt=ais_items_boosted&w=740",
+      "reports": [
+        {
+          "id": 45,
+          "userId": "45",
+          "reportType": "price",
+          "description": "El precio de las lentejas ha subido demasiado.",
+          "createdAt": "2023-11-14T12:00:00Z"
+        },
+        {
+          "id": 46,
+          "userId": "46",
+          "reportType": "quality",
+          "description": "Las lentejas están muy duras.",
+          "createdAt": "2023-11-15T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-sopocachi",
+        "calle-benancio-burgoa"
+      ]
     },
     {
       "id": 26,
@@ -320,7 +815,28 @@
       "description": "Aceite de oliva extra virgen, 1L.",
       "price": 7.50,
       "category": "Pantry",
-      "imageUrl": "https://www.cocinista.es/download/bancorecursos/ingredientes/ingrediente-aceite-oliva-2.jpg"
+      "imageUrl": "https://www.cocinista.es/download/bancorecursos/ingredientes/ingrediente-aceite-oliva-2.jpg",
+      "reports": [
+        {
+          "id": 47,
+          "userId": "47",
+          "reportType": "price",
+          "description": "El precio del aceite de oliva ha subido demasiado.",
+          "createdAt": "2023-11-16T12:00:00Z"
+        },
+        {
+          "id": 48,
+          "userId": "48",
+          "reportType": "quality",
+          "description": "El aceite de oliva está rancio.",
+          "createdAt": "2023-11-17T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-lanza",
+        "mercado-ciudad-satélite",
+        "mercado-el-tejar"
+      ]
     },
     {
       "id": 27,
@@ -328,7 +844,24 @@
       "description": "Paquete de galletas integrales, 200g.",
       "price": 2.20,
       "category": "Snacks",
-      "imageUrl": "https://www.fidalga.com/cdn/shop/products/7750885002721.jpg?v=1746460128"
+      "imageUrl": "https://www.fidalga.com/cdn/shop/products/7750885002721.jpg?v=1746460128",
+      "reports": [
+        {
+          "id": 49,
+          "userId": "49",
+          "reportType": "price",
+          "description": "El precio de las galletas integrales ha subido demasiado.",
+          "createdAt": "2023-11-18T12:00:00Z"
+        },
+        {
+          "id": 50,
+          "userId": "50",
+          "reportType": "quality",
+          "description": "Las galletas están muy duras.",
+          "createdAt": "2023-11-19T12:00:00Z"
+        }
+      ],
+      "zones": []
     },
     {
       "id": 28,
@@ -336,7 +869,28 @@
       "description": "Botella de agua mineral, 1.5L.",
       "price": 0.99,
       "category": "Beverages",
-      "imageUrl": "https://d11h484hxd26eg.cloudfront.net/organizations/35/7401005941054_2.jpg"
+      "imageUrl": "https://d11h484hxd26eg.cloudfront.net/organizations/35/7401005941054_2.jpg",
+      "reports": [
+        {
+          "id": 51,
+          "userId": "51",
+          "reportType": "price",
+          "description": "El precio del agua mineral ha subido demasiado.",
+          "createdAt": "2023-11-20T12:00:00Z"
+        },
+        {
+          "id": 52,
+          "userId": "52",
+          "reportType": "quality",
+          "description": "El agua mineral tiene un sabor extraño.",
+          "createdAt": "2023-11-21T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-irpavi",
+        "mercado-achumani",
+        "mercado-miraflores"
+      ]
     },
     {
       "id": 29,
@@ -344,7 +898,27 @@
       "description": "Jugo de naranja natural, 1L.",
       "price": 1.99,
       "category": "Beverages",
-      "imageUrl": "https://www.manabiche.com/wp-content/uploads/2020/05/naranja-600x600v2.jpg"
+      "imageUrl": "https://www.manabiche.com/wp-content/uploads/2020/05/naranja-600x600v2.jpg",
+      "reports": [
+        {
+          "id": 53,
+          "userId": "53",
+          "reportType": "price",
+          "description": "El precio del jugo de naranja ha subido demasiado.",
+          "createdAt": "2023-11-22T12:00:00Z"
+        },
+        {
+          "id": 54,
+          "userId": "54",
+          "reportType": "quality",
+          "description": "El jugo de naranja está muy ácido.",
+          "createdAt": "2023-11-23T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-strongest",
+        "mercado-el-carmen"
+      ]
     },
     {
       "id": 30,
@@ -352,57 +926,206 @@
       "description": "Tableta de chocolate oscuro 70%, 100g.",
       "price": 3.50,
       "category": "Snacks",
-      "imageUrl": "https://proexpansion.com/uploads/ckeditor/pictures/1308/content_chocolate_dark.jpg"
+      "imageUrl": "https://proexpansion.com/uploads/ckeditor/pictures/1308/content_chocolate_dark.jpg",
+      "reports": [
+        {
+          "id": 55,
+          "userId": "55",
+          "reportType": "price",
+          "description": "El precio del chocolate oscuro ha subido demasiado.",
+          "createdAt": "2023-11-24T12:00:00Z"
+        },
+        {
+          "id": 56,
+          "userId": "56",
+          "reportType": "quality",
+          "description": "El chocolate oscuro está muy amargo.",
+          "createdAt": "2023-11-25T12:00:00Z"
+        }
+      ],
+      "zones": [
+        "mercado-hinojosa",
+        "mercado-obrajes",
+        "mercado-sopocachi"
+      ]
     }
   ],
-  "barrios": [
+  "zones": [
     {
-      "id": "1",
-      "name": "Barrio A",
-      "description": "Description of Barrio A",
-      "location": "Location A",
-      "createdAt": "2023-10-01T12:00:00Z",
-      "updatedAt": "2023-10-01T12:00:00Z"
+      "id": "mercado-rodriguez",
+      "name": "Mercado Rodríguez",
+      "coords": [
+        -16.5003341,
+        -68.1394305
+      ]
     },
     {
-      "id": "2",
-      "name": "Barrio B",
-      "description": "Description of Barrio B",
-      "location": "Location B",
-      "createdAt": "2023-10-01T12:00:00Z",
-      "updatedAt": "2023-10-01T12:00:00Z"
+      "id": "mercado-camacho",
+      "name": "Mercado Camacho",
+      "coords": [
+        -16.5006915,
+        -68.1311919
+      ]
     },
     {
-      "id": "3",
-      "name": "Barrio C",
-      "description": "Description of Barrio C",
-      "location": "Location C",
-      "createdAt": "2023-10-01T12:00:00Z",
-      "updatedAt": "2023-10-01T12:00:00Z"
+      "id": "mercado-lanza",
+      "name": "Mercado Lanza",
+      "coords": [
+        -16.4950176,
+        -68.1374067
+      ]
     },
     {
-      "id": 4,
-      "name": "Barrio D",
-      "description": "Description of Barrio D",
-      "location": "Location D",
-      "createdAt": "2023-10-01T12:00:00Z",
-      "updatedAt": "2023-10-01T12:00:00Z"
+      "id": "mercado-yungas",
+      "name": "Mercado Yungas",
+      "coords": [
+        -16.497143,
+        -68.1293081
+      ]
     },
     {
-      "id": 5,
-      "name": "Barrio E",
-      "description": "Description of Barrio E",
-      "location": "Location E",
-      "createdAt": "2023-10-01T12:00:00Z",
-      "updatedAt": "2023-10-01T12:00:00Z"
+      "id": "mercado-villa-fatima",
+      "name": "Mercado Villa Fátima",
+      "coords": [
+        -16.480184,
+        -68.121099
+      ]
     },
     {
-      "id": 6,
-      "name": "Barrio F",
-      "description": "Description of Barrio F",
-      "location": "Location F",
-      "createdAt": "2023-10-01T12:00:00Z",
-      "updatedAt": "2023-10-01T12:00:00Z"
+      "id": "mercado-uruguay",
+      "name": "Mercado Uruguay",
+      "coords": [
+        -16.4975674,
+        -68.1438921
+      ]
+    },
+    {
+      "id": "calle-antonio-gallardo",
+      "name": "Calle Antonio Gallardo",
+      "coords": [
+        -16.5012932,
+        -68.1453075
+      ]
+    },
+    {
+      "id": "calle-leon-de-la-barra",
+      "name": "Calle León de la Barra",
+      "coords": [
+        -16.4987561,
+        -68.1423108
+      ]
+    },
+    {
+      "id": "calle-benancio-burgoa",
+      "name": "Calle Benancio Burgoa",
+      "coords": [
+        -16.5026135,
+        -68.1409326
+      ]
+    },
+    {
+      "id": "mercado-el-tejar",
+      "name": "Mercado El Tejar",
+      "coords": [
+        -16.4960168,
+        -68.1551476
+      ]
+    },
+    {
+      "id": "mercado-achumani",
+      "name": "Mercado Achumani",
+      "coords": [
+        -16.5308442,
+        -68.0733913
+      ]
+    },
+    {
+      "id": "mercado-sopocachi",
+      "name": "Mercado Sopocachi",
+      "coords": [
+        -16.5094741,
+        -68.1296867
+      ]
+    },
+    {
+      "id": "mercado-irpavi",
+      "name": "Mercado Irpavi",
+      "coords": [
+        -16.5246204,
+        -68.0872736
+      ]
+    },
+    {
+      "id": "mercado-los-pinos",
+      "name": "Mercado Los Pinos",
+      "coords": [
+        -16.5412272,
+        -68.0725419
+      ]
+    },
+    {
+      "id": "mercado-miraflores",
+      "name": "Mercado Miraflores",
+      "coords": [
+        -16.5014398,
+        -68.1217666
+      ]
+    },
+    {
+      "id": "mercado-ciudad-satélite",
+      "name": "Mercado Ciudad Satélite",
+      "coords": [
+        -16.5248198,
+        -68.1507144
+      ]
+    },
+    {
+      "id": "mercado-obrajes",
+      "name": "Mercado Obrajes",
+      "coords": [
+        -16.5299029,
+        -68.1024157
+      ]
+    },
+    {
+      "id": "mercado-alto-seguencoma",
+      "name": "Mercado Alto Seguencoma",
+      "coords": [
+        -16.5340152,
+        -68.1042403
+      ]
+    },
+    {
+      "id": "mercado-el-carmen",
+      "name": "Mercado El Carmen",
+      "coords": [
+        -16.5146527,
+        -68.1263616
+      ]
+    },
+    {
+      "id": "mercado-strongest",
+      "name": "Mercado Strongest",
+      "coords": [
+        -16.5155925,
+        -68.1399941
+      ]
+    },
+    {
+      "id": "mercado-hinojosa",
+      "name": "Mercado Hinojosa",
+      "coords": [
+        -16.5033822,
+        -68.144492
+      ]
+    },
+    {
+      "id": "garita-de-lima",
+      "name": "Garita de Lima",
+      "coords": [
+        -16.495697,
+        -68.145606
+      ]
     }
   ]
 }
