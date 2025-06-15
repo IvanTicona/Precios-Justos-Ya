@@ -1,9 +1,12 @@
-import { MapaPage } from "./pages/MapaPage"
+import { AppRoutes } from "./routes/routes";
+import { UserProvider } from "./contexts/UserContext";
 
 function App() {
   return (
-    <MapaPage/>
-  )
+    <UserProvider>
+      <AppRoutes />
+    </UserProvider>
+  );
 }
 
-export default App
+export default App;

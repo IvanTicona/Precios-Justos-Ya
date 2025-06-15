@@ -1,9 +1,11 @@
 export interface Product {
-  id: number;
+  id: string;
   name: string;
   description: string;
   price: number;
-  category: string;
-  stock: number;         
   imageUrl: string;
+  stock: number;
+  zone_id: string;
+  isEdited: boolean;
+
 }

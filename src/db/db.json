@@ -1,96 +1,149 @@
 {
   "users": [
+    { "id": "1", "email": "cliente@example.com", "password": "password123", "role": "cliente" },
+    { "id": "2", "email": "alcaldia@example.com", "password": "password123", "role": "alcaldía" }
+  ],
+  "zones": [
     {
-      "id": "1",
-      "name": "Adrian Thompson",
-      "password": "password123",
-      "email": "thompson@gmail.com",
-      "role": "admin",
-      "createdAt": "2023-10-01T12:00:00Z",
-      "lastLogin": "2023-10-01T12:00:00Z",
-      "isActive": true,
-      "profilePicture": "https://example.com/profile/johndoe.jpg",
-      "bio": "Admin user with full access to the system.",
-      "preferences": {
-        "theme": "dark",
-        "notifications": true,
-        "language": "en-US"
-      },
-      "token": "precios3justo2ya1"
+      "id": "mercado-lanza",
+      "market": "Mercado Lanza",
+      "zone": "Centro",
+      "coords": [
+        -16.5,
+        -68.133
+      ]
     },
     {
-      "id": "2",
-      "name": "Jane Smith",
-      "password": "password123",
-      "email": "jasmith@gmail.com",
-      "role": "user",
-      "createdAt": "2023-10-01T12:00:00Z",
-      "lastLogin": "2023-10-01T12:00:00Z",
-      "isActive": true,
-      "profilePicture": "https://example.com/profile/johndoe.jpg",
-      "bio": "Admin user with full access to the system.",
-      "preferences": {
-        "theme": "dark",
-        "notifications": true,
-        "language": "en-US"
-      },
-      "token": "precios3justo2ya1"
+      "id": "mercado-rodriguez",
+      "market": "Mercado Rodríguez",
+      "zone": "Centro",
+      "coords": [
+        -16.501,
+        -68.134
+      ]
     },
     {
-      "id": "3",
-      "name": "Alexander Cruz",
-      "password": "password123",
-      "email": "alexcruz@gmail.com",
-      "role": "admin",
-      "createdAt": "2023-10-01T12:00:00Z",
-      "lastLogin": "2023-10-01T12:00:00Z",
-      "isActive": true,
-      "profilePicture": "https://example.com/profile/johndoe.jpg",
-      "bio": "Admin user with full access to the system.",
-      "preferences": {
-        "theme": "dark",
-        "notifications": true,
-        "language": "en-US"
-      },
-      "token": "precios3justo2ya1"
+      "id": "mercado-achumani",
+      "market": "Mercado Achumani",
+      "zone": "Achumani",
+      "coords": [
+        -16.55,
+        -68.1
+      ]
     },
     {
-      "id": "4",
-      "name": "Ivan Poma",
-      "password": "password123",
-      "email": "obitobi@gmail.com",
-      "role": "user",
-      "createdAt": "2023-10-01T12:00:00Z",
-      "lastLogin": "2023-10-01T12:00:00Z",
-      "isActive": true,
-      "profilePicture": "https://example.com/profile/johndoe.jpg",
-      "bio": "Admin user with full access to the system.",
-      "preferences": {
-        "theme": "dark",
-        "notifications": true,
-        "language": "en-US"
-      },
-      "token": "precios3justo2ya1"
+      "id": "mercado-victoria",
+      "market": "Mercado Victoria",
+      "zone": "Miraflores",
+      "coords": [
+        -16.52,
+        -68.14
+      ]
     },
     {
-      "id": "5",
-      "name": "Dorian Ticona",
-      "password": "password123",
-      "email": "doriandev@gmail.com",
-      "role": "admin",
-      "createdAt": "2023-10-01T12:00:00Z",
-      "lastLogin": "2023-10-01T12:00:00Z",
-      "isActive": true,
-      "profilePicture": "https://example.com/profile/johndoe.jpg",
-      "bio": "Admin user with full access to the system.",
-      "preferences": {
-        "theme": "dark",
-        "notifications": true,
-        "language": "en-US"
-      },
-      "token": "precios3justo2ya1"
+      "id": "mercado-camacho",
+      "market": "Mercado Camacho",
+      "zone": "Sopocachi",
+      "coords": [
+        -16.51,
+        -68.135
+      ]
     }
   ],
+  "products": [
+    {
+      "id": "prod-banana-victoria",
+      "name": "Plátano",
+      "description": "Plátano dulce y maduro",
+      "price": 6,
+      "stock": 130,
+      "zone_id": "mercado-victoria",
+      "isEdited": true
+    },
+    {
+      "id": "prod-orange-camacho",
+      "name": "Naranja",
+      "description": "Naranja jugosa ideal para jugos",
+      "price": 9,
+      "stock": 200,
+      "zone_id": "mercado-camacho",
+      "isEdited": true
+    },
+    {
+      "id": "prod-orange-lanza",
+      "name": "Naranja",
+      "description": "Naranja jugosa ideal para jugos",
+      "price": 8,
+      "stock": 180,
+      "zone_id": "mercado-lanza",
+      "isEdited": true
+    },
+    {
+      "id": "prod-avocado-rodriguez",
+      "name": "Palta",
+      "description": "Palta cremosa de alta calidad",
+      "price": 15,
+      "stock": 70,
+      "zone_id": "mercado-rodriguez"
+    },
+    {
+      "id": "prod-avocado-achumani",
+      "name": "Palta",
+      "description": "Palta cremosa de alta calidad",
+      "price": 16,
+      "stock": 60,
+      "zone_id": "mercado-achumani"
+    },
+    {
+      "id": "prod-potato-rodriguez",
+      "name": "Papa",
+      "description": "Papa blanca para todo uso",
+      "price": 3,
+      "stock": 300,
+      "zone_id": "mercado-rodriguez"
+    },
+    {
+      "id": "prod-potato-camacho",
+      "name": "Papa",
+      "description": "Papa blanca para todo uso",
+      "price": 4,
+      "stock": 250,
+      "zone_id": "mercado-camacho"
+    },
+    {
+      "id": "prod-lettuce-victoria",
+      "name": "Lechuga",
+      "description": "Lechuga fresca para ensalada",
+      "price": 2,
+      "stock": 100,
+      "zone_id": "mercado-victoria"
+    },
+    {
+      "id": "prod-lettuce-lanza",
+      "name": "Lechuga",
+      "description": "Lechuga fresca para ensalada",
+      "price": 2.5,
+      "stock": 120,
+      "zone_id": "mercado-lanza"
+    },
+    {
+      "id": "prod-tomato-camacho",
+      "name": "Tomate",
+      "description": "Tomate rojo ideal para salsa",
+      "price": 7,
+      "stock": 180,
+      "zone_id": "mercado-camacho"
+    },
+    {
+      "id": "prod-tomato-rodriguez",
+      "name": "Tomate",
+      "description": "Tomate rojo ideal para salsa",
+      "price": 6.5,
+      "stock": 190,
+      "zone_id": "mercado-rodriguez"
+    }
+  ],
+
   "markets": [
     {
       "id": "1",
@@ -180,36 +233,64 @@
       ]
     },
     {
-      "id": "4",
-      "name": "Barrio Sopocachi",
-      "description": "Barrio bohemio y artístico, conocido por su vida nocturna y cafés.",
-      "tipo": "barrio",
-      "latitude": -16.51076,
-      "longitude": -68.12749,
-      "imgUrl": "https://laoctavabo.com/wp-content/uploads/2024/11/Captura-de-pantalla-2024-11-29-001349.png",
-      "location": "Sopocachi",
-      "products": []
+      "id": "b4d84037-7e20-4cab-a139-2d1a72032ab6",
+      "name": "Plátano2",
+      "description": "Plátano dulce y maduro",
+      "price": 15,
+      "stock": 1301,
+      "zone_id": "mercado-victoria",
+      "imageUrl": "",
+      "isEdited": true
     },
     {
-      "id": "5",
-      "name": "Barrio Miraflores",
-      "description": "Barrio residencial y deportivo donde se ubica el Estadio Hernando Siles.",
-      "tipo": "barrio",
-      "latitude": -16.50552,
-      "longitude": -68.12220,
-      "imgUrl": "https://images.squarespace-cdn.com/content/v1/64a59a333ef1690947fc57d8/1688574553692-107U4EFD5I1W0CZOM69J/DSC01755.jpg",
-      "location": "Miraflores",
-      "products": []
+      "id": "a8dd7129-6f79-4f4a-844e-139ddcd4344d",
+      "name": "Plátano",
+      "description": "Plátano dulce y maduro",
+      "price": 151,
+      "stock": 1301,
+      "zone_id": "mercado-victoria",
+      "imageUrl": "",
+      "isEdited": true
     },
     {
-      "id": "6",
-      "name": "Zona San Miguel",
-      "description": "Área comercial de la zona Sur, reconocida por tiendas y restaurantes.",
-      "tipo": "zona",
-      "latitude": -16.52330,
-      "longitude": -68.10800,
-      "imgUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/24/8f/01/san-miguel.jpg?w=1200&h=-1&s=1",
-      "products": []
+      "id": "afe1e986-08cb-4a76-a89a-58a2b4256c4c",
+      "name": "Plátano",
+      "description": "Plátano dulce y maduro",
+      "price": 10,
+      "stock": 1301,
+      "zone_id": "mercado-victoria",
+      "imageUrl": "",
+      "isEdited": true
+    },
+    {
+      "id": "0e27925a-f519-4b2e-9579-1f6cb7f0bae6",
+      "name": "Naranja",
+      "description": "Naranja jugosa ideal para jugos",
+      "price": 11,
+      "stock": 12,
+      "zone_id": "mercado-camacho",
+      "imageUrl": "",
+      "isEdited": false
+    },
+    {
+      "id": "d876656d-7a0e-4955-847b-ce225996ee61",
+      "name": "Naranja",
+      "description": "Naranja jugosa ideal para jugos",
+      "price": 17,
+      "stock": 19,
+      "zone_id": "mercado-lanza",
+      "imageUrl": "",
+      "isEdited": false
+    },
+    {
+      "id": "e25e021a-61f7-4a95-a4b2-b8be00f0ffe8",
+      "name": "Manzana",
+      "price": 12,
+      "description": "Manzana roja con pulpa interesante ",
+      "imageUrl": "",
+      "stock": 1012,
+      "zone_id": "mercado-rodriguez",
+      "isEdited": false
     }
   ]
 }
