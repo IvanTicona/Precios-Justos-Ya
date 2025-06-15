@@ -42,7 +42,7 @@ const Sidebar = ({
             <ListItemIcon>
               <BusinessCenterIcon />
             </ListItemIcon>
-            <ListItemText primary="Proyectos" />
+            <ListItemText primary="Products" />
           </ListItemButton>
         </ListItem>
 

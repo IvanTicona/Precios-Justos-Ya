@@ -87,13 +87,11 @@ export const editProduct = async (originalProduct: Product, updatedProduct: Part
   try {
     // Mark the original product as edited
     await markProductAsEdited(originalProduct.id);
-    
-    // Create a new product with the updated values
-    const newProduct = {
+        const newProduct = {
       ...originalProduct,
       ...updatedProduct,
-      id: uuidv4(), // Generate new ID for the new product
-      isEdited: false // New product is not edited
+      id: uuidv4(),
+      isEdited: false
     };
     
     const response = await createProduct(newProduct);

@@ -11,7 +11,7 @@ export const loginUser = async (email: string, password: string): Promise<User> 
     const response = await jsonServerInstance.get("/users", {
         params: { email, password }
     });
-    console.log("Server response:", response.data); // Debug log
+    console.log("Server response:", response.data);
     return response.data[0];
   } catch (error) {
     if (error instanceof AxiosError) {
