@@ -4,6 +4,7 @@ import { Layout } from "../layout/Layout";
 import ProductPage from "../pages/productPage";
 import LoginPage from "../pages/LoginPage";
 import ProtectedRoutes from "../guards/ProtectedRoutes";
+import ReportsList from "../pages/ReportsList";
 
 export const AppRoutes = () => {
   return (
@@ -25,6 +26,7 @@ export const AppRoutes = () => {
         >
           <Route path="products" element={<ProductsPage />} />
           <Route path="products/:productId" element={<ProductPage />} />
+          <Route path="reports" element={<ReportsList/>}/>
         </Route>
         <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>

@@ -140,5 +140,21 @@
       "token": "xyz789alcaldia",
       "password": "pass789alcaldia"
     }
+  ],
+  "reports": [
+    {
+      "id": "aabc",
+      "price": 15,
+      "address": "Pasoskanki",
+      "storeName": "Mercado Lanza",
+      "reason": "shortage"
+    },
+    {
+      "id": "8540",
+      "price": 16,
+      "address": "Achumani",
+      "storeName": "Mercado Achumani ",
+      "reason": "unfair_price"
+    }
   ]
 }
