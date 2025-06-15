@@ -4,6 +4,7 @@ import { Layout } from "../layout/Layout";
 import ProductPage from "../pages/productPage";
 import LoginPage from "../pages/LoginPage";
 import { useUser } from "../contexts/UserContext";
+import { MapaPage } from "../pages/MapaPage";
 
 // const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 //   const { isAuthenticated } = useUser();
@@ -35,6 +36,7 @@ export const AppRoutes = () => {
            // </ProtectedRoute>
           }
         >
+          <Route path="map" element={<MapaPage/>}/>
           <Route path="products" element={<ProductsPage />} />
           <Route path="products/:productId" element={<ProductPage />} />
         </Route>

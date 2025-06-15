@@ -9,7 +9,7 @@ export interface Market {
   tipo: TipoMercado; //Esto
   latitude: number;   // Esto mas 
   longitude: number; // Esto
-  imgUrl?: string;  // Esto como opcional
+  imgUrl: string;  // Esto como opcional
   products: Product[];  // No se toca se genera vacio..
 
 }

@@ -1,7 +1,17 @@
 {
   "users": [
-    { "id": "1", "email": "cliente@example.com", "password": "password123", "role": "cliente" },
-    { "id": "2", "email": "alcaldia@example.com", "password": "password123", "role": "alcaldía" }
+    {
+      "id": "1",
+      "email": "cliente@example.com",
+      "password": "password123",
+      "role": "cliente"
+    },
+    {
+      "id": "2",
+      "email": "alcaldia@example.com",
+      "password": "password123",
+      "role": "alcaldía"
+    }
   ],
   "zones": [
     {
@@ -79,6 +89,66 @@
       "isEdited": true
     },
     {
+      "id": "b4d84037-7e20-4cab-a139-2d1a72032ab6",
+      "name": "Plátano2",
+      "description": "Plátano dulce y maduro",
+      "price": 15,
+      "stock": 1301,
+      "zone_id": "mercado-victoria",
+      "imageUrl": "",
+      "isEdited": true
+    },
+    {
+      "id": "a8dd7129-6f79-4f4a-844e-139ddcd4344d",
+      "name": "Plátano",
+      "description": "Plátano dulce y maduro",
+      "price": 151,
+      "stock": 1301,
+      "zone_id": "mercado-victoria",
+      "imageUrl": "",
+      "isEdited": true
+    },
+    {
+      "id": "afe1e986-08cb-4a76-a89a-58a2b4256c4c",
+      "name": "Plátano",
+      "description": "Plátano dulce y maduro",
+      "price": 10,
+      "stock": 1301,
+      "zone_id": "mercado-victoria",
+      "imageUrl": "",
+      "isEdited": true
+    },
+    {
+      "id": "0e27925a-f519-4b2e-9579-1f6cb7f0bae6",
+      "name": "Naranja",
+      "description": "Naranja jugosa ideal para jugos",
+      "price": 11,
+      "stock": 12,
+      "zone_id": "mercado-camacho",
+      "imageUrl": "",
+      "isEdited": false
+    },
+    {
+      "id": "d876656d-7a0e-4955-847b-ce225996ee61",
+      "name": "Naranja",
+      "description": "Naranja jugosa ideal para jugos",
+      "price": 17,
+      "stock": 19,
+      "zone_id": "mercado-lanza",
+      "imageUrl": "",
+      "isEdited": false
+    },
+    {
+      "id": "e25e021a-61f7-4a95-a4b2-b8be00f0ffe8",
+      "name": "Manzana",
+      "price": 12,
+      "description": "Manzana roja con pulpa interesante ",
+      "imageUrl": "",
+      "stock": 1012,
+      "zone_id": "mercado-rodriguez",
+      "isEdited": false
+    },
+    {
       "id": "prod-avocado-rodriguez",
       "name": "Palta",
       "description": "Palta cremosa de alta calidad",
@@ -143,43 +213,13 @@
       "zone_id": "mercado-rodriguez"
     }
   ],
-
   "markets": [
-    {
-      "id": "1",
-      "name": "Mercado Rodríguez",
-      "description": "Mercado popular de abarrotes y productos frescos en la zona norte del centro paceño.",
-      "tipo": "zona",
-      "latitude": -16.50057,
-      "longitude": -68.13857,
-      "imgUrl": "https://alimentos-bolivia.com/images/mercado%20rodriguez.jpg",
-      "products": [
-        {
-          "id": 1,
-          "name": "Product A",
-          "description": "Description of Product A",
-          "price": 19.99,
-          "category": "Electronics",
-          "stock": 100,
-          "imageUrl": "https://example.com/product-a.jpg"
-        },
-        {
-          "id": 2,
-          "name": "Product B",
-          "description": "Description of Product B",
-          "price": 29.99,
-          "category": "Books",
-          "stock": 50,
-          "imageUrl": "https://example.com/product-b.jpg"
-        }
-      ]
-    },
     {
       "id": "2",
       "name": "Mercado Lanza",
-      "description": "Mercado emblemático ubicado junto a la Plaza San Francisco, con cuatro niveles de oferta gastronómica y abarrotes.",
+      "description": "Mercado emblemático ubicado junto a la Plaza San Francisco.",
       "tipo": "zona",
-      "latitude": -16.49470,
+      "latitude": -16.4947,
       "longitude": -68.13746,
       "imgUrl": "https://viajerosxbolivia.com/wp-content/uploads/Mercado-Lanza.png",
       "products": [
@@ -233,64 +273,62 @@
       ]
     },
     {
-      "id": "b4d84037-7e20-4cab-a139-2d1a72032ab6",
-      "name": "Plátano2",
-      "description": "Plátano dulce y maduro",
-      "price": 15,
-      "stock": 1301,
-      "zone_id": "mercado-victoria",
-      "imageUrl": "",
-      "isEdited": true
+      "id": "4",
+      "name": "Barrio Sopocachi",
+      "description": "Barrio bohemio y artístico, conocido por su vida nocturna y cafés.",
+      "tipo": "barrio",
+      "latitude": -16.51076,
+      "longitude": -68.12749,
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWaHsF7vYl5_ewl2uwzs949lno71c1Vg4nIQ&s",
+      "location": "Sopocachi",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "products": []
     },
     {
-      "id": "a8dd7129-6f79-4f4a-844e-139ddcd4344d",
-      "name": "Plátano",
-      "description": "Plátano dulce y maduro",
-      "price": 151,
-      "stock": 1301,
-      "zone_id": "mercado-victoria",
-      "imageUrl": "",
-      "isEdited": true
+      "id": "5",
+      "name": "Barrio Miraflores",
+      "description": "Barrio residencial y deportivo donde se ubica el Estadio Hernando Siles. jodase",
+      "tipo": "barrio",
+      "latitude": -16.50552,
+      "longitude": -68.1222,
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfmGqJHOVbqRxBKbETnyFdoc-x6Gf4y9blTg&s",
+      "location": "Miraflores",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "products": []
     },
     {
-      "id": "afe1e986-08cb-4a76-a89a-58a2b4256c4c",
-      "name": "Plátano",
-      "description": "Plátano dulce y maduro",
-      "price": 10,
-      "stock": 1301,
-      "zone_id": "mercado-victoria",
-      "imageUrl": "",
-      "isEdited": true
+      "id": "6",
+      "name": "Zona San Miguel",
+      "description": "Área comercial de la zona Sur, reconocida por tiendas y restaurantes.",
+      "tipo": "zona",
+      "latitude": -16.5233,
+      "longitude": -68.108,
+      "imgUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/24/8f/01/san-miguel.jpg?w=1200&h=-1&s=1",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "products": []
     },
     {
-      "id": "0e27925a-f519-4b2e-9579-1f6cb7f0bae6",
-      "name": "Naranja",
-      "description": "Naranja jugosa ideal para jugos",
-      "price": 11,
-      "stock": 12,
-      "zone_id": "mercado-camacho",
-      "imageUrl": "",
-      "isEdited": false
+      "id": "eb609a36-a9af-45d8-a42a-c8eae336127c",
+      "name": "San Pedro",
+      "description": "Buena diversidad se encutra todo tipo de alimentos",
+      "tipo": "barrio",
+      "latitude": -16.23717,
+      "longitude": -68.85063,
+      "imgUrl": "https://www.noticiasfides.com/images/news/2025/01/u-penal-de-san-pedro-foto-anf_1737690095.jpg",
+      "products": []
     },
     {
-      "id": "d876656d-7a0e-4955-847b-ce225996ee61",
-      "name": "Naranja",
-      "description": "Naranja jugosa ideal para jugos",
-      "price": 17,
-      "stock": 19,
-      "zone_id": "mercado-lanza",
-      "imageUrl": "",
-      "isEdited": false
-    },
-    {
-      "id": "e25e021a-61f7-4a95-a4b2-b8be00f0ffe8",
-      "name": "Manzana",
-      "price": 12,
-      "description": "Manzana roja con pulpa interesante ",
-      "imageUrl": "",
-      "stock": 1012,
-      "zone_id": "mercado-rodriguez",
-      "isEdited": false
+      "id": "f201fd3d-7328-411e-b18d-77fff2dca97e",
+      "name": "Prado",
+      "description": "Esta en el Prado holaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "tipo": "otro",
+      "latitude": -16.501831,
+      "longitude": -68.132915,
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Cristobal_Col%C3%B3n_La_Paz.jpg",
+      "products": []
     }
   ]
 }
