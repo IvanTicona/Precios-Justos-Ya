@@ -12,9 +12,8 @@ import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useUser } from '../contexts/UserContext';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
+import { useAuthStore } from '../store/authStore'; // Importar useAuthStore
+import { loginUser } from '../services/authService'; // Importar loginUser
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -58,8 +57,8 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
   },
 }));
 
-export default function SignIn(props: { disableCustomTheme?: boolean }) {
-  const { login } = useUser();
+export default function SignIn() {
+  const { login } = useAuthStore(); // Obtener login del store
   const navigate = useNavigate();
   const [error, setError] = React.useState<string | null>(null);
 
@@ -67,20 +66,21 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
     initialValues: {
       email: '',
       password: '',
-      role: 'cliente' as 'cliente' | 'alcaldía',
     },
     validationSchema: Yup.object({
       email: Yup.string().email('Invalid email address').required('Required'),
       password: Yup.string().min(6, 'Password must be at least 6 characters').required('Required'),
-      role: Yup.string().oneOf(['cliente', 'alcaldía'], 'Invalid role').required('Required'),
     }),
-    onSubmit: async (values) => {
+    onSubmit: async (values, { setSubmitting }) => {
       try {
-        await login(values.email, values.password);
-        navigate('/app/products');
-      } catch (error) {
-        console.error(error);
-        setError('Invalid email or password');      }
+        const user = await loginUser(values.email, values.password); // Llamar a loginUser
+        login(user); // Usar login del store para actualizar user e isAuthenticated
+        navigate('/app/products', { replace: true }); // Redirigir a /app/products
+      } catch (err) {
+        console.error('Login error:', err);
+        setError('Invalid email or password');
+        setSubmitting(false);
+      }
     },
   });
 
@@ -143,27 +143,6 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
                 error={formik.touched.password && Boolean(formik.errors.password)}
                 helperText={formik.touched.password && formik.errors.password}
               />
-            </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="role">Role</FormLabel>
-              <Select
-                id="role"
-                name="role"
-                value={formik.values.role}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.touched.role && Boolean(formik.errors.role)}
-                fullWidth
-                variant="outlined"
-              >
-                <MenuItem value="cliente">Cliente</MenuItem>
-                <MenuItem value="alcaldía">Alcaldía</MenuItem>
-              </Select>
-              {formik.touched.role && formik.errors.role && (
-                <Typography color="error" variant="caption">
-                  {formik.errors.role}
-                </Typography>
-              )}
             </FormControl>
             {error && <Typography color="error">{error}</Typography>}
             <Button type="submit" fullWidth variant="contained" disabled={formik.isSubmitting}>

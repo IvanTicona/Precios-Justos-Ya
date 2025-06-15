@@ -62,10 +62,21 @@
   ],
   "products": [
     {
+      "id": "prod-apple-lanza",
+      "name": "Manzana Roja",
+      "description": "Manzana fresca y jugosa",
+      "price": 10,
+      "imageUrl": "https://example.com/images/apple.png",
+      "stock": 100,
+      "zone_id": "mercado-lanza",
+      "isEdited": false
+    },
+    {
       "id": "prod-banana-victoria",
       "name": "Plátano",
       "description": "Plátano dulce y maduro",
       "price": 6,
+      "imageUrl": "https://example.com/images/banana.png",
       "stock": 130,
       "zone_id": "mercado-victoria",
       "isEdited": true
@@ -75,6 +86,7 @@
       "name": "Naranja",
       "description": "Naranja jugosa ideal para jugos",
       "price": 9,
+      "imageUrl": "https://example.com/images/orange.png",
       "stock": 200,
       "zone_id": "mercado-camacho",
       "isEdited": true
@@ -161,46 +173,37 @@
       "name": "Palta",
       "description": "Palta cremosa de alta calidad",
       "price": 16,
+      "imageUrl": "https://example.com/images/avocado.png",
       "stock": 60,
-      "zone_id": "mercado-achumani"
+      "zone_id": "mercado-achumani",
+      "isEdited": false
     },
     {
       "id": "prod-potato-rodriguez",
       "name": "Papa",
       "description": "Papa blanca para todo uso",
       "price": 3,
+      "imageUrl": "https://example.com/images/potato.png",
       "stock": 300,
-      "zone_id": "mercado-rodriguez"
-    },
-    {
-      "id": "prod-potato-camacho",
-      "name": "Papa",
-      "description": "Papa blanca para todo uso",
-      "price": 4,
-      "stock": 250,
-      "zone_id": "mercado-camacho"
-    },
-    {
-      "id": "prod-lettuce-victoria",
-      "name": "Lechuga",
-      "description": "Lechuga fresca para ensalada",
-      "price": 2,
-      "stock": 100,
-      "zone_id": "mercado-victoria"
+      "zone_id": "mercado-rodriguez",
+      "isEdited": true
     },
     {
       "id": "prod-lettuce-lanza",
       "name": "Lechuga",
       "description": "Lechuga fresca para ensalada",
       "price": 2.5,
+      "imageUrl": "https://example.com/images/lettuce.png",
       "stock": 120,
-      "zone_id": "mercado-lanza"
+      "zone_id": "mercado-lanza",
+      "isEdited": false
     },
     {
       "id": "prod-tomato-camacho",
       "name": "Tomate",
       "description": "Tomate rojo ideal para salsa",
       "price": 7,
+      "imageUrl": "https://example.com/images/tomato.png",
       "stock": 180,
       "zone_id": "mercado-camacho"
     },

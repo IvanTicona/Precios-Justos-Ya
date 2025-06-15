@@ -8,9 +8,11 @@ import {
   ListItemText,
   Toolbar,
 } from "@mui/material";
+import { Info } from "@mui/icons-material";
 import { Link, useLocation } from "react-router-dom";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import MapIcon from "@mui/icons-material/Map";
+import { useUser } from "../contexts/UserContext";
 
 const drawerWidth = 240;
 
@@ -26,6 +28,7 @@ const Sidebar = ({
   isMobile,
 }: SidebarProps) => {
   const location = useLocation();
+  const { logout } = useUser();
   const drawer = (
     <div>
       <Toolbar />
@@ -56,8 +59,19 @@ const Sidebar = ({
             <ListItemText primary="Map" />
           </ListItemButton>
         </ListItem>
-
-        <ListItem disablePadding />
+        <ListItem disablePadding>
+          <ListItemButton
+            component={Link}
+            to="/Login"
+            selected={location.pathname === "/login"}
+            onClick={logout}
+          >
+            <ListItemIcon>
+              <Info />
+            </ListItemIcon>
+            <ListItemText primary="Cerrar Sesion" />
+          </ListItemButton>
+        </ListItem>
       </List>
     </div>
   );
