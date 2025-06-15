@@ -20,6 +20,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
         >
           <MenuIcon />
         </IconButton>
+        <h2>Precios Justos Ya</h2>
       </Toolbar>
     </AppBar>
   );

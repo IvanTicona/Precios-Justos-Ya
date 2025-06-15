@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -112,7 +112,7 @@ function ProductPage() {
                 <Grid key={histProduct.id} size={{ xs: 12, sm: 6, md: 4 }}>
                   <Item>
                     <Typography variant="subtitle1">
-                      Editado: {new Date().toLocaleDateString()} {/* Adjust if you add a timestamp */}
+                      Editado: {new Date().toLocaleDateString()}
                     </Typography>
                     <Typography>Precio: ${histProduct.price.toFixed(2)}</Typography>
                     <Typography>Descripción: {histProduct.description}</Typography>

@@ -1,29 +1,28 @@
-// src/components/CardZoneComponent.tsx
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
   Box,
+  Button,
   Card,
   CardContent,
   CardMedia,
-  CardActions,
   IconButton,
-  Menu,
-  MenuItem,
-  Button,
-  Typography,
   ListItemIcon,
   ListItemText,
+  Menu,
+  MenuItem,
+  Typography,
 } from "@mui/material";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
 import type { Market } from "../interfaces/marketInterface";
+import { useAuthStore } from "../store/authStore";
 
 interface MarketCardProps {
   market: Market;
   onDelete: () => void;
   onUpdate: () => void;
-  onPrimaryAction?: () => void;     // e.g. “Ver productos”
+  onPrimaryAction?: () => void;
 }
 
 export default function CardZoneComponent({
@@ -32,9 +31,10 @@ export default function CardZoneComponent({
   onUpdate,
   onPrimaryAction,
 }: MarketCardProps) {
-  /* menu state */
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
+  const role = useAuthStore((s) => s.user?.role);
 
   const handleMenuOpen = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
@@ -53,7 +53,6 @@ export default function CardZoneComponent({
         position: "relative",
       }}
     >
-      {/* ── Media + menu button overlaid ─────────────────────── */}
       <Box position="relative">
         <CardMedia
           component="img"
@@ -63,57 +62,59 @@ export default function CardZoneComponent({
           sx={{ objectFit: "cover" }}
         />
 
-        <IconButton
-          onClick={handleMenuOpen}
-          size="small"
-          sx={{
-            position: "absolute",
-            top: 8,
-            right: 8,
-            backgroundColor: "rgba(255,255,255,0.7)",
-            "&:hover": { backgroundColor: "rgba(255,255,255,0.9)" },
-          }}
-        >
-          <MoreVertIcon fontSize="small" />
-        </IconButton>
+        {role === "alcaldía" && (
+          <>
+            <IconButton
+              onClick={handleMenuOpen}
+              size="small"
+              sx={{
+                position: "absolute",
+                top: 8,
+                right: 8,
+                backgroundColor: "rgba(255,255,255,0.7)",
+                "&:hover": { backgroundColor: "rgba(255,255,255,0.9)" },
+              }}
+            >
+              <MoreVertIcon fontSize="small" />
+            </IconButton>
 
-        {/* contextual menu */}
-        <Menu
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleMenuClose}
-          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-          transformOrigin={{ vertical: "top", horizontal: "right" }}
-        >
-          <MenuItem
-            onClick={(e) => {
-              e.stopPropagation();
-              onUpdate();
-              handleMenuClose();
-            }}
-          >
-            <ListItemIcon>
-              <EditIcon fontSize="small" />
-            </ListItemIcon>
-            <ListItemText primary="Editar zona" />
-          </MenuItem>
-          <MenuItem
-            onClick={(e) => {
-              e.stopPropagation();
-              onDelete();
-              handleMenuClose();
-            }}
-            sx={{ color: "error.main" }}
-          >
-            <ListItemIcon sx={{ color: "error.main" }}>
-              <DeleteIcon fontSize="small" />
-            </ListItemIcon>
-            <ListItemText primary="Eliminar zona" />
-          </MenuItem>
-        </Menu>
+            <Menu
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleMenuClose}
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
+            >
+              <MenuItem
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onUpdate();
+                  handleMenuClose();
+                }}
+              >
+                <ListItemIcon>
+                  <EditIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText primary="Editar zona" />
+              </MenuItem>
+              <MenuItem
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onDelete();
+                  handleMenuClose();
+                }}
+                sx={{ color: "error.main" }}
+              >
+                <ListItemIcon sx={{ color: "error.main" }}>
+                  <DeleteIcon fontSize="small" />
+                </ListItemIcon>
+                <ListItemText primary="Eliminar zona" />
+              </MenuItem>
+            </Menu>
+          </>
+        )}
       </Box>
 
-      {/* ── Core content ─────────────────────────────────────── */}
       <CardContent>
         <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
           {market.name}

@@ -33,12 +33,13 @@ const Sidebar = ({
     <div>
       <Toolbar />
       <Divider />
-      <List>
-        <ListItem disablePadding>
+      <List >
+        <ListItem disablePadding >
           <ListItemButton
             component={Link}
-            to="/app"
-            selected={location.pathname === "/app"}
+            to="/app/products"
+            selected={location.pathname === "/app/products"}
+            
           >
             <ListItemIcon>
               <BusinessCenterIcon />

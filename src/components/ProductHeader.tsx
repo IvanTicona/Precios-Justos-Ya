@@ -4,6 +4,8 @@ import CalendarViewMonthIcon from '@mui/icons-material/CalendarViewMonth';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import type { Zone } from "../interfaces/zoneInterface";
 import { useUser } from "../contexts/UserContext";
+import type { Marker } from "leaflet";
+import type { Market } from "../interfaces/marketInterface";
 
 interface ProductHeaderProps {
   openDialogHandler: () => void;

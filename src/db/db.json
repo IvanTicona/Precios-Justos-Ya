@@ -1,16 +1,25 @@
 {
   "users": [
     {
-      "id": "1",
-      "email": "cliente@example.com",
-      "password": "password123",
-      "role": "cliente"
+      "id": "user-001",
+      "email": "cliente1@example.com",
+      "role": "cliente",
+      "token": "abc123cliente",
+      "password": "pass123cliente"
     },
     {
-      "id": "2",
+      "id": "user-002",
+      "email": "cliente2@example.com",
+      "role": "cliente",
+      "token": "abc456cliente",
+      "password": "pass456cliente"
+    },
+    {
+      "id": "user-003",
       "email": "alcaldia@example.com",
-      "password": "password123",
-      "role": "alcaldía"
+      "role": "alcaldía",
+      "token": "xyz789alcaldia",
+      "password": "pass789alcaldia"
     }
   ],
   "zones": [
@@ -220,6 +229,7 @@
     {
       "id": "2",
       "name": "Mercado Lanza",
+      "idproducts": "mercado-rodriguez",
       "description": "Mercado emblemático ubicado junto a la Plaza San Francisco.",
       "tipo": "zona",
       "latitude": -16.4947,
@@ -249,6 +259,7 @@
     {
       "id": "3",
       "name": "Mercado Camacho",
+      "idproducts": "mercado-camacho",
       "description": "Mercado techado y patio de comidas al final de la avenida Camacho.",
       "tipo": "zona",
       "latitude": -16.49934,
@@ -278,6 +289,7 @@
     {
       "id": "4",
       "name": "Barrio Sopocachi",
+      "idproducts": "mercado-rodriguez",
       "description": "Barrio bohemio y artístico, conocido por su vida nocturna y cafés.",
       "tipo": "barrio",
       "latitude": -16.51076,
@@ -291,6 +303,7 @@
     {
       "id": "5",
       "name": "Barrio Miraflores",
+      "idproducts": "mercado-miraflores",
       "description": "Barrio residencial y deportivo donde se ubica el Estadio Hernando Siles. jodase",
       "tipo": "barrio",
       "latitude": -16.50552,
@@ -304,6 +317,7 @@
     {
       "id": "6",
       "name": "Zona San Miguel",
+      "idproducts": "mercado-sanmiguel",
       "description": "Área comercial de la zona Sur, reconocida por tiendas y restaurantes.",
       "tipo": "zona",
       "latitude": -16.5233,
@@ -316,6 +330,7 @@
     {
       "id": "eb609a36-a9af-45d8-a42a-c8eae336127c",
       "name": "San Pedro",
+      "idproducts": "mercado-sanpedro",
       "description": "Buena diversidad se encutra todo tipo de alimentos",
       "tipo": "barrio",
       "latitude": -16.23717,
@@ -326,6 +341,7 @@
     {
       "id": "f201fd3d-7328-411e-b18d-77fff2dca97e",
       "name": "Prado",
+      "idproducts": "mercado-prado",
       "description": "Esta en el Prado holaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "tipo": "otro",
       "latitude": -16.501831,

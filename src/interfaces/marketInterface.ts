@@ -11,5 +11,6 @@ export interface Market {
   longitude: number; // Esto
   imgUrl: string;  // Esto como opcional
   products: Product[];  // No se toca se genera vacio..
+  idproducts: string;
 
 }

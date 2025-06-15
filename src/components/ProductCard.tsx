@@ -29,7 +29,7 @@ function ProductCard({ product, zoneName, handleOpenMenu, goToProduct }: Product
           </IconButton>
           <CardMedia
             sx={{ height: 140 }}
-            image={product.imageUrl || ""}
+            image={product.imageUrl || "https://picsum.photos/200/300"}
             title={product.name}
           />
           <CardContent>
