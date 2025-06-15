@@ -14,6 +14,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAuthStore } from '../store/authStore'; // Importar useAuthStore
 import { loginUser } from '../services/authService'; // Importar loginUser
+import type { User } from '../interfaces/userInterface'; // Importar la interfaz User
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -74,8 +75,22 @@ export default function SignIn() {
     onSubmit: async (values, { setSubmitting }) => {
       try {
         const user = await loginUser(values.email, values.password); // Llamar a loginUser
-        login(user); // Usar login del store para actualizar user e isAuthenticated
-        navigate('/app/products', { replace: true }); // Redirigir a /app/products
+        // Validar que user sea un objeto User válido
+        if (
+          user &&
+          typeof user === 'object' &&
+          'id' in user &&
+          'email' in user &&
+          'role' in user &&
+          'token' in user &&
+          'password' in user &&
+          (user.role === 'cliente' || user.role === 'alcaldía')
+        ) {
+          login(user as User); // Llamar a login solo si user es válido
+          navigate('/app/products', { replace: true }); // Redirigir a /app/products
+        } else {
+          throw new Error('Usuario no encontrado');
+        }
       } catch (err) {
         console.error('Login error:', err);
         setError('Invalid email or password');
