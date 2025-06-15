@@ -1,76 +1,40 @@
-import React, { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useContext } from 'react';
 import type { ReactNode } from 'react';
-import { loginUser } from '../services/authService'; // We'll create this service
-
-interface User {
-  id: string;
-  email: string;
-  role: 'cliente' | 'alcaldía';
-  token: string;
-}
+import type { User } from '../interfaces/userInterface';
+import { clearStorage, setStorage } from '../helpers/localStorage';
 
 interface UserContextType {
   user: User | null;
   isAuthenticated: boolean;
-  login: (email: string, password: string) => Promise<void>;
+  login: (user:User) => void;
   logout: () => void;
 }
 
-const UserContext = createContext<UserContextType | undefined>(undefined);
+const UserContext = createContext<UserContextType>({} as UserContextType);
 
-interface UserProviderProps {
-  children: ReactNode;
-}
+export const useUser = () => useContext(UserContext);
 
-export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+export const UserProvider = ({ children }: { children: ReactNode }) => {
+  const [user, setUser] = useState<User>({} as User);
+  const [isAuthenticated, setIsAuth] = useState<boolean>(false);
+  const login = (user: User) => {
+    setStorage("user", user);
+    setStorage("token", user.token);
 
-  useEffect(() => {
-    // Check for stored token on page load (e.g., in localStorage)
-    const token = localStorage.getItem('authToken');
-    if (token) {
-      // Mock: Fetch user data from token (replace with actual API call)
-      const storedUser: User = JSON.parse(localStorage.getItem('user') || '{}');
-      if (storedUser.id) {
-        setUser(storedUser);
-      }
-    }
-  }, []);
-
-  const login = async (email: string, password: string) => {
-    try {
-      const response = await loginUser(email, password);
-      const userData: User = {
-        id: response.id,
-        email: response.email,
-        role: response.role,
-        token: response.token,
-      };
-      setUser(userData);
-      localStorage.setItem('authToken', response.token);
-      localStorage.setItem('user', JSON.stringify(userData));
-    } catch (error) {
-      throw new Error('Login failed: Invalid credentials');
-    }
+    setUser(user);
+    setIsAuth(true);
   };
 
   const logout = () => {
-    setUser(null);
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('user');
+    clearStorage();
+    setUser({} as User);
+    setIsAuth(false);
   };
+      console.log("En verdad se esta guardando?: ", user, isAuthenticated, login);
 
   return (
-    <UserContext.Provider value={{ user, isAuthenticated: !!user, login, logout }}>
+    <UserContext.Provider value={{ user, isAuthenticated, login, logout }}>
       {children}
     </UserContext.Provider>
   );
-};
-
-export const useUser = () => {
-  const context = React.useContext(UserContext);
-  if (context === undefined) {
-    throw new Error('useUser must be used within a UserProvider');
-  }
-  return context;
 };

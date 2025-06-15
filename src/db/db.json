@@ -1,8 +1,4 @@
 {
-  "users": [
-    { "id": "1", "email": "cliente@example.com", "password": "password123", "role": "cliente" },
-    { "id": "2", "email": "alcaldia@example.com", "password": "password123", "role": "alcaldía" }
-  ],
   "zones": [
     {
       "id": "mercado-lanza",
@@ -52,10 +48,21 @@
   ],
   "products": [
     {
+      "id": "prod-apple-lanza",
+      "name": "Manzana Roja",
+      "description": "Manzana fresca y jugosa",
+      "price": 10,
+      "imageUrl": "https://example.com/images/apple.png",
+      "stock": 100,
+      "zone_id": "mercado-lanza",
+      "isEdited": false
+    },
+    {
       "id": "prod-banana-victoria",
       "name": "Plátano",
       "description": "Plátano dulce y maduro",
       "price": 6,
+      "imageUrl": "https://example.com/images/banana.png",
       "stock": 130,
       "zone_id": "mercado-victoria",
       "isEdited": true
@@ -65,142 +72,73 @@
       "name": "Naranja",
       "description": "Naranja jugosa ideal para jugos",
       "price": 9,
+      "imageUrl": "https://example.com/images/orange.png",
       "stock": 200,
       "zone_id": "mercado-camacho",
-      "isEdited": true
-    },
-    {
-      "id": "prod-orange-lanza",
-      "name": "Naranja",
-      "description": "Naranja jugosa ideal para jugos",
-      "price": 8,
-      "stock": 180,
-      "zone_id": "mercado-lanza",
-      "isEdited": true
-    },
-    {
-      "id": "prod-avocado-rodriguez",
-      "name": "Palta",
-      "description": "Palta cremosa de alta calidad",
-      "price": 15,
-      "stock": 70,
-      "zone_id": "mercado-rodriguez"
+      "isEdited": false
     },
     {
       "id": "prod-avocado-achumani",
       "name": "Palta",
       "description": "Palta cremosa de alta calidad",
       "price": 16,
+      "imageUrl": "https://example.com/images/avocado.png",
       "stock": 60,
-      "zone_id": "mercado-achumani"
+      "zone_id": "mercado-achumani",
+      "isEdited": false
     },
     {
       "id": "prod-potato-rodriguez",
       "name": "Papa",
       "description": "Papa blanca para todo uso",
       "price": 3,
+      "imageUrl": "https://example.com/images/potato.png",
       "stock": 300,
-      "zone_id": "mercado-rodriguez"
-    },
-    {
-      "id": "prod-potato-camacho",
-      "name": "Papa",
-      "description": "Papa blanca para todo uso",
-      "price": 4,
-      "stock": 250,
-      "zone_id": "mercado-camacho"
-    },
-    {
-      "id": "prod-lettuce-victoria",
-      "name": "Lechuga",
-      "description": "Lechuga fresca para ensalada",
-      "price": 2,
-      "stock": 100,
-      "zone_id": "mercado-victoria"
+      "zone_id": "mercado-rodriguez",
+      "isEdited": true
     },
     {
       "id": "prod-lettuce-lanza",
       "name": "Lechuga",
       "description": "Lechuga fresca para ensalada",
       "price": 2.5,
+      "imageUrl": "https://example.com/images/lettuce.png",
       "stock": 120,
-      "zone_id": "mercado-lanza"
+      "zone_id": "mercado-lanza",
+      "isEdited": false
     },
     {
       "id": "prod-tomato-camacho",
       "name": "Tomate",
       "description": "Tomate rojo ideal para salsa",
       "price": 7,
+      "imageUrl": "https://example.com/images/tomato.png",
       "stock": 180,
-      "zone_id": "mercado-camacho"
-    },
-    {
-      "id": "prod-tomato-rodriguez",
-      "name": "Tomate",
-      "description": "Tomate rojo ideal para salsa",
-      "price": 6.5,
-      "stock": 190,
-      "zone_id": "mercado-rodriguez"
-    },
-    {
-      "id": "b4d84037-7e20-4cab-a139-2d1a72032ab6",
-      "name": "Plátano2",
-      "description": "Plátano dulce y maduro",
-      "price": 15,
-      "stock": 1301,
-      "zone_id": "mercado-victoria",
-      "imageUrl": "",
-      "isEdited": true
-    },
-    {
-      "id": "a8dd7129-6f79-4f4a-844e-139ddcd4344d",
-      "name": "Plátano",
-      "description": "Plátano dulce y maduro",
-      "price": 151,
-      "stock": 1301,
-      "zone_id": "mercado-victoria",
-      "imageUrl": "",
-      "isEdited": true
-    },
-    {
-      "id": "afe1e986-08cb-4a76-a89a-58a2b4256c4c",
-      "name": "Plátano",
-      "description": "Plátano dulce y maduro",
-      "price": 10,
-      "stock": 1301,
-      "zone_id": "mercado-victoria",
-      "imageUrl": "",
-      "isEdited": true
-    },
-    {
-      "id": "0e27925a-f519-4b2e-9579-1f6cb7f0bae6",
-      "name": "Naranja",
-      "description": "Naranja jugosa ideal para jugos",
-      "price": 11,
-      "stock": 12,
       "zone_id": "mercado-camacho",
-      "imageUrl": "",
       "isEdited": false
+    }
+  ],
+  "users": [
+    {
+      "id": "user-001",
+      "email": "cliente1@example.com",
+      "role": "cliente",
+      "token": "abc123cliente",
+      "password": "pass123cliente"
     },
     {
-      "id": "d876656d-7a0e-4955-847b-ce225996ee61",
-      "name": "Naranja",
-      "description": "Naranja jugosa ideal para jugos",
-      "price": 17,
-      "stock": 19,
-      "zone_id": "mercado-lanza",
-      "imageUrl": "",
-      "isEdited": false
+      "id": "user-002",
+      "email": "cliente2@example.com",
+      "role": "cliente",
+      "token": "abc456cliente",
+      "password": "pass456cliente"
     },
     {
-      "id": "e25e021a-61f7-4a95-a4b2-b8be00f0ffe8",
-      "name": "Manzana",
-      "price": 12,
-      "description": "Manzana roja con pulpa interesante ",
-      "imageUrl": "",
-      "stock": 1012,
-      "zone_id": "mercado-rodriguez",
-      "isEdited": false
+      "id": "user-003",
+      "email": "alcaldia@example.com",
+      "role": "alcaldía",
+      "token": "xyz789alcaldia",
+      "password": "pass789alcaldia"
     }
   ]
 }
