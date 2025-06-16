@@ -24,7 +24,6 @@ const marketSchema = Yup.object({
   imgUrl: Yup.string().url("Debe ser una URL válida").optional(),
 });
 
-
 export const useMarkets = () => {
   const {
     markets,
@@ -95,6 +94,7 @@ export const useMarkets = () => {
   return {
     markets,
     editingMarket,
+    marketSchema,
     formik,
     openDialog,
     openDialogHandler,
