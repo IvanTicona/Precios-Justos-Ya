@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useProducts } from "../hooks/useProducts";
 import ProductHeader from "../components/ProductHeader";
 import ProductList from "../components/ProductList";
@@ -95,11 +95,14 @@ function ProductsPage() {
     fileInputRef.current?.click();
   };
 
-  const filteredProducts = selectedZone
-    ? products.filter(
-        (product) => product.zone_id === selectedZone.id && !product.isEdited
-      )
-    : products.filter((product) => !product.isEdited);
+  const filteredProducts = useMemo(() => {
+    return selectedZone
+      ? products.filter(
+          (product) =>
+            product.zone_id === selectedZone.id && !product.isEdited
+        )
+      : products.filter((product) => !product.isEdited);
+  }, [products, selectedZone]);
 
   const productNames = Array.from(new Set(products.map((p) => p.name)));
 

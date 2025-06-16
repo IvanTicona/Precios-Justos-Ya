@@ -50,7 +50,7 @@ const Sidebar = ({
           </ListItemButton>
         </ListItem>
 
-        {user.role === "alcaldía" && (
+        {user && user.role === "alcaldía" && (
           <ListItem disablePadding>
             <ListItemButton
               component={Link}

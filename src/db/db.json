@@ -245,6 +245,16 @@
       "stock": 10,
       "zone_id": "mercado-lanza",
       "isEdited": false
+    },
+    {
+      "id": "d0124885-16a3-42b8-9756-686016a190ed",
+      "name": "Mandarinas",
+      "price": 15,
+      "description": "Mandarinas",
+      "imageUrl": "",
+      "stock": 5,
+      "zone_id": "mercado-victoria",
+      "isEdited": false
     }
   ],
   "markets": [
@@ -414,6 +424,13 @@
       "address": "UPB LAPAZ",
       "storeName": "UPB",
       "reason": "unfair_price"
+    },
+    {
+      "id": "762b",
+      "price": 555555555,
+      "address": "Calle Falsa N 23",
+      "storeName": "Tienda UPB Obrajes",
+      "reason": "shortage"
     }
   ],
   "alerts": [
@@ -461,6 +478,15 @@
       "priority": "low",
       "onmessage": "Nuevo reporte en \"Naranja\". Total: 0 reportes.",
       "createdAt": "2025-06-16T20:59:06.239Z"
+    },
+    {
+      "id": "c628",
+      "productId": "d876656d-7a0e-4955-847b-ce225996ee61",
+      "productName": "Naranja",
+      "reportCount": 0,
+      "priority": "low",
+      "onmessage": "Nuevo reporte en \"Naranja\". Total: 0 reportes.",
+      "createdAt": "2025-06-16T21:55:55.481Z"
     }
   ]
 }

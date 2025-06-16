@@ -250,7 +250,7 @@ function ProductPage() {
 
               try {
                 await jsonServerInstance.post("/alerts", {
-                  productId: product.id,
+                  productId,
                   productName: product.name,
                   reportCount: count,
                   priority: "low",

@@ -6,6 +6,7 @@ import LoginPage from "../pages/LoginPage";
 import ProtectedRoutes from "../guards/ProtectedRoutes";
 import ReportsList from "../pages/ReportsList";
 import AlertsPanel from "../components/AlertsPanel";
+import { MapaPage } from "../pages/MapaPage";
 
 export const AppRoutes = () => {
   return (
@@ -20,7 +21,7 @@ export const AppRoutes = () => {
             </ProtectedRoutes>
           }
         >
-          <Route path="map" element={<MapaPage/>}/>
+          <Route path="map" element={<MapaPage />}/>
           <Route path="products" element={<ProductsPage />} />
           <Route path="products/:productId" element={<ProductPage />} />
           <Route path="reports" element={<ReportsList />} />

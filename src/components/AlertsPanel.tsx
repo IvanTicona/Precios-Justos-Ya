@@ -34,17 +34,19 @@ const AlertsPanel: React.FC = () => {
         />
       </Box>
       <List>
-        {alerts.map(a => (
+        {alerts.map(a => {
+          console.log('Alert:', a);
+          return (
           <React.Fragment key={a.id}>
             <ListItem
               secondaryAction={
-                <IconButton edge="end" onClick={() => removeAlert(a.id)}>
+                <IconButton edge="end" onClick={() => removeAlert(a.productId)}>
                   <CloseIcon />
                 </IconButton>
               }
             >
               <ListItemText
-                onClick={() => navigate(`/product/${a.productId}`)}
+                onClick={() => navigate(`/app/products/${a.productId}`)}
                 primary={
                   <>
                     {a.productName}{' '}
@@ -60,7 +62,7 @@ const AlertsPanel: React.FC = () => {
             </ListItem>
             <Divider component="li" />
           </React.Fragment>
-        ))}
+        )})}
       </List>
     </Box>
   );
