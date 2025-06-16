@@ -11,7 +11,9 @@ import {
 import { Info } from "@mui/icons-material";
 import { Link, useLocation } from "react-router-dom";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { useUser } from "../contexts/UserContext";
+import { useAuthStore } from "../store/authStore";
 
 const drawerWidth = 240;
 
@@ -28,6 +30,8 @@ const Sidebar = ({
 }: SidebarProps) => {
   const location = useLocation();
   const { logout } = useUser();
+  const { user } = useAuthStore();
+
   const drawer = (
     <div>
       <Toolbar />
@@ -36,8 +40,8 @@ const Sidebar = ({
         <ListItem disablePadding>
           <ListItemButton
             component={Link}
-            to="/"
-            selected={location.pathname === "/"}
+            to="/app/products"
+            selected={location.pathname === "/app/products"}
           >
             <ListItemIcon>
               <BusinessCenterIcon />
@@ -46,17 +50,32 @@ const Sidebar = ({
           </ListItemButton>
         </ListItem>
 
+        {user.role === "alcaldía" && (
+          <ListItem disablePadding>
+            <ListItemButton
+              component={Link}
+              to="/app/alerts"
+              selected={location.pathname === "/app/alerts"}
+            >
+              <ListItemIcon>
+                <NotificationsActiveIcon />
+              </ListItemIcon>
+              <ListItemText primary="Alertas" />
+            </ListItemButton>
+          </ListItem>
+        )}
+
         <ListItem disablePadding>
           <ListItemButton
             component={Link}
-            to="/Login"
-            selected={location.pathname === "/login"}
+            to="/login"
             onClick={logout}
+            selected={location.pathname === "/login"}
           >
             <ListItemIcon>
               <Info />
             </ListItemIcon>
-            <ListItemText primary="Cerrar Sesion" />
+            <ListItemText primary="Cerrar Sesión" />
           </ListItemButton>
         </ListItem>
       </List>

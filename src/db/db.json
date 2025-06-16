@@ -155,6 +155,81 @@
       "address": "Achumani",
       "storeName": "Mercado Achumani ",
       "reason": "unfair_price"
+    },
+    {
+      "id": "eb98",
+      "price": 1000000000000,
+      "address": "Calle Falsa N 23",
+      "storeName": "Tienda UPB Obrajes",
+      "reason": "unfair_price"
+    },
+    {
+      "id": "5c54",
+      "price": 1000000000000,
+      "address": "Calle Falsa N 23",
+      "storeName": "Tienda UPB Obrajes",
+      "reason": "unfair_price"
+    },
+    {
+      "id": "ea74",
+      "price": 100000000,
+      "address": "Calle Falsa N 23",
+      "storeName": "Tienda UPB Obrajes",
+      "reason": "unfair_price"
+    },
+    {
+      "id": "0876",
+      "price": 999,
+      "address": "UPB LAPAZ",
+      "storeName": "UPB",
+      "reason": "unfair_price"
+    }
+  ],
+  "alerts": [
+    {
+      "id": "alert-1",
+      "productId": "prod-apple-lanza",
+      "productName": "Manzana Roja",
+      "reportCount": 3,
+      "priority": "low",
+      "message": "Manzana Roja tiene 3 reportes negativos.",
+      "createdAt": "2025-06-16T10:00:00.000Z"
+    },
+    {
+      "id": "alert-2",
+      "productId": "prod-potato-rodriguez",
+      "productName": "Papa",
+      "reportCount": 4,
+      "priority": "low",
+      "message": "Papa tiene 4 reportes negativos.",
+      "createdAt": "2025-06-16T11:15:00.000Z"
+    },
+    {
+      "id": "alert-3",
+      "productId": "prod-banana-victoria",
+      "productName": "Plátano",
+      "reportCount": 5,
+      "priority": "high",
+      "message": "Plátano tiene 5 reportes negativos. ¡Revisión urgente!",
+      "createdAt": "2025-06-16T09:30:00.000Z"
+    },
+    {
+      "id": "alert-4",
+      "productId": "prod-avocado-achumani",
+      "productName": "Palta",
+      "reportCount": 6,
+      "priority": "high",
+      "message": "Palta tiene 6 reportes negativos. ¡Revisión urgente!",
+      "createdAt": "2025-06-15T16:45:00.000Z"
+    },
+    {
+      "id": "afda",
+      "productId": "prod-orange-camacho",
+      "productName": "Naranja",
+      "reportCount": 0,
+      "priority": "low",
+      "onmessage": "Nuevo reporte en \"Naranja\". Total: 0 reportes.",
+      "createdAt": "2025-06-16T20:59:06.239Z"
     }
   ]
 }

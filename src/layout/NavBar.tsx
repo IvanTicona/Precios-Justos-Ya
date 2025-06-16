@@ -1,5 +1,6 @@
-import { AppBar, Toolbar, IconButton } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Box } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import NotificationsMenu from "../components/NotificationsMenu";
 interface NavbarProps {
   onMenuClick: () => void;
 }
@@ -20,6 +21,9 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
         >
           <MenuIcon />
         </IconButton>
+        <Box ml="auto">
+          <NotificationsMenu />
+        </Box>
       </Toolbar>
     </AppBar>
   );

@@ -7,5 +7,5 @@ export interface Product {
   stock: number;
   zone_id: string;
   isEdited: boolean;
-
+  reportCount?: number;
 }
