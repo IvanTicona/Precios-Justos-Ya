@@ -69,8 +69,8 @@ export default function SignIn() {
       password: '',
     },
     validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email address').required('Required'),
-      password: Yup.string().min(6, 'Password must be at least 6 characters').required('Required'),
+      email: Yup.string().email('Email no valido').required('Espacio requerido'),
+      password: Yup.string().min(6, 'La contrasenia debe requerir almenos 6 caracteres').required('Espacio requerido'),
     }),
     onSubmit: async (values, { setSubmitting }) => {
       try {
@@ -92,7 +92,7 @@ export default function SignIn() {
         }
       } catch (err) {
         console.error('Login error:', err);
-        setError('Invalid email or password');
+        setError('Email o contrasenia incorrectos');
         setSubmitting(false);
       }
     },

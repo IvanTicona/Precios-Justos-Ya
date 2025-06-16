@@ -35,16 +35,13 @@ export default function MarketsMap({
   zoom = 13,
   height = '80vh'
 }: Props) {
-  /* ---------- refs ---------- */
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstance = useRef<Map | null>(null);
   const popupRef = useRef<HTMLDivElement>(null);
   const popupOverlay = useRef<Overlay | null>(null);
 
-  /* Memo para no recrear features si markets no cambia */
   const marketsToShow = useMemo(() => markets, [markets]);
 
-  /* ---------- 1. Crear mapa (solo al montar) ---------- */
   useEffect(() => {
     if (!mapRef.current) return;
 
@@ -63,7 +60,6 @@ export default function MarketsMap({
       })
     });
 
-    /* Popup overlay */
     if (popupRef.current) {
       popupOverlay.current = new Overlay({
         element: popupRef.current,
@@ -73,25 +69,21 @@ export default function MarketsMap({
       mapInstance.current.addOverlay(popupOverlay.current);
     }
 
-    /* Cleanup */
     return () => {
       mapInstance.current?.setTarget(undefined);
       mapInstance.current = null;
     };
   }, [zoom]);
 
-  /* ---------- 2. Crear capa de marcadores con .map() ---------- */
   useEffect(() => {
     if (!mapInstance.current || !popupOverlay.current) return;
 
-    /* a) Quitar capas vector previas antes de añadir la nueva */
     mapInstance.current
       .getLayers()
       .getArray()
       .filter((l) => l instanceof VectorLayer)
       .forEach((l) => mapInstance.current!.removeLayer(l));
 
-    /* b) Generar features – este es tu “.map” */
     const features = marketsToShow.map(
       (m) =>
         new Feature({
@@ -100,7 +92,6 @@ export default function MarketsMap({
         })
     );
 
-    /* c) Crear fuente y capa */
     const vectorLayer = new VectorLayer({
       source: new VectorSource({ features }),
       style: new Style({
@@ -114,7 +105,6 @@ export default function MarketsMap({
 
     mapInstance.current.addLayer(vectorLayer);
 
-    /* d) Click: mostrar popup */
     const handleClick = (evt: any) => {
       const feat = mapInstance.current!.forEachFeatureAtPixel(
         evt.pixel,
@@ -135,7 +125,6 @@ export default function MarketsMap({
     return () => mapInstance.current?.un('click', handleClick);
   }, [marketsToShow]);
 
-  /* ---------- 3. Render ---------- */
   return (
     <div style={{ position: 'relative', height, width: '100%' }}>
       <div ref={mapRef} style={{ height: '100%', width: '100%' }} />

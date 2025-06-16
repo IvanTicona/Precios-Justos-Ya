@@ -8,8 +8,8 @@ import type { Zone } from "../interfaces/zoneInterface";
 import type { Product } from "../interfaces/productInterface";
 import Typography from "@mui/material/Typography";
 import ProductActionsMenu from "../components/ProductActionsMenu";
-import { useUser } from "../contexts/UserContext";
 import { useLocation } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
 
 function ProductsPage() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -25,8 +25,8 @@ function ProductsPage() {
   const [comparisonProducts, setComparisonProducts] = useState<Product[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [showEdition, setShowEdition] = useState(false); 
-  const { user } = useUser();
-  const isAlcaldia = user?.role === "alcaldía";
+  const role = useAuthStore((s) => s.user?.role);
+  const isAlcaldia = role === 'alcaldía';
 
   const {
     products,
@@ -67,11 +67,9 @@ function ProductsPage() {
   };
 
   const handleOpenMenu = (event: React.MouseEvent<HTMLElement>, productId: string) => {
-    if (!isAlcaldia) {
       event.stopPropagation();
       setAnchorEl(event.currentTarget);
       setSelectedProductId(productId);
-    }
   };
 
   const handleCloseMenu = () => {
@@ -114,7 +112,7 @@ function ProductsPage() {
   return (
     <>
       <ProductHeader
-        openDialogHandler={isAlcaldia ? () => {} : handleCreateProduct}
+        openDialogHandler={handleCreateProduct}
         value={value}
         setValue={(newValue) => {
           setValue(newValue);
@@ -122,19 +120,21 @@ function ProductsPage() {
             setSelectedProductName(null);
             setComparisonProducts([]);
           }
-        }}
+        } }
         zones={zones}
         selectedZone={selectedZone}
-        setSelectedZone={setSelectedZone}
-      />
+        setSelectedZone={setSelectedZone} 
+        role={role || ''}      
+        />
       {error && <Typography color="error">{error}</Typography>}
       {value === 0 ? (
         <ProductList
           filteredProducts={filteredProducts}
           zones={zones}
           handleOpenMenu={handleOpenMenu}
-          goToProduct={goToProduct}
-        />
+          goToProduct={goToProduct} 
+          isAlcaldia={isAlcaldia}        
+          />
       ) : (
         <ProductComparison
           productNames={productNames}
@@ -146,7 +146,8 @@ function ProductsPage() {
           zones={zones}
         />
       )}
-      {!isAlcaldia && (
+        {isAlcaldia && (
+
         <ProductActionsMenu
           anchorEl={anchorEl}
           open={Boolean(anchorEl) && selectedProductId !== null}
@@ -157,18 +158,19 @@ function ProductsPage() {
           setImagePreview={setImagePreview}
           products={products}
         />
-      )}
-      <ProductFormDialog
-        openDialog={openDialog}
-        closeDialogHandler={handleCloseDialog}
-        formik={formik}
-        imagePreview={imagePreview}
-        handleImageUpload={handleImageUpload}
-        handleImageClick={handleImageClick}
-        fileInputRef={fileInputRef}
-        zones={zones}
-        isEditing={showEdition}
-      />
+        )}
+
+        <ProductFormDialog
+          openDialog={openDialog}
+          closeDialogHandler={handleCloseDialog}
+          formik={formik}
+          imagePreview={imagePreview}
+          handleImageUpload={handleImageUpload}
+          handleImageClick={handleImageClick}
+          fileInputRef={fileInputRef}
+          zones={zones}
+          isEditing={showEdition}
+        />
     </>
   );
 }

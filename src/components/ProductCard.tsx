@@ -5,15 +5,18 @@ import type { Product } from "../interfaces/productInterface";
 interface ProductCardProps {
   product: Product;
   zoneName: string;
+  isAlcaldia: boolean;
   handleOpenMenu: (event: React.MouseEvent<HTMLElement>, productId: string) => void;
   goToProduct: (productId: string) => void;
 }
 
-function ProductCard({ product, zoneName, handleOpenMenu, goToProduct }: ProductCardProps) {
+function ProductCard({ product, zoneName, isAlcaldia, handleOpenMenu, goToProduct }: ProductCardProps) {
   return (
     <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
       <Card sx={{ maxWidth: 345 }}>
         <Box position="relative">
+        {isAlcaldia && (
+
           <IconButton
             onClick={(event) => handleOpenMenu(event, product.id)}
             size="small"
@@ -27,6 +30,8 @@ function ProductCard({ product, zoneName, handleOpenMenu, goToProduct }: Product
           >
             <MoreVertIcon fontSize="small" />
           </IconButton>
+          )}
+
           <CardMedia
             sx={{ height: 140 }}
             image={product.imageUrl || "https://picsum.photos/200/300"}

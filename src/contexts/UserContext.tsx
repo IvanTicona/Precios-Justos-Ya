@@ -20,9 +20,11 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const login = (user: User) => {
     setStorage("user", user);
     setStorage("token", user.token);
+    setStorage("role", user.role);
 
     setUser(user);
     setIsAuth(true);
+
   };
 
   const logout = () => {

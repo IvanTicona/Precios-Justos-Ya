@@ -217,14 +217,6 @@
       "zone_id": "mercado-camacho"
     },
     {
-      "id": "prod-tomato-rodriguez",
-      "name": "Tomate",
-      "description": "Tomate rojo ideal para salsa",
-      "price": 6.5,
-      "stock": 190,
-      "zone_id": "mercado-rodriguez"
-    },
-    {
       "id": "19f8b17c-90d6-4705-b863-029b5a888a63",
       "name": "Hola",
       "price": 10,
@@ -235,43 +227,13 @@
       "isEdited": false
     },
     {
-      "id": "5777b0ae-dfe3-4652-ac2d-66da9783bc48",
-      "name": "Hol2",
-      "price": 2,
-      "description": "hol2",
-      "imageUrl": "blob:http://localhost:5173/6c60ea9a-be70-4351-801c-b3f6945af1ba",
-      "stock": 1,
-      "zone_id": "mercado-lanza",
-      "isEdited": false
-    },
-    {
-      "id": "757a3153-0292-4719-b5eb-1e9a42bb1636",
-      "name": "Hol4",
-      "price": 4,
-      "description": "hol4",
-      "imageUrl": "",
+      "id": "bf62330f-da88-4987-a38c-4cd0fbe880c9",
+      "name": "alexander",
+      "price": 10,
+      "description": "cruz",
+      "imageUrl": "blob:http://localhost:5173/505f1c54-3ac1-40b1-b2d7-4f0d6983d727",
       "stock": 10,
-      "zone_id": "mercado-achumani",
-      "isEdited": false
-    },
-    {
-      "id": "464b873d-dafc-41d6-85ae-f34d5212ef99",
-      "name": "HOla6",
-      "price": 90,
-      "description": "hol6",
-      "imageUrl": "blob:http://localhost:5173/948a69bd-165f-4d2a-b6ba-a91de8321125",
-      "stock": 40,
-      "zone_id": "mercado-camacho",
-      "isEdited": false
-    },
-    {
-      "id": "1687ebf8-6e32-456e-a139-abc78074df4e",
-      "name": "Hola12",
-      "price": 90,
-      "description": "HOal12",
-      "imageUrl": "blob:http://localhost:5173/08d54a97-1711-462f-8f26-53a431125ef2",
-      "stock": 20,
-      "zone_id": "mercado-achumani",
+      "zone_id": "mercado-rodriguez",
       "isEdited": false
     }
   ],

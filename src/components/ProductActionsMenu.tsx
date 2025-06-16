@@ -12,7 +12,7 @@ interface ProductActionsMenuProps {
   deleteProduct: (productId: string) => void;
   setImagePreview: (url: string | null) => void;
   products: Product[];
-}
+  }
 
 function ProductActionsMenu({
   anchorEl,
@@ -24,7 +24,9 @@ function ProductActionsMenu({
   setImagePreview,
   products,
 }: ProductActionsMenuProps) {
+
   return (
+
     <Menu
       anchorEl={anchorEl}
       open={open}
@@ -38,6 +40,7 @@ function ProductActionsMenu({
         horizontal: "right",
       }}
     >
+      
       <MenuItem
         onClick={(event) => {
           event.stopPropagation();
