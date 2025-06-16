@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 import type { User } from "../interfaces/userInterface";
 
 export interface authStoreInterface {
-  user: User;
+  user: User | null;
   isAuthenticated: boolean;
   login: (user: User) => void;
   logout: () => void;
@@ -16,9 +16,15 @@ export const useAuthStore = create<authStoreInterface>()(
       user: {} as User,
       isAuthenticated: false,
       login: (user: User) => set({ user, isAuthenticated: true }),
-      logout: () => set({ user: {} as User, isAuthenticated: false }),
-      setUser: (user: User) => set({ user }),
+      logout: () => set({ user: null, isAuthenticated: false }),
+      setUser: (user: User) => set({ user })
     }),
-    { name: "auth" }
+    {
+      name: "auth", 
+      partialize: (state) => ({
+        user: state.user,
+        isAuthenticated: state.isAuthenticated,
+      }), 
+    }
   )
 );

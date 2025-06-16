@@ -50,12 +50,16 @@ function ProductsPage() {
   };
 
   
-  const handleEditProduct = (product: Product) => {
+  const handleEditProductSave = (product: Product) => {
     setShowEdition(true);
     product.isEdited = true;
     editProductHandler(product); 
     setImagePreview(product.imageUrl || null);
     openDialogHandler(); 
+  };
+    const handleEditProductClose = (product: Product) => {
+    setShowEdition(true);
+    product.isEdited = false;
   };
 
   
@@ -153,7 +157,8 @@ function ProductsPage() {
           open={Boolean(anchorEl) && selectedProductId !== null}
           productId={selectedProductId}
           handleCloseMenu={handleCloseMenu}
-          editProductHandler={handleEditProduct}
+          editProductHandlerSave={handleEditProductSave}
+          editProductHandlerClose={handleEditProductClose}
           deleteProduct={deleteProduct}
           setImagePreview={setImagePreview}
           products={products}

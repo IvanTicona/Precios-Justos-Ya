@@ -227,13 +227,23 @@
       "isEdited": false
     },
     {
-      "id": "bf62330f-da88-4987-a38c-4cd0fbe880c9",
+      "id": "ad00d0c6-aa24-447a-8168-53dcf8ed4a7a",
       "name": "alexander",
+      "price": 12,
+      "description": "sad",
+      "imageUrl": "",
+      "stock": 12,
+      "zone_id": "mercado-lanza",
+      "isEdited": false
+    },
+    {
+      "id": "dabd80be-da4f-4e34-b26f-b4bde5986162",
+      "name": "ogvaya1",
       "price": 10,
-      "description": "cruz",
-      "imageUrl": "blob:http://localhost:5173/505f1c54-3ac1-40b1-b2d7-4f0d6983d727",
+      "description": "dsa",
+      "imageUrl": "",
       "stock": 10,
-      "zone_id": "mercado-rodriguez",
+      "zone_id": "mercado-lanza",
       "isEdited": false
     }
   ],

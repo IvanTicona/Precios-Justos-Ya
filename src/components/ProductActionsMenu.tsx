@@ -8,25 +8,25 @@ interface ProductActionsMenuProps {
   open: boolean;
   productId: string | null;
   handleCloseMenu: () => void;
-  editProductHandler: (product: Product) => void;
+  editProductHandlerSave: (product: Product) => void;
   deleteProduct: (productId: string) => void;
   setImagePreview: (url: string | null) => void;
   products: Product[];
-  }
+}
 
 function ProductActionsMenu({
   anchorEl,
   open,
   productId,
   handleCloseMenu,
-  editProductHandler,
+  editProductHandlerSave,
   deleteProduct,
   setImagePreview,
   products,
 }: ProductActionsMenuProps) {
+  const selectedProduct = products.find((p) => p.id === productId);
 
   return (
-
     <Menu
       anchorEl={anchorEl}
       open={open}
@@ -40,13 +40,11 @@ function ProductActionsMenu({
         horizontal: "right",
       }}
     >
-      
       <MenuItem
         onClick={(event) => {
           event.stopPropagation();
-          const selectedProduct = products.find((p) => p.id === productId);
           if (selectedProduct) {
-            editProductHandler(selectedProduct);
+            editProductHandlerSave(selectedProduct);
             setImagePreview(selectedProduct.imageUrl || null);
           }
           handleCloseMenu();
