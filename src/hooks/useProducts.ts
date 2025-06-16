@@ -103,13 +103,13 @@ export const useProducts = () => {
 
   const openDialogHandler = () => {
     formik.resetForm();
-    setProduct(null);
+    setProduct(product);
     setOpenDialog(true);
   };
 
   const closeDialogHandler = () => {
     formik.resetForm();
-    setProduct(null);
+    setProduct(product);
     setOpenDialog(false);
   };
 

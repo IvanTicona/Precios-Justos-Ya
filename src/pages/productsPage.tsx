@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useProducts } from "../hooks/useProducts";
 import ProductHeader from "../components/ProductHeader";
 import ProductList from "../components/ProductList";
@@ -9,19 +9,24 @@ import type { Product } from "../interfaces/productInterface";
 import Typography from "@mui/material/Typography";
 import ProductActionsMenu from "../components/ProductActionsMenu";
 import { useUser } from "../contexts/UserContext";
+import { useLocation } from "react-router-dom";
 
 function ProductsPage() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(
+    null
+  );
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [selectedZone, setSelectedZone] = useState<Zone | null>(null);
   const [value, setValue] = useState(0);
-  const [selectedProductName, setSelectedProductName] = useState<string | null>(null);
+  const [selectedProductName, setSelectedProductName] = useState<string | null>(
+    null
+  );
   const [comparisonProducts, setComparisonProducts] = useState<Product[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [showEdition, setShowEdition] = useState(false); 
   const { user } = useUser();
-  const isAlcaldia = user?.role === 'alcaldía';
+  const isAlcaldia = user?.role === "alcaldía";
 
   const {
     products,
@@ -46,7 +51,8 @@ function ProductsPage() {
 
   
   const handleEditProduct = (product: Product) => {
-    setShowEdition(true); 
+    setShowEdition(true);
+    product.isEdited = true;
     editProductHandler(product); 
     setImagePreview(product.imageUrl || null);
     openDialogHandler(); 
@@ -78,7 +84,7 @@ function ProductsPage() {
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setImagePreview(imageUrl);
-      formik.setFieldValue("imageUrl", ''); 
+      formik.setFieldValue("imageUrl", imageUrl); 
       console.log('Image uploaded, preview URL:', imageUrl);
     }
   };
@@ -88,10 +94,22 @@ function ProductsPage() {
   };
 
   const filteredProducts = selectedZone
-    ? products.filter((product) => product.zone_id === selectedZone.id && !product.isEdited)
+    ? products.filter(
+        (product) => product.zone_id === selectedZone.id && !product.isEdited
+      )
     : products.filter((product) => !product.isEdited);
 
   const productNames = Array.from(new Set(products.map((p) => p.name)));
+
+  const { state } = useLocation() as { state?: { zoneId?: string } };
+  const initialZoneId = state?.zoneId ?? null;
+
+  useEffect(() => {
+    if (initialZoneId && zones.length && !selectedZone) {
+      const z = zones.find((z) => z.id === initialZoneId);
+      if (z) setSelectedZone(z);
+    }
+  }, [initialZoneId, zones, selectedZone]);
 
   return (
     <>

@@ -1,4 +1,5 @@
 import {
+  Divider,
   Drawer,
   List,
   ListItem,
@@ -6,11 +7,11 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
-  Divider,
 } from "@mui/material";
 import { Info } from "@mui/icons-material";
 import { Link, useLocation } from "react-router-dom";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import MapIcon from "@mui/icons-material/Map";
 import { useUser } from "../contexts/UserContext";
 
 const drawerWidth = 240;
@@ -32,12 +33,13 @@ const Sidebar = ({
     <div>
       <Toolbar />
       <Divider />
-      <List>
-        <ListItem disablePadding>
+      <List >
+        <ListItem disablePadding >
           <ListItemButton
             component={Link}
-            to="/"
-            selected={location.pathname === "/"}
+            to="/app/products"
+            selected={location.pathname === "/app/products"}
+            
           >
             <ListItemIcon>
               <BusinessCenterIcon />
@@ -46,6 +48,18 @@ const Sidebar = ({
           </ListItemButton>
         </ListItem>
 
+        <ListItem disablePadding>
+          <ListItemButton
+            component={Link}
+            to="/app/map"
+            selected={location.pathname === "/app/map"}
+          >
+            <ListItemIcon>
+              <MapIcon />
+            </ListItemIcon>
+            <ListItemText primary="Map" />
+          </ListItemButton>
+        </ListItem>
         <ListItem disablePadding>
           <ListItemButton
             component={Link}
@@ -62,7 +76,6 @@ const Sidebar = ({
       </List>
     </div>
   );
-
   return (
     <>
       {isMobile && (
