@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useProducts } from "../hooks/useProducts";
 import ProductHeader from "../components/ProductHeader";
 import ProductList from "../components/ProductList";
@@ -8,20 +8,25 @@ import type { Zone } from "../interfaces/zoneInterface";
 import type { Product } from "../interfaces/productInterface";
 import Typography from "@mui/material/Typography";
 import ProductActionsMenu from "../components/ProductActionsMenu";
-import { useUser } from "../contexts/UserContext";
+import { useLocation } from "react-router-dom";
+import { useAuthStore } from "../store/authStore";
 
 function ProductsPage() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(
+    null
+  );
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [selectedZone, setSelectedZone] = useState<Zone | null>(null);
   const [value, setValue] = useState(0);
-  const [selectedProductName, setSelectedProductName] = useState<string | null>(null);
+  const [selectedProductName, setSelectedProductName] = useState<string | null>(
+    null
+  );
   const [comparisonProducts, setComparisonProducts] = useState<Product[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const { user } = useUser();
-  const isAlcaldia = user?.role === 'alcaldía';
+  const [showEdition, setShowEdition] = useState(false); 
+  const role = useAuthStore((s) => s.user?.role);
+  const isAlcaldia = role === 'alcaldía';
 
   const {
     products,
@@ -37,12 +42,38 @@ function ProductsPage() {
     fetchProductsByName,
   } = useProducts();
 
+  const handleCreateProduct = () => {
+    setShowEdition(false);
+    setImagePreview(null);
+    formik.resetForm(); 
+    openDialogHandler(); 
+  };
+
+  
+  const handleEditProductSave = (product: Product) => {
+    setShowEdition(true);
+    product.isEdited = true;
+    editProductHandler(product); 
+    setImagePreview(product.imageUrl || null);
+    openDialogHandler(); 
+  };
+    const handleEditProductClose = (product: Product) => {
+    setShowEdition(true);
+    product.isEdited = false;
+  };
+
+  
+  const handleCloseDialog = () => {
+    setShowEdition(false); 
+    setImagePreview(null); 
+    formik.resetForm(); 
+    closeDialogHandler(); 
+  };
+
   const handleOpenMenu = (event: React.MouseEvent<HTMLElement>, productId: string) => {
-    if (!isAlcaldia) {
       event.stopPropagation();
       setAnchorEl(event.currentTarget);
       setSelectedProductId(productId);
-    }
   };
 
   const handleCloseMenu = () => {
@@ -55,7 +86,8 @@ function ProductsPage() {
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setImagePreview(imageUrl);
-      formik.setFieldValue("imageUrl", imageUrl);
+      formik.setFieldValue("imageUrl", imageUrl); 
+      console.log('Image uploaded, preview URL:', imageUrl);
     }
   };
 
@@ -64,15 +96,27 @@ function ProductsPage() {
   };
 
   const filteredProducts = selectedZone
-    ? products.filter((product) => product.zone_id === selectedZone.id && !product.isEdited)
+    ? products.filter(
+        (product) => product.zone_id === selectedZone.id && !product.isEdited
+      )
     : products.filter((product) => !product.isEdited);
 
   const productNames = Array.from(new Set(products.map((p) => p.name)));
 
+  const { state } = useLocation() as { state?: { zoneId?: string } };
+  const initialZoneId = state?.zoneId ?? null;
+
+  useEffect(() => {
+    if (initialZoneId && zones.length && !selectedZone) {
+      const z = zones.find((z) => z.id === initialZoneId);
+      if (z) setSelectedZone(z);
+    }
+  }, [initialZoneId, zones, selectedZone]);
+
   return (
     <>
       <ProductHeader
-        openDialogHandler={isAlcaldia ? () => {} : openDialogHandler}
+        openDialogHandler={handleCreateProduct}
         value={value}
         setValue={(newValue) => {
           setValue(newValue);
@@ -80,19 +124,21 @@ function ProductsPage() {
             setSelectedProductName(null);
             setComparisonProducts([]);
           }
-        }}
+        } }
         zones={zones}
         selectedZone={selectedZone}
-        setSelectedZone={setSelectedZone}
-      />
+        setSelectedZone={setSelectedZone} 
+        role={role || ''}      
+        />
       {error && <Typography color="error">{error}</Typography>}
       {value === 0 ? (
         <ProductList
           filteredProducts={filteredProducts}
           zones={zones}
           handleOpenMenu={handleOpenMenu}
-          goToProduct={goToProduct}
-        />
+          goToProduct={goToProduct} 
+          isAlcaldia={isAlcaldia}        
+          />
       ) : (
         <ProductComparison
           productNames={productNames}
@@ -104,30 +150,32 @@ function ProductsPage() {
           zones={zones}
         />
       )}
-      {!isAlcaldia && (
+        {isAlcaldia && (
+
         <ProductActionsMenu
           anchorEl={anchorEl}
           open={Boolean(anchorEl) && selectedProductId !== null}
           productId={selectedProductId}
           handleCloseMenu={handleCloseMenu}
-          editProductHandler={editProductHandler}
+          editProductHandlerSave={handleEditProductSave}
+          editProductHandlerClose={handleEditProductClose}
           deleteProduct={deleteProduct}
           setImagePreview={setImagePreview}
           products={products}
         />
-      )}
-      <ProductFormDialog
-        openDialog={openDialog}
-        closeDialogHandler={closeDialogHandler}
-        formik={formik}
-        imagePreview={imagePreview}
-        setImagePreview={setImagePreview}
-        handleImageUpload={handleImageUpload}
-        handleImageClick={handleImageClick}
-        fileInputRef={fileInputRef}
-        zones={zones}
-        isEditing={!!products[0]?.id}
-      />
+        )}
+
+        <ProductFormDialog
+          openDialog={openDialog}
+          closeDialogHandler={handleCloseDialog}
+          formik={formik}
+          imagePreview={imagePreview}
+          handleImageUpload={handleImageUpload}
+          handleImageClick={handleImageClick}
+          fileInputRef={fileInputRef}
+          zones={zones}
+          isEditing={showEdition}
+        />
     </>
   );
 }

@@ -20,6 +20,7 @@ export const AppRoutes = () => {
             </ProtectedRoutes>
           }
         >
+          <Route path="map" element={<MapaPage/>}/>
           <Route path="products" element={<ProductsPage />} />
           <Route path="products/:productId" element={<ProductPage />} />
           <Route path="reports" element={<ReportsList />} />

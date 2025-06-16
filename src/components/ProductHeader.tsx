@@ -3,7 +3,6 @@ import AddIcon from "@mui/icons-material/Add";
 import CalendarViewMonthIcon from '@mui/icons-material/CalendarViewMonth';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import type { Zone } from "../interfaces/zoneInterface";
-import { useUser } from "../contexts/UserContext";
 
 interface ProductHeaderProps {
   openDialogHandler: () => void;
@@ -12,6 +11,7 @@ interface ProductHeaderProps {
   zones: Zone[];
   selectedZone: Zone | null;
   setSelectedZone: (zone: Zone | null) => void;
+  role: string;
 }
 
 function ProductHeader({
@@ -21,9 +21,9 @@ function ProductHeader({
   zones,
   selectedZone,
   setSelectedZone,
+  role
 }: ProductHeaderProps) {
-  const { user } = useUser();
-  const isAlcaldia = user?.role === 'alcaldía';
+  const isAlcaldia = role === 'alcaldía';
 
   return (
     <Box
@@ -33,7 +33,7 @@ function ProductHeader({
       mt={4}
       mb={4}
     >
-      {!isAlcaldia && (
+      {isAlcaldia && (
         <Button
           variant="contained"
           color="primary"

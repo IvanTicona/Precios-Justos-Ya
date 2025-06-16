@@ -4,13 +4,14 @@ import type { Product } from "../interfaces/productInterface";
 import type { Zone } from "../interfaces/zoneInterface";
 
 interface ProductListProps {
+  isAlcaldia: boolean;
   filteredProducts: Product[];
   zones: Zone[];
   handleOpenMenu: (event: React.MouseEvent<HTMLElement>, productId: string) => void;
   goToProduct: (productId: string) => void;
 }
 
-function ProductList({ filteredProducts, zones, handleOpenMenu, goToProduct }: ProductListProps) {
+function ProductList({ filteredProducts, zones,isAlcaldia, handleOpenMenu, goToProduct }: ProductListProps) {
   return (
     <Grid container spacing={2} sx={{ marginTop: 2 }}>
       {Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
@@ -20,8 +21,8 @@ function ProductList({ filteredProducts, zones, handleOpenMenu, goToProduct }: P
             product={product}
             zoneName={zones.find((zone) => zone.id === product.zone_id)?.market || "N/A"}
             handleOpenMenu={handleOpenMenu}
-            goToProduct={goToProduct}
-          />
+            goToProduct={goToProduct} 
+            isAlcaldia={isAlcaldia}       />
         ))
       ) : (
         <Typography>No se encontraron productos.</Typography>

@@ -27,38 +27,43 @@ export const useProducts = () => {
   useEffect(() => {
     fetchProducts();
     getAllZones();
-
   }, [fetchProducts, getAllZones]);
 
-    const handleSubmit = async (values: Product) => {
-      if (product?.id){
+  const handleSubmit = async (values: Product, { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }) => {
+    try {
+      if (product?.id) {
         await editProduct(product, {
-        name: values.name,
-        price: values.price,
-        description: values.description,
-        imageUrl: values.imageUrl,
-        stock: values.stock,
-        zone_id: values.zone_id,
-      });
-      }else {
+          name: values.name,
+          price: values.price,
+          description: values.description,
+          imageUrl: values.imageUrl,
+          stock: values.stock,
+          zone_id: values.zone_id,
+        });
+      } else {
         await createProduct({
-        id: uuidv4(),
-        name: values.name,
-        price: values.price,
-        description: values.description,
-        imageUrl: values.imageUrl,
-        stock: values.stock,
-        zone_id: values.zone_id,
-        isEdited: false
-      });
+          id: uuidv4(),
+          name: values.name,
+          price: values.price,
+          description: values.description,
+          imageUrl: values.imageUrl,
+          stock: values.stock,
+          zone_id: values.zone_id,
+          isEdited: false,
+        });
       }
-        formik.resetForm();
-        setProduct(null);
-        setOpenDialog(false);
-    };
+      formik.resetForm();
+      setProduct(null);
+      setOpenDialog(false);
+      navigate('/app/products');
+    } catch (err) {
+      console.error('Error saving product:', err);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
-
-  const formik  = useFormik({
+  const formik = useFormik({
     initialValues: {
       id: '',
       name: '',
@@ -67,14 +72,15 @@ export const useProducts = () => {
       imageUrl: "",
       stock: 0,
       zone_id: "",
-      isEdited: false
+      isEdited: false,
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Required"),
-      description: Yup.string().required("Required"),
-      price: Yup.number().required("Required").positive(),
-      imageUrl: Yup.string().url("Invalid URL").optional(),
-      stock: Yup.number().required("Required").integer().min(0),
+      name: Yup.string().required("Se requiere un nombre"),
+      description: Yup.string().required("Se requiere una descripcion"),
+      price: Yup.number().required("Introduce un precio").positive(),
+      //imageUrl: Yup.string().url("Invalid URL").optional(),
+      imageUrl: Yup.string().optional(),
+      stock: Yup.number().required("Se requiere el numero de unidades").integer().min(0),
       zone_id: Yup.string().required("Seleccione un mercado"),
     }),
     onSubmit: handleSubmit,
@@ -82,14 +88,14 @@ export const useProducts = () => {
 
   const editProductHandler = async (product: Product) => {
     formik.setValues({ 
-        id:product.id,
-        name: product.name, 
-        price: product.price,
-        description: product.description,
-        imageUrl: product.imageUrl || "", 
-        stock: product.stock,
-        zone_id: product.zone_id || "",
-        isEdited: false
+      id: product.id,
+      name: product.name, 
+      price: product.price,
+      description: product.description,
+      imageUrl: product.imageUrl, 
+      stock: product.stock,
+      zone_id: product.zone_id || "",
+      isEdited: false,
     });
     setProduct(product);
     setOpenDialog(true);
@@ -97,13 +103,13 @@ export const useProducts = () => {
 
   const openDialogHandler = () => {
     formik.resetForm();
-    setProduct(null);
+    setProduct(product);
     setOpenDialog(true);
   };
 
   const closeDialogHandler = () => {
     formik.resetForm();
-    setProduct(null);
+    setProduct(product);
     setOpenDialog(false);
   };
 
@@ -123,7 +129,6 @@ export const useProducts = () => {
     closeDialogHandler,
     error,
     fetchProductHistory,
-    fetchProductsByName
-
+    fetchProductsByName,
   };
 };

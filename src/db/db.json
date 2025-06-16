@@ -1,4 +1,27 @@
 {
+  "users": [
+    {
+      "id": "user-001",
+      "email": "cliente1@example.com",
+      "role": "cliente",
+      "token": "abc123cliente",
+      "password": "pass123cliente"
+    },
+    {
+      "id": "user-002",
+      "email": "cliente2@example.com",
+      "role": "cliente",
+      "token": "abc456cliente",
+      "password": "pass456cliente"
+    },
+    {
+      "id": "user-003",
+      "email": "alcaldia@example.com",
+      "role": "alcaldía",
+      "token": "xyz789alcaldia",
+      "password": "pass789alcaldia"
+    }
+  ],
   "zones": [
     {
       "id": "mercado-lanza",
@@ -52,7 +75,7 @@
       "name": "Manzana Roja",
       "description": "Manzana fresca y jugosa",
       "price": 10,
-      "imageUrl": "https://example.com/images/apple.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 100,
       "zone_id": "mercado-lanza",
       "isEdited": false
@@ -62,7 +85,7 @@
       "name": "Plátano",
       "description": "Plátano dulce y maduro",
       "price": 6,
-      "imageUrl": "https://example.com/images/banana.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 130,
       "zone_id": "mercado-victoria",
       "isEdited": true
@@ -72,17 +95,94 @@
       "name": "Naranja",
       "description": "Naranja jugosa ideal para jugos",
       "price": 9,
-      "imageUrl": "https://example.com/images/orange.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 200,
       "zone_id": "mercado-camacho",
+      "isEdited": true
+    },
+    {
+      "id": "prod-orange-lanza",
+      "name": "Naranja",
+      "description": "Naranja jugosa ideal para jugos",
+      "price": 8,
+      "stock": 180,
+      "zone_id": "mercado-lanza",
+      "isEdited": true
+    },
+    {
+      "id": "b4d84037-7e20-4cab-a139-2d1a72032ab6",
+      "name": "Plátano2",
+      "description": "Plátano dulce y maduro",
+      "price": 15,
+      "stock": 1301,
+      "zone_id": "mercado-victoria",
+      "imageUrl": "",
+      "isEdited": true
+    },
+    {
+      "id": "a8dd7129-6f79-4f4a-844e-139ddcd4344d",
+      "name": "Plátano",
+      "description": "Plátano dulce y maduro",
+      "price": 151,
+      "stock": 1301,
+      "zone_id": "mercado-victoria",
+      "imageUrl": "",
+      "isEdited": true
+    },
+    {
+      "id": "afe1e986-08cb-4a76-a89a-58a2b4256c4c",
+      "name": "Plátano",
+      "description": "Plátano dulce y maduro",
+      "price": 10,
+      "stock": 1301,
+      "zone_id": "mercado-victoria",
+      "imageUrl": "",
+      "isEdited": true
+    },
+    {
+      "id": "0e27925a-f519-4b2e-9579-1f6cb7f0bae6",
+      "name": "Naranja",
+      "description": "Naranja jugosa ideal para jugos",
+      "price": 11,
+      "stock": 12,
+      "zone_id": "mercado-camacho",
+      "imageUrl": "",
       "isEdited": false
+    },
+    {
+      "id": "d876656d-7a0e-4955-847b-ce225996ee61",
+      "name": "Naranja",
+      "description": "Naranja jugosa ideal para jugos",
+      "price": 17,
+      "stock": 19,
+      "zone_id": "mercado-lanza",
+      "imageUrl": "",
+      "isEdited": false
+    },
+    {
+      "id": "e25e021a-61f7-4a95-a4b2-b8be00f0ffe8",
+      "name": "Manzana",
+      "price": 12,
+      "description": "Manzana roja con pulpa interesante ",
+      "imageUrl": "",
+      "stock": 1012,
+      "zone_id": "mercado-rodriguez",
+      "isEdited": false
+    },
+    {
+      "id": "prod-avocado-rodriguez",
+      "name": "Palta",
+      "description": "Palta cremosa de alta calidad",
+      "price": 15,
+      "stock": 70,
+      "zone_id": "mercado-rodriguez"
     },
     {
       "id": "prod-avocado-achumani",
       "name": "Palta",
       "description": "Palta cremosa de alta calidad",
       "price": 16,
-      "imageUrl": "https://example.com/images/avocado.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 60,
       "zone_id": "mercado-achumani",
       "isEdited": false
@@ -92,7 +192,7 @@
       "name": "Papa",
       "description": "Papa blanca para todo uso",
       "price": 3,
-      "imageUrl": "https://example.com/images/potato.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 300,
       "zone_id": "mercado-rodriguez",
       "isEdited": true
@@ -102,7 +202,7 @@
       "name": "Lechuga",
       "description": "Lechuga fresca para ensalada",
       "price": 2.5,
-      "imageUrl": "https://example.com/images/lettuce.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 120,
       "zone_id": "mercado-lanza",
       "isEdited": false
@@ -112,33 +212,164 @@
       "name": "Tomate",
       "description": "Tomate rojo ideal para salsa",
       "price": 7,
-      "imageUrl": "https://example.com/images/tomato.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 180,
-      "zone_id": "mercado-camacho",
+      "zone_id": "mercado-camacho"
+    },
+    {
+      "id": "19f8b17c-90d6-4705-b863-029b5a888a63",
+      "name": "Hola",
+      "price": 10,
+      "description": "Hola",
+      "imageUrl": "",
+      "stock": 1,
+      "zone_id": "mercado-achumani",
+      "isEdited": false
+    },
+    {
+      "id": "ad00d0c6-aa24-447a-8168-53dcf8ed4a7a",
+      "name": "alexander",
+      "price": 12,
+      "description": "sad",
+      "imageUrl": "",
+      "stock": 12,
+      "zone_id": "mercado-lanza",
+      "isEdited": false
+    },
+    {
+      "id": "dabd80be-da4f-4e34-b26f-b4bde5986162",
+      "name": "ogvaya1",
+      "price": 10,
+      "description": "dsa",
+      "imageUrl": "",
+      "stock": 10,
+      "zone_id": "mercado-lanza",
       "isEdited": false
     }
   ],
-  "users": [
+  "markets": [
     {
-      "id": "user-001",
-      "email": "cliente1@example.com",
-      "role": "cliente",
-      "token": "abc123cliente",
-      "password": "pass123cliente"
+      "id": "2",
+      "name": "Mercado Lanza",
+      "idproducts": "mercado-rodriguez",
+      "description": "Mercado emblemático ubicado junto a la Plaza San Francisco.",
+      "tipo": "zona",
+      "latitude": -16.4947,
+      "longitude": -68.13746,
+      "imgUrl": "https://viajerosxbolivia.com/wp-content/uploads/Mercado-Lanza.png",
+      "products": [
+        {
+          "id": 3,
+          "name": "Product C",
+          "description": "Description of Product C",
+          "price": 39.99,
+          "category": "Clothing",
+          "stock": 200,
+          "imageUrl": "https://example.com/product-c.jpg"
+        },
+        {
+          "id": 4,
+          "name": "Product D",
+          "description": "Description of Product D",
+          "price": 49.99,
+          "category": "Home & Kitchen",
+          "stock": 75,
+          "imageUrl": "https://example.com/product-d.jpg"
+        }
+      ]
     },
     {
-      "id": "user-002",
-      "email": "cliente2@example.com",
-      "role": "cliente",
-      "token": "abc456cliente",
-      "password": "pass456cliente"
+      "id": "3",
+      "name": "Mercado Camacho",
+      "idproducts": "mercado-camacho",
+      "description": "Mercado techado y patio de comidas al final de la avenida Camacho.",
+      "tipo": "zona",
+      "latitude": -16.49934,
+      "longitude": -68.13125,
+      "imgUrl": "https://viajerosxbolivia.com/wp-content/uploads/Mercado-Camacho.png",
+      "products": [
+        {
+          "id": 5,
+          "name": "Product E",
+          "description": "Description of Product E",
+          "price": 59.99,
+          "category": "Sports & Outdoors",
+          "stock": 30,
+          "imageUrl": "https://example.com/product-e.jpg"
+        },
+        {
+          "id": 6,
+          "name": "Product F",
+          "description": "Description of Product F",
+          "price": 69.99,
+          "category": "Toys & Games",
+          "stock": 120,
+          "imageUrl": "https://example.com/product-f.jpg"
+        }
+      ]
     },
     {
-      "id": "user-003",
-      "email": "alcaldia@example.com",
-      "role": "alcaldía",
-      "token": "xyz789alcaldia",
-      "password": "pass789alcaldia"
+      "id": "4",
+      "name": "Barrio Sopocachi",
+      "idproducts": "mercado-rodriguez",
+      "description": "Barrio bohemio y artístico, conocido por su vida nocturna y cafés.",
+      "tipo": "barrio",
+      "latitude": -16.51076,
+      "longitude": -68.12749,
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWaHsF7vYl5_ewl2uwzs949lno71c1Vg4nIQ&s",
+      "location": "Sopocachi",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "products": []
+    },
+    {
+      "id": "5",
+      "name": "Barrio Miraflores",
+      "idproducts": "mercado-miraflores",
+      "description": "Barrio residencial y deportivo donde se ubica el Estadio Hernando Siles. jodase",
+      "tipo": "barrio",
+      "latitude": -16.50552,
+      "longitude": -68.1222,
+      "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfmGqJHOVbqRxBKbETnyFdoc-x6Gf4y9blTg&s",
+      "location": "Miraflores",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "products": []
+    },
+    {
+      "id": "6",
+      "name": "Zona San Miguel",
+      "idproducts": "mercado-sanmiguel",
+      "description": "Área comercial de la zona Sur, reconocida por tiendas y restaurantes.",
+      "tipo": "zona",
+      "latitude": -16.5233,
+      "longitude": -68.108,
+      "imgUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/24/8f/01/san-miguel.jpg?w=1200&h=-1&s=1",
+      "createdAt": "2023-10-01T12:00:00Z",
+      "updatedAt": "2023-10-01T12:00:00Z",
+      "products": []
+    },
+    {
+      "id": "eb609a36-a9af-45d8-a42a-c8eae336127c",
+      "name": "San Pedro",
+      "idproducts": "mercado-sanpedro",
+      "description": "Buena diversidad se encutra todo tipo de alimentos",
+      "tipo": "barrio",
+      "latitude": -16.23717,
+      "longitude": -68.85063,
+      "imgUrl": "https://www.noticiasfides.com/images/news/2025/01/u-penal-de-san-pedro-foto-anf_1737690095.jpg",
+      "products": []
+    },
+    {
+      "id": "f201fd3d-7328-411e-b18d-77fff2dca97e",
+      "name": "Prado",
+      "idproducts": "mercado-prado",
+      "description": "Esta en el Prado holaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "tipo": "otro",
+      "latitude": -16.501831,
+      "longitude": -68.132915,
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Cristobal_Col%C3%B3n_La_Paz.jpg",
+      "products": []
     }
   ],
   "reports": [

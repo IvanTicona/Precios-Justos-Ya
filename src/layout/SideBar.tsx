@@ -1,4 +1,5 @@
 import {
+  Divider,
   Drawer,
   List,
   ListItem,
@@ -6,7 +7,6 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
-  Divider,
 } from "@mui/material";
 import { Info } from "@mui/icons-material";
 import { Link, useLocation } from "react-router-dom";
@@ -36,8 +36,8 @@ const Sidebar = ({
     <div>
       <Toolbar />
       <Divider />
-      <List>
-        <ListItem disablePadding>
+      <List >
+        <ListItem disablePadding >
           <ListItemButton
             component={Link}
             to="/app/products"
@@ -81,7 +81,6 @@ const Sidebar = ({
       </List>
     </div>
   );
-
   return (
     <>
       {isMobile && (

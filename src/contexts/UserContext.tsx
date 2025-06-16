@@ -23,6 +23,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     setStorage('token', user.token);
     setUser(user);
     setIsAuth(true);
+
   };
 
   const logout = () => {
