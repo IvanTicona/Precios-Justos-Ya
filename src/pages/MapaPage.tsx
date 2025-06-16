@@ -18,7 +18,7 @@ import { useAuthStore } from '../store/authStore';
 
 export function MapaPage() {
   const navigate = useNavigate();
-  const role = useAuthStore((s) => s.user?.role); // "alcaldía" | "cliente"
+  const role = useAuthStore((s) => s.user?.role);
 
   const {
     markets,
@@ -31,7 +31,6 @@ export function MapaPage() {
     formik,
   } = useMarkets();
 
-  /* filtro por tipo */
   const [filter, setFilter] = useState<'' | 'zona' | 'barrio' | 'otro'>('');
   const typeOptions = useMemo(
     () => Array.from(new Set(markets.map((m) => m.tipo))),
@@ -44,7 +43,6 @@ export function MapaPage() {
 
   return (
     <Container>
-      {/* Dialog solo para alcaldía */}
       {role === 'alcaldía' && (
         <CustomDialogs
           title={editingMarket ? 'Editar Zona / Barrio' : 'Agregar Zona / Barrio'}
@@ -52,8 +50,6 @@ export function MapaPage() {
           onClose={closeDialogHandler}
           onSubmit={formik.handleSubmit}
         >
-          {/* --- formulario sin cambios --- */}
-          {/* ... códigos de TextField tal cual los tenías ... */}
           <TextField
             select
             fullWidth
@@ -71,7 +67,6 @@ export function MapaPage() {
         </CustomDialogs>
       )}
 
-      {/* Encabezado + filtros */}
       <Box sx={{ mb: 2, display: 'flex', gap: 2, alignItems: 'center' }}>
         <h2 style={{ margin: 0 }}>Zonas</h2>
 

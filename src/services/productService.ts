@@ -90,7 +90,7 @@ export const editProduct = async (originalProduct: Product, updatedProduct: Part
       ...originalProduct,
       ...updatedProduct,
       id: uuidv4(),
-      isEdited: false
+      // isEdited: false
     };
     
     const response = await createProduct(newProduct);

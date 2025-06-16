@@ -79,7 +79,7 @@ export const useProductsStore = create<ProductsStore>((set) => ({
       }
       set((state) => ({
         products: [
-          ...state.products.filter((p) => p.id !== originalProduct.id && !p.isEdited),
+          ...state.products.filter((p) => p.id !== originalProduct.id && p.isEdited),
           responseProduct
         ],
       }));
