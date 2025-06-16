@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Dialog, Grid, IconButton, TextField, Toolbar, Typography, Autocomplete } from "@mui/material";
+import { AppBar, Box, Button, Dialog, Grid, IconButton, TextField, Toolbar, Typography, Autocomplete, Alert } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { type FormikProps } from "formik";
 import type { Zone } from "../interfaces/zoneInterface";
@@ -11,7 +11,6 @@ interface ProductFormDialogProps {
   closeDialogHandler: () => void;
   formik: FormikProps<Product>;
   imagePreview: string | null;
-  setImagePreview: (url: string | null) => void;
   handleImageUpload: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleImageClick: () => void;
   fileInputRef: RefObject<HTMLInputElement | null>;
@@ -48,19 +47,26 @@ function ProductFormDialog({
             <CloseIcon />
           </IconButton>
           <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-            {isEditing ? "Editar Producto" : "Crear Producto"}
+              {isEditing ? "Editar Producto" : "Crear Producto"}
           </Typography>
           <Button
             autoFocus
             color="inherit"
-            disabled={formik.isSubmitting}
-            onClick={() => formik.handleSubmit()}
+            disabled={formik.isSubmitting || !formik.isValid}
+            onClick={() => {
+              console.log('Submitting form with values:', formik.values);
+              console.log('Errors:', formik.errors);
+              console.log("exuste algun erroir?", formik.isValid)
+              formik.handleSubmit();
+            }}
           >
             Guardar
           </Button>
         </Toolbar>
       </AppBar>
       <Box
+        component="form"
+        onSubmit={formik.handleSubmit}
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -73,8 +79,6 @@ function ProductFormDialog({
         <Grid container spacing={2} sx={{ maxWidth: 800 }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
-              component="form"
-              onSubmit={formik.handleSubmit}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -82,6 +86,13 @@ function ProductFormDialog({
                 p: 2,
               }}
             >
+              {!formik.isValid && formik.submitCount > 0 && (
+                <Alert severity="error">
+                  {Object.values(formik.errors).map((error, index) => (
+                    <div key={index}>{error}</div>
+                  ))}
+                </Alert>
+              )}
               <TextField
                 label="Nombre"
                 name="name"
@@ -144,6 +155,12 @@ function ProductFormDialog({
                 error={formik.touched.stock && Boolean(formik.errors.stock)}
                 helperText={formik.touched.stock && formik.errors.stock}
                 fullWidth
+              />
+              <TextField
+                name="imageUrl"
+                value={formik.values.imageUrl}
+                type="hidden"
+                sx={{ display: "none" }}
               />
             </Box>
           </Grid>

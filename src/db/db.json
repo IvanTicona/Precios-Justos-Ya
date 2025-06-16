@@ -52,7 +52,7 @@
       "name": "Manzana Roja",
       "description": "Manzana fresca y jugosa",
       "price": 10,
-      "imageUrl": "https://example.com/images/apple.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 100,
       "zone_id": "mercado-lanza",
       "isEdited": false
@@ -62,7 +62,7 @@
       "name": "Plátano",
       "description": "Plátano dulce y maduro",
       "price": 6,
-      "imageUrl": "https://example.com/images/banana.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 130,
       "zone_id": "mercado-victoria",
       "isEdited": true
@@ -72,7 +72,7 @@
       "name": "Naranja",
       "description": "Naranja jugosa ideal para jugos",
       "price": 9,
-      "imageUrl": "https://example.com/images/orange.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 200,
       "zone_id": "mercado-camacho",
       "isEdited": false
@@ -82,7 +82,7 @@
       "name": "Palta",
       "description": "Palta cremosa de alta calidad",
       "price": 16,
-      "imageUrl": "https://example.com/images/avocado.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 60,
       "zone_id": "mercado-achumani",
       "isEdited": false
@@ -92,7 +92,7 @@
       "name": "Papa",
       "description": "Papa blanca para todo uso",
       "price": 3,
-      "imageUrl": "https://example.com/images/potato.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 300,
       "zone_id": "mercado-rodriguez",
       "isEdited": true
@@ -102,7 +102,7 @@
       "name": "Lechuga",
       "description": "Lechuga fresca para ensalada",
       "price": 2.5,
-      "imageUrl": "https://example.com/images/lettuce.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 120,
       "zone_id": "mercado-lanza",
       "isEdited": false
@@ -112,9 +112,59 @@
       "name": "Tomate",
       "description": "Tomate rojo ideal para salsa",
       "price": 7,
-      "imageUrl": "https://example.com/images/tomato.png",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
       "stock": 180,
       "zone_id": "mercado-camacho",
+      "isEdited": false
+    },
+    {
+      "id": "41ff5f27-edea-40df-8bdb-8f6970711d37",
+      "name": "das",
+      "price": 101,
+      "description": "das",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
+      "stock": 10,
+      "zone_id": "mercado-lanza",
+      "isEdited": false
+    },
+    {
+      "id": "352454f1-f38a-428a-96b0-88fcca365465",
+      "name": "Manzana Roja",
+      "price": 10,
+      "description": "deadea",
+      "imageUrl": "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg",
+      "stock": 10,
+      "zone_id": "mercado-lanza",
+      "isEdited": false
+    },
+    {
+      "id": "4b535ced-d331-43c3-b17d-9e8382258702",
+      "name": "Manzana Roja",
+      "price": 10,
+      "description": "2112",
+      "imageUrl": "",
+      "stock": 10,
+      "zone_id": "mercado-lanza",
+      "isEdited": true
+    },
+    {
+      "id": "465b6c91-d007-4b03-ac5e-e20d2af6bd47",
+      "name": "Manzana Roja",
+      "price": 10,
+      "description": "lol",
+      "imageUrl": "blob:http://localhost:5173/f358e82e-9c02-4e2d-b7fb-f0fe3742c5de",
+      "stock": 10,
+      "zone_id": "mercado-lanza",
+      "isEdited": false
+    },
+    {
+      "id": "392821a6-78f0-4789-be5c-f8479ecae900",
+      "name": "Manzana Roja",
+      "price": 10,
+      "description": "2112",
+      "imageUrl": "blob:http://localhost:5173/6f980338-a9bc-462d-a3cf-8cfa589c3b62",
+      "stock": 10,
+      "zone_id": "mercado-lanza",
       "isEdited": false
     }
   ],

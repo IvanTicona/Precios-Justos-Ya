@@ -19,7 +19,7 @@ function ProductsPage() {
   const [selectedProductName, setSelectedProductName] = useState<string | null>(null);
   const [comparisonProducts, setComparisonProducts] = useState<Product[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
+  const [showEdition, setShowEdition] = useState(false); 
   const { user } = useUser();
   const isAlcaldia = user?.role === 'alcaldía';
 
@@ -36,6 +36,29 @@ function ProductsPage() {
     openDialog,
     fetchProductsByName,
   } = useProducts();
+
+  const handleCreateProduct = () => {
+    setShowEdition(false);
+    setImagePreview(null);
+    formik.resetForm(); 
+    openDialogHandler(); 
+  };
+
+  
+  const handleEditProduct = (product: Product) => {
+    setShowEdition(true); 
+    editProductHandler(product); 
+    setImagePreview(product.imageUrl || null);
+    openDialogHandler(); 
+  };
+
+  
+  const handleCloseDialog = () => {
+    setShowEdition(false); 
+    setImagePreview(null); 
+    formik.resetForm(); 
+    closeDialogHandler(); 
+  };
 
   const handleOpenMenu = (event: React.MouseEvent<HTMLElement>, productId: string) => {
     if (!isAlcaldia) {
@@ -55,7 +78,8 @@ function ProductsPage() {
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setImagePreview(imageUrl);
-      formik.setFieldValue("imageUrl", imageUrl);
+      formik.setFieldValue("imageUrl", ''); 
+      console.log('Image uploaded, preview URL:', imageUrl);
     }
   };
 
@@ -72,7 +96,7 @@ function ProductsPage() {
   return (
     <>
       <ProductHeader
-        openDialogHandler={isAlcaldia ? () => {} : openDialogHandler}
+        openDialogHandler={isAlcaldia ? () => {} : handleCreateProduct}
         value={value}
         setValue={(newValue) => {
           setValue(newValue);
@@ -110,7 +134,7 @@ function ProductsPage() {
           open={Boolean(anchorEl) && selectedProductId !== null}
           productId={selectedProductId}
           handleCloseMenu={handleCloseMenu}
-          editProductHandler={editProductHandler}
+          editProductHandler={handleEditProduct}
           deleteProduct={deleteProduct}
           setImagePreview={setImagePreview}
           products={products}
@@ -118,15 +142,14 @@ function ProductsPage() {
       )}
       <ProductFormDialog
         openDialog={openDialog}
-        closeDialogHandler={closeDialogHandler}
+        closeDialogHandler={handleCloseDialog}
         formik={formik}
         imagePreview={imagePreview}
-        setImagePreview={setImagePreview}
         handleImageUpload={handleImageUpload}
         handleImageClick={handleImageClick}
         fileInputRef={fileInputRef}
         zones={zones}
-        isEditing={!!products[0]?.id}
+        isEditing={showEdition}
       />
     </>
   );

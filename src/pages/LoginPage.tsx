@@ -12,9 +12,9 @@ import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useAuthStore } from '../store/authStore'; // Importar useAuthStore
-import { loginUser } from '../services/authService'; // Importar loginUser
-import type { User } from '../interfaces/userInterface'; // Importar la interfaz User
+import { useAuthStore } from '../store/authStore'; 
+import { loginUser } from '../services/authService'; 
+import type { User } from '../interfaces/userInterface'; 
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -59,7 +59,7 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export default function SignIn() {
-  const { login } = useAuthStore(); // Obtener login del store
+  const { login } = useAuthStore(); 
   const navigate = useNavigate();
   const [error, setError] = React.useState<string | null>(null);
 
@@ -74,8 +74,7 @@ export default function SignIn() {
     }),
     onSubmit: async (values, { setSubmitting }) => {
       try {
-        const user = await loginUser(values.email, values.password); // Llamar a loginUser
-        // Validar que user sea un objeto User válido
+        const user = await loginUser(values.email, values.password); 
         if (
           user &&
           typeof user === 'object' &&
@@ -86,8 +85,8 @@ export default function SignIn() {
           'password' in user &&
           (user.role === 'cliente' || user.role === 'alcaldía')
         ) {
-          login(user as User); // Llamar a login solo si user es válido
-          navigate('/app/products', { replace: true }); // Redirigir a /app/products
+          login(user as User); 
+          navigate('/app/products', { replace: true }); 
         } else {
           throw new Error('Usuario no encontrado');
         }

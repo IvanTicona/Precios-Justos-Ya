@@ -113,7 +113,7 @@ function ProductPage() {
           <Grid size={{ xs: 6, md: 6 }}>
             <Item>
               <img
-                src={product.imageUrl || "https://via.placeholder.com/140"}
+                src={product.imageUrl || "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"}
                 alt={product.name}
                 style={{ width: '100%', height: 'auto' }}
               />
@@ -131,7 +131,10 @@ function ProductPage() {
                 Bs {product.price.toFixed(2)}
               </Typography>
               <Typography style={{ marginBottom: '0.5rem' }}>
-                Zona: {zones.find((zone) => zone.id === product.zone_id)?.market || "N/A"}
+                Mercado: {zones.find((zone) => zone.id === product.zone_id)?.market || "N/A"}
+              </Typography>
+              <Typography style={{ marginBottom: '0.5rem' }}>
+                Zona: {zones.find((zone) => zone.id === product.zone_id)?.zone   || "N/A"}
               </Typography>
               <Typography style={{ marginBottom: '0.5rem' }}>
                 Disponibilidad: {product.stock > 0 ? "En stock" : "Sin stock"}
@@ -164,10 +167,13 @@ function ProductPage() {
                     <Typography>Descripción: {histProduct.description}</Typography>
                     <Typography>Stock: {histProduct.stock}</Typography>
                     <Typography>
-                      Zona: {zones.find((zone) => zone.id === histProduct.zone_id)?.market || "N/A"}
+                      Mercado: {zones.find((zone) => zone.id === histProduct.zone_id)?.market || "N/A"}
+                    </Typography>
+                    <Typography>
+                      Zona: {zones.find((zone) => zone.id === histProduct.zone_id)?.zone || "N/A"}
                     </Typography>
                     <img
-                      src={histProduct.imageUrl || "https://via.placeholder.com/140"}
+                      src={histProduct.imageUrl || "https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg"}
                       alt={histProduct.name}
                       style={{ width: '100%', height: 'auto', marginTop: '1rem' }}
                     />

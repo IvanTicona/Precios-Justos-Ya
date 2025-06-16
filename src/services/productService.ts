@@ -85,7 +85,6 @@ export const markProductAsEdited = async (productId: string): Promise<void> => {
 
 export const editProduct = async (originalProduct: Product, updatedProduct: Partial<Product>): Promise<Product> => {
   try {
-    // Mark the original product as edited
     await markProductAsEdited(originalProduct.id);
         const newProduct = {
       ...originalProduct,

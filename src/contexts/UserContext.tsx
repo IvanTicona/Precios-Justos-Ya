@@ -30,7 +30,6 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     setUser({} as User);
     setIsAuth(false);
   };
-      console.log("En verdad se esta guardando?: ", user);
 
   return (
     <UserContext.Provider value={{ user, isAuthenticated, login, logout }}>
