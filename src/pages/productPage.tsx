@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { Formik, Form, Field } from 'formik';
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField
+} from '@mui/material';
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -9,6 +17,9 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import { useProductsStore } from "../store/useProductsStore";
 import type { Product } from "../interfaces/productInterface";
+import * as Yup from 'yup';
+import { useReports } from "../hooks/useReports";
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: '#fff',
@@ -21,12 +32,33 @@ const Item = styled(Paper)(({ theme }) => ({
   }),
 }));
 
+
+const reportSchema = Yup.object().shape({
+  price: Yup.number()
+    .required('El precio es obligatorio')
+    .positive('El precio debe ser mayor a 0')
+    .typeError('El precio debe ser un número'),
+  address: Yup.string()
+    .required('La dirección es obligatoria')
+    .min(5, 'La dirección debe tener al menos 5 caracteres'),
+  storeName: Yup.string()
+    .required('El nombre de la tienda es obligatorio')
+    .min(3, 'El nombre de la tienda debe tener al menos 3 caracteres'),
+  reason: Yup.string()
+    .required('El motivo es obligatorio')
+    .oneOf(['unfair_price', 'shortage'], 'Motivo inválido'),
+});
+
+
 function ProductPage() {
   const { productId } = useParams<{ productId: string }>();
   const { fetchProduct, fetchProductHistory, zones } = useProductsStore();
   const [product, setProduct] = useState<Product | null>(null);
   const [history, setHistory] = useState<Product[]>([]);
+  const [open, setOpen] = useState<boolean>(false);
   const [showHistory, setShowHistory] = useState(false);
+  const navigate = useNavigate(); 
+  const { addReport } = useReports();
 
   useEffect(() => {
     const loadProduct = async () => {
@@ -50,7 +82,15 @@ function ProductPage() {
     return <Typography>Loading...</Typography>;
   }
 
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleReports = () => {
+    navigate('/app/reports');
+  }
+
+
   return (
+    <>
     <Container maxWidth="lg">
       <Box
         display="flex"
@@ -88,7 +128,7 @@ function ProductPage() {
                 {product.description}
               </Typography>
               <Typography style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#2e7d32', marginBottom: '0.5rem' }}>
-                ${product.price.toFixed(2)}
+                Bs {product.price.toFixed(2)}
               </Typography>
               <Typography style={{ marginBottom: '0.5rem' }}>
                 Zona: {zones.find((zone) => zone.id === product.zone_id)?.market || "N/A"}
@@ -96,6 +136,12 @@ function ProductPage() {
               <Typography style={{ marginBottom: '0.5rem' }}>
                 Disponibilidad: {product.stock > 0 ? "En stock" : "Sin stock"}
               </Typography>
+              <Button  variant="contained" color="primary" onClick={handleOpen}>
+                Reportar
+              </Button>
+              <Button variant="outlined" color="primary" onClick={handleReports}>
+                Ver Reportes
+              </Button>
             </Item>
           </Grid>
         </Grid>
@@ -112,7 +158,7 @@ function ProductPage() {
                 <Grid key={histProduct.id} size={{ xs: 12, sm: 6, md: 4 }}>
                   <Item>
                     <Typography variant="subtitle1">
-                      Editado: {new Date().toLocaleDateString()}
+                      Editado: {new Date().toLocaleDateString()} 
                     </Typography>
                     <Typography>Precio: ${histProduct.price.toFixed(2)}</Typography>
                     <Typography>Descripción: {histProduct.description}</Typography>
@@ -135,6 +181,94 @@ function ProductPage() {
         </Box>
       )}
     </Container>
+    <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Reportar Producto</DialogTitle>
+        <DialogContent>
+          <Formik
+            initialValues={{
+              price: '',
+              address: '',
+              storeName: '',
+              reason: 'unfair_price',
+            }}
+            validationSchema={reportSchema}
+            onSubmit={async (values, { resetForm }) => {
+              await addReport({
+                price: Number(values.price),
+                address: values.address,
+                storeName: values.storeName,
+                reason: values.reason as 'unfair_price' | 'shortage',
+              });
+              resetForm();
+              handleClose();
+              navigate('/app/reports'); 
+            }}
+          >
+            {({ errors, touched }) => (
+              <Form>
+                <Field
+                  as={TextField}
+                  name="price"
+                  label="Precio"
+                  type="number"
+                  fullWidth
+                  margin="dense"
+                  variant="outlined"
+                  placeholder="Ej: 25"
+                  error={touched.price && !!errors.price}
+                  helperText={touched.price && errors.price}
+                />
+                <Field
+                  as={TextField}
+                  name="address"
+                  label="Dirección"
+                  type="text"
+                  fullWidth
+                  margin="dense"
+                  variant="outlined"
+                  placeholder="Ej: Calle Falsa 123, Ciudad"
+                  error={touched.address && !!errors.address}
+                  helperText={touched.address && errors.address}
+                />
+                <Field
+                  as={TextField}
+                  name="storeName"
+                  label="Nombre de la Tienda"
+                  type="text"
+                  fullWidth
+                  margin="dense"
+                  variant="outlined"
+                  placeholder="Ej: Tienda Rodríguez"
+                  error={touched.storeName && !!errors.storeName}
+                  helperText={touched.storeName && errors.storeName}
+                />
+                <Field
+                  as={TextField}
+                  name="reason"
+                  label="Motivo"
+                  select
+                  fullWidth
+                  margin="dense"
+                  variant="outlined"
+                  SelectProps={{ native: true }}
+                  error={touched.reason && !!errors.reason}
+                  helperText={touched.reason && errors.reason}
+                >
+                  <option value="unfair_price">Precio Injusto</option>
+                  <option value="shortage">Escasez</option>
+                </Field>
+                <DialogActions>
+                  <Button onClick={handleClose}>Cancelar</Button>
+                  <Button type="submit" variant="contained" color="primary">
+                    Enviar Reporte
+                  </Button>
+                </DialogActions>
+              </Form>
+            )}
+          </Formik>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 
